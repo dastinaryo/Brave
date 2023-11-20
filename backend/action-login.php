@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) == 1) {
     if ($row['role'] == 'admin') {
         header("Location: admin_dashboard.php");
     } else {
-        header("Location: ../index.php");
+        header("Location: /page/index.php");
     }
     exit();
 }
@@ -31,6 +31,6 @@ if (mysqli_num_rows($result) == 1) {
 
 // User does not exist or password is incorrect, set error message and redirect to login3.php
 $_SESSION['error'] = 'Username atau Password salah';
-header("Location: ../login3.php");
+header("Location: /page/login3.php");
 mysqli_close($koneksi);
 ?>

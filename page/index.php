@@ -3,7 +3,7 @@
     if (!isset($_SESSION['username'])) {
         header("Location: login3.php");
     }
-	include 'backend/connection.php';
+	include '../backend/connection.php';
 ?>
 
 <!DOCTYPE html>

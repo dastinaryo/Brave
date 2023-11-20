@@ -4,5 +4,5 @@
     unset($_SESSION['username']);
     session_unset();
     session_destroy();
-    header("Location: ../login3.php");
+    header("Location: /page/login3.php");
 ?>
