@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave (Berani, Responsif, Adil, Verifikasi, Efektif)</title>
+	<title>Brave | Berani, Responsif, Adil, Verifikasi, Efektif.</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
 
@@ -170,8 +170,8 @@
 					</div>
 
 					<div class="page-category">
-						<button class="btn btn-primary"><a href="action-tambah-user">Tambah User</a></button>
-
+						<!-- MASUKAN KODING SESUAI PAGE -->
+						<button class="btn btn-primary"><a href="action-tambah-user" style="color:white;">Tambah User</a></button>
 						<table class="table">
 							<thead>
 								<tr>
@@ -253,7 +253,6 @@
 								</tr>
 							</tbody>
 						</table>
-					
 					</div>
 				</div>
 			</div>
