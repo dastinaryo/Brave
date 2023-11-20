@@ -58,7 +58,7 @@
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									Username
-									<span class="user-level">Admin</span>
+									<span class="user-level">User</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -74,9 +74,11 @@
 							</div>
 						</div>
 					</div>
+                        
+                    <!-- Pengaduan, Konsultasi, Riwayat Aduan -->
 					<ul class="nav">
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+							<a data-toggle="collapse" href="dashboard.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
@@ -88,21 +90,21 @@
 							<h4 class="text-section">Layanan</h4>
 						</li>
 						<li class="nav-item">
-							<a href="list-user-admin.php">
+							<a href="pengaduan.php">
 								<i class="fas fa-file-contract"></i>
-								<p>Daftar Users</p>
-							</a>
-						</li>
-						<li class="nav-item active">
-							<a href="list-aduan-admin.php">
-								<i class="fas fa-file-contract"></i>
-								<p>Daftar Aduan</p>
+								<p>Pengaduan</p>
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="konsultasi.php">
+								<i class="fas fa-file-contract"></i>
+								<p>Konsultasi</p>
+							</a>
+						</li>
+						<li class="nav-item active">
 							<a href="konsultasi-admin.php">
 								<i class="fas fa-file-signature"></i>
-								<p>Konsultasi</p>
+								<p>Riwayat Aduan</p>
 							</a>
 						</li>
 					</ul>
@@ -150,10 +152,10 @@
 			<div class="container">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Daftar Aduan</h4>
+						<h4 class="page-title">Riwayat Aduan</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
-								<a href="dashboard-admin.php">
+								<a href="dashboard.php">
 									<i class="flaticon-home"></i>
 								</a>
 							</li>
@@ -161,7 +163,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="list-aduan-admin.php">Daftar Aduan</a>
+								<a href="riwayat-aduan.php">Riwayat Aduan</a>
 							</li>
 							<li class="separator">
 								<i class="flaticon-right-arrow"></i>
@@ -176,13 +178,11 @@
 							<thead>
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Nama User</th>
+									<th scope="col">Nama</th>
 									<th scope="col">Judul</th>
-									<th scope="col">Tgl Kejadian</th>
-									<th scope="col">Pesan Aduan</th>
-									<th scope="col">Pelaku</th>
-									<th scope="col">Bukti</th>
-									<th scope="col" style="width:100px; text-align:center;">Aksi</th>
+									<th scope="col">Tanggal Kejadian</th>
+									<th scope="col">Status</th>
+									<th scope="col" style="width:100px; text-align:center; ">Detail</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -192,23 +192,15 @@
 									<td>Otto</td>
 									<td>@mdo</td>
 									<td>Mark</td>
-									<td>Otto</td>
-									<td>Otto</td>
 									<td>
 										<center>
-											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
-													<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6H4z"/>
+											<a href="detail.php">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
 											</a>
-											<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-												<a class="dropdown-item" href="action-accept-aduan.php">Accept</a>
-												<a class="dropdown-item" href="action-decline-aduan.php">Decline</a>
-												<a class="dropdown-item" href="action-complete-aduan.php">Complete</a>
-												<a class="dropdown-item" href="feedback-admin.php">Feedback</a>
-											</div>
 										</center>
-									</td>
+ 									</td>
 								</tr>
 								<tr>
 									<td>2</td>
@@ -216,23 +208,15 @@
 									<td>Thornton</td>
 									<td>@fat</td>
 									<td>Mark</td>
-									<td>Otto</td>
-                                    <td>Otto</td>
 									<td>
 										<center>
-											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
-													<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6H4z"/>
+											<a href="detail.php">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
 											</a>
-											<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-												<a class="dropdown-item" href="action-accept-aduan.php">Accept</a>
-												<a class="dropdown-item" href="action-decline-aduan.php">Decline</a>
-												<a class="dropdown-item" href="action-complete-aduan.php">Complete</a>
-												<a class="dropdown-item" href="feedback-admin.php">Feedback</a>
-											</div>
 										</center>
-									</td>
+ 									</td>
 								</tr>
 								<tr>
 									<td>3</td>
@@ -240,23 +224,15 @@
 									<td>Otto</td>
 									<td>@mdo</td>
 									<td>Mark</td>
-									<td>Otto</td>
-                                    <td>Otto</td>
 									<td>
 										<center>
-											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
-													<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6H4z"/>
+											<a href="detail.php">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
 											</a>
-											<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-												<a class="dropdown-item" href="action-accept-aduan.php">Accept</a>
-												<a class="dropdown-item" href="action-decline-aduan.php">Decline</a>
-												<a class="dropdown-item" href="action-complete-aduan.php">Complete</a>
-												<a class="dropdown-item" href="feedback-admin.php">Feedback</a>
-											</div>
 										</center>
-									</td>
+ 									</td>
 								</tr>
 							</tbody>
 						</table>

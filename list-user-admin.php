@@ -76,7 +76,7 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+							<a data-toggle="collapse" href="dashboard-admin.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
@@ -88,13 +88,13 @@
 							<h4 class="text-section">Layanan</h4>
 						</li>
 						<li class="nav-item active">
-							<a href="list-user.php">
+							<a href="list-user-admin.php">
 								<i class="fas fa-file-contract"></i>
 								<p>Daftar Users</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="list-aduan.php">
+							<a href="list-aduan-admin.php">
 								<i class="fas fa-file-contract"></i>
 								<p>Daftar Aduan</p>
 							</a>
@@ -161,7 +161,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="list-user.php">Daftar User</a>
+								<a href="list-user-admin.php">Daftar User</a>
 							</li>
 							<li class="separator">
 								<i class="flaticon-right-arrow"></i>
