@@ -4724,11 +4724,11 @@ label.error {
     border-color: #1572E8 !important; }
 
 .btn-secondary {
-  background: #6861CE !important;
-  border-color: #6861CE !important; }
+  background: #94307E !important;
+  border-color: #94307E !important; }
   .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:disabled {
-    background: #6861CE !important;
-    border-color: #6861CE !important; }
+    background: #94307E !important;
+    border-color: #94307E !important; }
 
 .btn-info {
   background: #48ABF7 !important;
@@ -14133,9 +14133,9 @@ img.mfp-img {
   .login .login-aside {
     padding: 25px; }
     .login .login-aside .title {
-      font-size: 36px; }
+      font-size: 60px; }
     .login .login-aside .subtitle {
-      font-size: 18px; }
+      font-size: 30px; }
   .login .show-password {
     position: absolute;
     right: 20px;
@@ -14351,9 +14351,9 @@ body {
   background: linear-gradient(-45deg, #06418E, #1572E8) !important; }
 
 .bg-secondary-gradient {
-  background: #6861CE !important;
-  background: -webkit-linear-gradient(legacy-direction(-45deg), #2A20AC, #6861CE) !important;
-  background: linear-gradient(-45deg, #2A20AC, #6861CE) !important; }
+  background: #94307E !important;
+  background: -webkit-linear-gradient(legacy-direction(-45deg), #94307E, #94307E) !important;
+  background: linear-gradient(-45deg, #94307E, #94307E) !important; }
 
 .bg-info-gradient {
   background: #48ABF7 !important;
