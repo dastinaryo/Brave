@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Laman Konsultasi</title>
+	<title>Laman Pesan Konsultasi</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 	
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -30,7 +30,7 @@
 		<div class="logo-header position-fixed" data-background-color="blue">
 
 			<a href="index.html" class="logo">
-				<img src="assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+				<img src="assets\img\logo\logo2-2tr-resize.png" alt="navbar brand" class="navbar-brand" style="width:110px;"> <!-- DIGANTI DENGAN LOGO BRAVE -->
 			</a>
 			<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon">
@@ -168,13 +168,13 @@
 							</a>
 							<div class="collapse show" id="email-app-nav">
 								<ul class="nav nav-collapse">
-									<li>
-										<a href="konsultasi-pesan-admin.php">
+									<li class="active">
+										<a href="konsultasi-inbox-admin.php">
 											<span class="sub-item">Pesan Masuk</span>
 										</a>
 									</li>
-									<li class="active">
-										<a href="konsultasi-kirim-admin.php">
+									<li>
+										<a href="konsultasi-compose-admin.php">
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
@@ -185,8 +185,7 @@
 									</li>
 								</ul>
 							</div>
-						</li>
-						<li class="nav-item ">
+							<li class="nav-item ">
 							<a data-toggle="collapse" href="#feedback-app-nav">
 								<i class="far fa-comment"></i>
 								<p>Feedback</p>
@@ -195,24 +194,18 @@
 							<div class="collapse show" id="feedback-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="feedback-pesan.php">
+										<a href="feedback-inbox-admin.php">
 											<span class="sub-item">Feedback Masuk</span>
 										</a>
 									</li>
 									<li>
-										<a href="feedback-kirim.php">
+										<a href="feedback-compose-admin.php">
 											<span class="sub-item">Tulis Feedback</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</li>
-						<!-- <li class="nav-item">
-							<a href="starter-template.html">
-								<i class="icon-briefcase"></i>
-								<p>Profile</p>
-							</a>
-						</li> -->
 						<!-- <li class="nav-item">
 							<a href="starter-template.html">
 								<i class="fas fa-print"></i>
@@ -539,7 +532,7 @@
 			<div class="container container-full">
 				<div class="page-inner">
 					<div class="page-with-aside mail-wrapper bg-white">
-						<div class="page-aside">
+					<div class="page-aside">
 							<div class="aside-header">
 								<div class="title">Mail Service</div>
 								<div class="description">Service Description</div>
@@ -552,14 +545,14 @@
 							</div>
 							<div class="aside-nav collapse" id="email-nav">
 								<ul class="nav">
-									<li>
-										<a href="konsultasi-pesan-admin.php">
+									<li class="active">
+										<a href="konsultasi-inbox-admin.php">
 											<i class="flaticon-inbox"></i> Inbox
 											<span class="badge badge-primary float-right">8</span>
 										</a>
 									</li>
-									<li class="active">
-										<a href="#">
+									<li>
+										<a href="konsultasi-compose-admin.php">
 											<i class="fa fa-envelope"></i> Sent Mail
 										</a>
 									</li>
@@ -611,39 +604,168 @@
 							</div>
 						</div>
 						<div class="page-content mail-content">
-							<div class="email-head d-lg-flex d-block">
-								<h3>
-									<i class="flaticon-pen mr-1"></i>
-									Tulis Konsultasi
-								</h3>
-							</div>
-							<div class="email-compose-fields">
-								<form>
-								<div class="form-group row">
-									<label for="to" class="col-form-label col-md-1">Nama :</label>
-									<div class="col-md-11">
-										<select class="form-control" id="to" name="nama_mahasiswa">
-											<option value="option1">Pilihan 1</option>
-											<option value="option2">Pilihan 2</option>
-											<option value="option3">Pilihan 3</option>
-											<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
-										</select>
-									</div>
-								</div>
-
-									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Topik :</label>
-										<div class="col-md-11">
-											<input type="text" class="form-control" id="to" name="to">
+							<div class="inbox-head d-lg-flex d-block">
+								<h3>Pesan Masuk</h3>
+								<form action="#" class="ml-auto">
+									<div class="input-group">
+										<input type="text" placeholder="Search Email" class="form-control">
+										<div class="input-group-append">
+											<span class="input-group-text">
+												<i class="fa fa-search search-icon"></i>
+											</span>
 										</div>
 									</div>
 								</form>
 							</div>
-							<div class="email-editor">
-								<div id="editor"></div>
-								<div class="email-action">
-									<button class="btn btn-primary">Send</button>
-									<button class="btn btn-danger">Cancel</button>
+							<div class="inbox-body">
+								<div class="mail-option">
+									<div class="email-filters-left">
+										<div class="chk-all">
+											<div class="btn-group btn-group-sm">
+												<div class="form-check">
+													<label class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="btn-group btn-group-sm">
+											<button data-toggle="dropdown" type="button" class="btn btn-secondary btn-border dropdown-toggle"> With selected </button>
+											<div role="menu" class="dropdown-menu"><a href="#" class="dropdown-item">Mark as read</a><a href="#" class="dropdown-item">Mark as unread</a><a href="#" class="dropdown-item">Spam</a>
+												<div class="dropdown-divider"></div><a href="#" class="dropdown-item">Delete</a>
+											</div>
+										</div>
+										<div class="btn-group btn-group-sm">
+											<button type="button" class="btn btn-secondary btn-border">Archive</button>
+											<button type="button" class="btn btn-secondary btn-border">Span</button>
+											<button type="button" class="btn btn-secondary btn-border">Delete</button>
+										</div>
+										<div class="btn-group btn-group-sm">
+											<button data-toggle="dropdown" type="button" class="btn btn-secondary btn-border dropdown-toggle" aria-expanded="false">Order by </button>
+											<div role="menu" class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item">Date</a><a href="#" class="dropdown-item">From</a><a href="#" class="dropdown-item">Subject</a>
+												<div class="dropdown-divider"></div><a href="#" class="dropdown-item">Size</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="email-filters-right ml-auto"><span class="email-pagination-indicator">1-50 of 213</span>
+										<div class="btn-group btn-group-sm ml-3">
+											<button type="button" class="btn btn-secondary btn-border"><i class="fa fa-angle-left"></i></button>
+											<button type="button" class="btn btn-secondary btn-border"><i class="fa fa-angle-right"></i></button>
+										</div>
+									</div>
+								</div>
+
+								<div class="email-list">
+									<div class="email-list-item unread">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star1" value="1">
+													<label for="star1">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail">
+											<span class="date float-right"><i class="fa fa-paperclip paperclip"></i> 28 Jul</span><span class="from">Google Webmaster</span>
+											<p class="msg">Improve the search presence of WebSite</p>
+										</div>
+									</div>
+									<div class="email-list-item unread">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star2" value="1" checked>
+													<label for="star2">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail"><span class="date float-right"></span><span class="date float-right"><i class="fa fa-paperclip paperclip"></i> 13 Jul</span><span class="from">	PHPClass</span>
+											<p class="msg">Learn Laravel Videos Tutorial</p>
+										</div>
+									</div>
+									<div class="email-list-item">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star6" value="1">
+													<label for="star6">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail"><span class="date float-right">23 Jun</span><span class="from">Language Course</span>
+											<p class="msg">Learn new language, Hizrian !</p>
+										</div>
+									</div>
+									<div class="email-list-item">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star5" value="1">
+													<label for="star5">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail"><span class="date float-right">17 May</span><span class="from">Farrah Septya</span>
+											<p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+										</div>
+									</div>
+									<div class="email-list-item">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star3" value="1">
+													<label for="star3">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail"><span class="date float-right">16 May</span><span class="from">Facebook</span>
+											<p class="msg">Somebody requested a new password</p>
+										</div>
+									</div>
+									<div class="email-list-item">
+										<div class="email-list-actions">
+											<div class="d-flex">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+												</label>
+												<span class="rating rating-sm mr-3">
+													<input type="checkbox" id="star4" value="1">
+													<label for="star4">
+														<span class="fa fa-star"></span>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="email-list-detail"><span class="date float-right">12 May</span><span class="from">Kristopher Donny</span>
+											<p class="msg">Hello Friend, How are you?</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1166,17 +1288,9 @@
 	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
 	<!-- jQuery Scrollbar -->
 	<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<script src="assets/js/plugin/summernote/summernote-bs4.min.js"></script>
 	<!-- Atlantis JS -->
 	<script src="assets/js/atlantis.min.js"></script>
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="assets/js/setting-demo.js"></script>
-	<script>
-		$('#editor').summernote({
-			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-			tabsize: 2,
-			height: 300
-		});
-	</script>
 </body>
 </html>

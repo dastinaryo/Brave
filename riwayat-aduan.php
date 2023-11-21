@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Brave | Berani, Responsif, Adil, Verifikasi, Efektif.</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -31,7 +31,7 @@
 		<div class="logo-header position-fixed" data-background-color="blue">
 
 			<a href="index.html" class="logo">
-				<img src="assets/img/logo.svg" alt="navbar brand" class="navbar-brand"> <!-- DIGANTI DENGAN LOGO BRAVE -->
+				<img src="assets\img\logo\logo2-2tr-resize.png" alt="navbar brand" class="navbar-brand" style="width:110px;"> <!-- DIGANTI DENGAN LOGO BRAVE -->
 			</a>
 			<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon">

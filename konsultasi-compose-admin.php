@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Laman Konsultasi</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 	
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -30,7 +30,7 @@
 		<div class="logo-header position-fixed" data-background-color="blue">
 
 			<a href="index.html" class="logo">
-				<img src="assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+				<img src="assets\img\logo\logo2-2tr-resize.png" alt="navbar brand" class="navbar-brand" style="width:110px;"> <!-- DIGANTI DENGAN LOGO BRAVE -->
 			</a>
 			<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon">
@@ -160,7 +160,7 @@
 								<p>Daftar Aduan</p>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item active submenu">
 							<a data-toggle="collapse" href="#email-app-nav">
 								<i class="far fa-envelope"></i>
 								<p>Konsultasi</p>
@@ -169,12 +169,12 @@
 							<div class="collapse show" id="email-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="konsultasi-pesan-admin.php">
+										<a href="konsultasi-inbox-admin.php">
 											<span class="sub-item">Pesan Masuk</span>
 										</a>
 									</li>
-									<li>
-										<a href="konsultasi-kirim-admin.php">
+									<li class="active">
+										<a href="konsultasi-compose-admin.php">
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
@@ -186,7 +186,7 @@
 								</ul>
 							</div>
 						</li>
-						<li class="nav-item active submenu">
+						<li class="nav-item ">
 							<a data-toggle="collapse" href="#feedback-app-nav">
 								<i class="far fa-comment"></i>
 								<p>Feedback</p>
@@ -195,12 +195,12 @@
 							<div class="collapse show" id="feedback-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="feedback-pesan.php">
+										<a href="feedback-inbox-admin.php">
 											<span class="sub-item">Feedback Masuk</span>
 										</a>
 									</li>
-									<li class="active">
-										<a href="feedback-kirim.php">
+									<li>
+										<a href="feedback-compose-admin.php">
 											<span class="sub-item">Tulis Feedback</span>
 										</a>
 									</li>
@@ -553,14 +553,14 @@
 							<div class="aside-nav collapse" id="email-nav">
 								<ul class="nav">
 									<li>
-										<a href="feedback-pesan.php">
-											<i class="flaticon-inbox"></i> Feedback Lalu
+										<a href="konsultasi-inbox-admin.php">
+											<i class="flaticon-inbox"></i> Inbox
 											<span class="badge badge-primary float-right">8</span>
 										</a>
 									</li>
 									<li class="active">
-										<a href="feedback-kirim.php">
-											<i class="fa fa-envelope"></i> Kirim Feedback
+										<a href="#">
+											<i class="fa fa-envelope"></i> Sent Mail
 										</a>
 									</li>
 									<!-- <li>
@@ -614,7 +614,7 @@
 							<div class="email-head d-lg-flex d-block">
 								<h3>
 									<i class="flaticon-pen mr-1"></i>
-									Kirim Feedback
+									Tulis Konsultasi
 								</h3>
 							</div>
 							<div class="email-compose-fields">
@@ -632,9 +632,9 @@
 								</div>
 
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Tanggal :</label>
+										<label for="to" class="col-form-label col-md-1">Topik :</label>
 										<div class="col-md-11">
-											<input type="date" class="form-control" id="to" name="tanggal_feedback">
+											<input type="text" class="form-control" id="to" name="to">
 										</div>
 									</div>
 								</form>
