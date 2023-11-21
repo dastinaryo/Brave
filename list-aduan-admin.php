@@ -211,10 +211,10 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">No</th>
+									<th scope="col" style="width:100px;">No</th>
 									<th scope="col">Nama User</th>
 									<th scope="col">Judul Aduan</th>
-									<th scope="col">Tanggal Kejadian</th>
+									<th scope="col" style="width:200px; text-align:center;">Tanggal Kejadian</th>
 									<!-- <th scope="col">Pesan Aduan</th>
 									<th scope="col">Pelaku</th>
 									<th scope="col">Bukti</th> -->
@@ -227,7 +227,7 @@
 									<td>1</td>
 									<td>Mark</td>
 									<td>Otto</td>
-									<td>@mdo</td>
+									<td><center>@mdo</center></td>
 									<td data-toggle="modal" data-target="#aduan1" style="color:blue;">
 										<center>
 											<a>
@@ -282,7 +282,7 @@
 									<td>2</td>
 									<td>Jacob</td>
 									<td>Thornton</td>
-									<td>@fat</td>
+									<td><center>@mdo</center></td>
 									<td data-toggle="modal" data-target="#aduan2" style="color:blue;">
 										<center>
 											<a>
@@ -337,7 +337,7 @@
 									<td>3</td>
 									<td>Mark</td>
 									<td>Otto</td>
-									<td>@mdo</td>
+									<td><center>@mdo</center></td>
 									<td data-toggle="modal" data-target="#aduan3" style="color:blue;">
 										<center>
 											<a>
