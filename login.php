@@ -25,7 +25,8 @@
 <body class="login">
 	<div class="wrapper wrapper-login wrapper-login-full p-0">
 		<div class="login-aside w-50 d-flex flex-column align-items-center justify-content-center text-center bg-secondary-gradient">
-			<h1 class="title fw-bold text-white mb-3">BRAVE</h1>
+            <img src="assets\img\logo\logo-tr.png" width="300">
+            <h1 class="title fw-bold text-white mb-3">BRAVE</h1>
 			<p class="subtitle text-white op-7">Be Braver with Us</p>
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-#fbfbfb">
