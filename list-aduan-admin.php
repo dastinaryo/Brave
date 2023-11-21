@@ -117,11 +117,7 @@
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									<li>
-										<a href="email-detail.html">
-											<span class="sub-item">Email Detail</span>
-										</a>
-									</li>
+									
 								</ul>
 							</div>
 							<li class="nav-item ">
