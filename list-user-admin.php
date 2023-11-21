@@ -52,7 +52,7 @@
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+							<img src="assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -99,11 +99,51 @@
 								<p>Daftar Aduan</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="konsultasi-admin.php">
-								<i class="fas fa-file-signature"></i>
+						<li class="nav-item submenu">
+							<a data-toggle="collapse" href="#email-app-nav">
+								<i class="far fa-envelope"></i>
 								<p>Konsultasi</p>
+								<span class="caret"></span>
 							</a>
+							<div class="collapse " id="email-app-nav">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="konsultasi-inbox-admin.php">
+											<span class="sub-item">Pesan Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Tulis Konsultasi</span>
+										</a>
+									</li>
+									<li>
+										<a href="email-detail.html">
+											<span class="sub-item">Email Detail</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<li class="nav-item ">
+							<a data-toggle="collapse" href="#feedback-app-nav">
+								<i class="far fa-comment"></i>
+								<p>Feedback</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse " id="feedback-app-nav">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="feedback-inbox-admin.php">
+											<span class="sub-item">Feedback Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="feedback-compose-admin.php">
+											<span class="sub-item">Tulis Feedback</span>
+										</a>
+									</li>
+								</ul>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -124,14 +164,14 @@
 					<li class="nav-item dropdown hidden-caret">
 						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 							<div class="avatar-sm">
-								<img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+								<img src="assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-user animated fadeIn">
 							<div class="dropdown-user-scroll scrollbar-outer">
 								<li>
 									<div class="user-box">
-										<div class="avatar-lg"><img src="assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4>Username</h4>
 											<p class="text-muted">NIM : </p><a href="action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
