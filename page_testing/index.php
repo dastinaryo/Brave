@@ -4,6 +4,8 @@
         header("Location: login3.php");
     }
 	include '../backend/connection.php';
+	include '../backend/display-data.php';
+	$login_id = $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -388,52 +390,10 @@
 									</div>
 									<?php
 									// Fetch the BMI results from the database
-									$login_id = $_SESSION['user_id'];
 									$sql = "SELECT * FROM users WHERE login_id = $login_id";
 									$result = mysqli_query($koneksi, $sql);
-
-									// Check for errors in the query execution
-									// if (!$result) {
-									// 	die("Error in SQL query: " . mysqli_error($koneksi));
-									// }
+									displayResults($result);
 									?>
-
-									<!-- Display the BMI results in a table -->
-									<table class="table">
-										<thead>
-											<tr>
-												<th>ID</th>
-												<th>NIM</th>
-												<th>NAMA LENGKAP</th>
-												<th>FAKULTAS</th>
-												<th>PROGRAM STUDI</th>
-												<th>ANGKATAN MAHASISWA</th>
-												<th>ACTION</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-											// Loop through the BMI results and display them in the table
-											
-												// Loop through the BMI results and display them in the table
-												while ($row = mysqli_fetch_assoc($result)) {
-													echo "<tr>";
-													echo "<td>" . $row['login_id'] . "</td>";
-													echo "<td>" . $row['nim'] . "</td>";
-													echo "<td>" . $row['nama'] . "</td>";
-													echo "<td>" . $row['fakultas'] . "</td>";
-													echo "<td>" . $row['program_studi'] . "</td>";
-													echo "<td>" . $row['angkatan_mahasiswa'] . "</td>";
-													echo "<td>";
-													echo "<a href='edit.php?bmi_id=" . $row['login_id'] . "' class='btn btn-primary'>Edit</a>";
-													echo "<a href='delete.php?bmi_id=" . $row['login_id'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Ingin hapus?')\">Delete</a>";
-													echo "</td>";
-													echo "</tr>";
-												}
-											?>
-										</tbody>
-									</table>
-									
 								</div>
 							</div>
 						</div>
