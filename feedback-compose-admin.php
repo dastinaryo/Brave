@@ -558,20 +558,32 @@
 							</div>
 							<div class="email-compose-fields">
 								<form>
-								<div class="form-group row">
-									<label for="to" class="col-form-label col-md-1">Nama :</label>
-									<div class="col-md-11">
-										<select class="form-control" id="to" name="nama_mahasiswa">
-											<option value="option1">Pilihan 1</option>
-											<option value="option2">Pilihan 2</option>
-											<option value="option3">Pilihan 3</option>
-											<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
-										</select>
+									<div class="form-group row">
+										<label for="to" class="col-form-label col-md-1">Nama</label>
+										<div class="col-md-11">
+											<select class="form-control" id="to" name="nama_mahasiswa">
+												<option value="option1">Pilihan 1</option>
+												<option value="option2">Pilihan 2</option>
+												<option value="option3">Pilihan 3</option>
+												<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
+											</select>
+										</div>
 									</div>
-								</div>
 
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Tanggal :</label>
+										<label for="to" class="col-form-label col-md-1">Ajuan</label>
+										<div class="col-md-11">
+											<select class="form-control" id="to" name="nama_mahasiswa">
+												<option value="option1">Pilihan 1</option>
+												<option value="option2">Pilihan 2</option>
+												<option value="option3">Pilihan 3</option>
+												<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label for="to" class="col-form-label col-md-1">Tanggal</label>
 										<div class="col-md-11">
 											<input type="date" class="form-control" id="to" name="tanggal_feedback">
 										</div>

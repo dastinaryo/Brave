@@ -559,7 +559,7 @@
 							<div class="email-compose-fields">
 								<form>
 								<div class="form-group row">
-									<label for="to" class="col-form-label col-md-1">Nama :</label>
+									<label for="to" class="col-form-label col-md-1">Nama</label>
 									<div class="col-md-11">
 										<select class="form-control" id="to" name="nama_mahasiswa">
 											<option value="option1">Pilihan 1</option>
@@ -571,7 +571,7 @@
 								</div>
 
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Topik :</label>
+										<label for="to" class="col-form-label col-md-1">Topik</label>
 										<div class="col-md-11">
 											<input type="text" class="form-control" id="to" name="to">
 										</div>

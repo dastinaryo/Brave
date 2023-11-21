@@ -556,37 +556,113 @@
 									</div>
 								</form>
 							</div>
-							<div class="inbox-body">
+							<div class="inbox-body" style="padding-top:0;">
 								<div class="email-list">
 									<div class="email-list-item unread">
 										<div class="email-list-detail">
-											<span class="date float-right"> 28 Jul</span><span class="from">Google Webmaster</span>
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">Google Webmaster</span>
 											<p class="msg">Improve the search presence of WebSite</p>
 										</div>
 									</div>
 									<div class="email-list-item unread">
 										<div class="email-list-detail">
-											<span class="date float-right">13 Jul</span><span class="from">	PHPClass</span>
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">	PHPClass</span>
 											<p class="msg">Learn Laravel Videos Tutorial</p>
 										</div>
 									</div>
 									<div class="email-list-item">
-										<div class="email-list-detail"><span class="date float-right">23 Jun</span><span class="from">Language Course</span>
+										<div class="email-list-detail">
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">Language Course</span>
 											<p class="msg">Learn new language, Hizrian !</p>
 										</div>
 									</div>
 									<div class="email-list-item">
-										<div class="email-list-detail"><span class="date float-right">17 May</span><span class="from">Farrah Septya</span>
+										<div class="email-list-detail">
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">Farrah Septya</span>
 											<p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
 										</div>
 									</div>
 									<div class="email-list-item">
-										<div class="email-list-detail"><span class="date float-right">16 May</span><span class="from">Facebook</span>
+										<div class="email-list-detail">
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">Facebook</span>
 											<p class="msg">Somebody requested a new password</p>
 										</div>
 									</div>
 									<div class="email-list-item">
-										<div class="email-list-detail"><span class="date float-right">12 May</span><span class="from">Kristopher Donny</span>
+										<div class="email-list-detail">
+											<span class="date float-right">
+												28 Jul
+												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+													</svg>
+												</a>
+												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item" href="#">Edit</a>
+													<a class="dropdown-item" href="#">Delete</a>
+												</div>
+											</span>
+											<span class="from">Kristopher Donny</span>
 											<p class="msg">Hello Friend, How are you?</p>
 										</div>
 									</div>
