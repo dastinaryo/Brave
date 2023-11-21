@@ -389,10 +389,10 @@
 										</div>
 									</div>
 									<?php
-									// Fetch the BMI results from the database
-									$sql = "SELECT * FROM users WHERE login_id = $login_id";
-									$result = mysqli_query($koneksi, $sql);
-									displayResults($result);
+										// Fetch the BMI results from the database
+										$sql = "SELECT * FROM users WHERE login_id = $login_id";
+										$result = mysqli_query($koneksi, $sql);
+										displayResults($result);
 									?>
 								</div>
 							</div>

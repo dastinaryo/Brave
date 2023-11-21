@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: login3.php");
+    }
+	$login_id = $_SESSION['user_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,6 +162,7 @@
 				<div class="collapse" id="search-nav">
 					<form class="navbar-left navbar-form nav-search mr-md-3">
 						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;">Selamat Datang!</h4>
+						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;"><?php echo $_SESSION['username'] ?></h4>
 					</form>
 				</div>
 				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
@@ -169,8 +178,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo $_SESSION['username'] ?></h4>
+											<p class="text-muted">NIM : </p><a href="/backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -207,88 +216,92 @@
 
 					<div class="page-category">
 						<!-- MASUKAN KODING SESUAI PAGE -->
-						<button class="btn btn-primary"><a href="action-tambah-user" style="color:white;">Tambah User</a></button>
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">No</th>
-									<th scope="col">NIM</th>
-									<th scope="col">Nama</th>
-									<th scope="col">Fakultas</th>
-									<th scope="col">Prodi</th>
-									<th scope="col">Angkatan</th>
-									<th scope="col" style="width:100px;">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>
-										<a href="action-edit-user.php">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-												<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-											</svg>
-										</a>
-										<span> | </span>
-										<a href="action-hapus-user.php" style="color:red;">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-												<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-											</svg>
-										</a>
-
-									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>
-										<a href="action-edit-user.php">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-												<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-											</svg>
-										</a>
-										<span> | </span>
-										<a href="action-hapus-user.php" style="color:red;">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-												<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-											</svg>
-										</a>
-
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>
-										<a href="action-edit-user.php">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-												<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-											</svg>
-										</a>
-										<span> | </span>
-										<a href="action-hapus-user.php" style="color:red;">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-												<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-											</svg>
-										</a>
-
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<button class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">Tambah User</button>
+							<!-- Modal for adding user -->
+							<div class="modal" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="addUserModalLabel">Tambah User</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<!-- Form for adding user -->
+										<form id="addUserForm" action="/backend/action-tambah-user.php" method="post">
+										<div class="form-group">
+											<label for="nim">NIM:</label>
+											<input type="text" class="form-control" id="nim" name="nim" required>
+										</div>
+										<div class="form-group">
+											<label for="nama">Nama:</label>
+											<input type="text" class="form-control" id="nama" name="nama" required>
+										</div>
+										<div class="form-group">
+											<label for="fakultas">Fakultas:</label>
+											<input type="text" class="form-control" id="fakultas" name="fakultas" required>
+										</div>
+										<div class="form-group">
+											<label for="program_studi">Program Studi:</label>
+											<input type="text" class="form-control" id="program_studi" name="program_studi" required>
+										</div>
+										<div class="form-group">
+											<label for="angkatan_mahasiswa">Angkatan:</label>
+											<input type="text" class="form-control" id="angkatan_mahasiswa" name="angkatan_mahasiswa" required>
+										</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
+									</div>
+								</div>
+							</div>
+							</div>
+							<script>
+								function addUser() {
+									// Submit the form when the "Add User" button is clicked
+									document.getElementById("addUserForm").submit();
+								}
+							</script>
+							<?php
+								// $login_id = $_SESSION['user_id'];
+								require 'backend/connection.php';
+								$sql = "SELECT * FROM users";
+								$result = mysqli_query($koneksi, $sql);
+							?>
+							<!-- Display the BMI results in a table -->
+							<table class="table">
+								<thead>
+									<tr>
+										<th>NIM</th>
+										<th>NAMA LENGKAP</th>
+										<th>FAKULTAS</th>
+										<th>PROGRAM STUDI</th>
+										<th>ANGKATAN MAHASISWA</th>
+										<th>ACTION</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php	
+									while ($row = mysqli_fetch_assoc($result)) {
+									echo "<tr>";
+									echo "<td>" . $row['nim'] . "</td>";
+									echo "<td>" . $row['nama'] . "</td>";
+									echo "<td>" . $row['fakultas'] . "</td>";
+									echo "<td>" . $row['program_studi'] . "</td>";
+									echo "<td>" . $row['angkatan_mahasiswa'] . "</td>";
+									echo "<td>";
+									echo "<a href='edit.php?login_id=" . $row['login_id'] . "' class='btn btn-primary'>Edit</a>";
+									echo "<a href='/backend/action-delete-akun.php?login_id=" . $row['login_id'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Ingin hapus?')\">Delete</a>";
+									echo "</td>";
+									echo "</tr>";
+									}
+									?>
+								</tbody>
+							</table>
+						
 					</div>
 				</div>
 			</div>
