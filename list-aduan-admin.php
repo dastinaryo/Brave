@@ -213,11 +213,12 @@
 								<tr>
 									<th scope="col">No</th>
 									<th scope="col">Nama User</th>
-									<th scope="col">Judul</th>
-									<th scope="col">Tgl Kejadian</th>
-									<th scope="col">Pesan Aduan</th>
+									<th scope="col">Judul Aduan</th>
+									<th scope="col">Tanggal Kejadian</th>
+									<!-- <th scope="col">Pesan Aduan</th>
 									<th scope="col">Pelaku</th>
-									<th scope="col">Bukti</th>
+									<th scope="col">Bukti</th> -->
+									<th scope="col" style="width:100px; text-align:center;">Detail</th>
 									<th scope="col" style="width:100px; text-align:center;">Aksi</th>
 								</tr>
 							</thead>
@@ -227,9 +228,40 @@
 									<td>Mark</td>
 									<td>Otto</td>
 									<td>@mdo</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>Otto</td>
+									<td data-toggle="modal" data-target="#aduan1" style="color:blue;">
+										<center>
+											<a>
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+												</svg>
+											</a>
+										</center>
+ 									</td>
+
+									<!-- Modal Aduan 1-->
+									<div class="modal fade" id="aduan1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Judul Aduan 1</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body" style="text-align:justify;">
+													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
+													<p style="margin-bottom:10px;"><strong>Tanggal Kejadian :</strong> 28 July 2023 </p>
+													<p> <center> <img src="assets/img/bukti/bukti1.jpeg" style="width:70%; border-radius:5px;"></center></p>
+													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<td>
 										<center>
 											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">
@@ -251,9 +283,40 @@
 									<td>Jacob</td>
 									<td>Thornton</td>
 									<td>@fat</td>
-									<td>Mark</td>
-									<td>Otto</td>
-                                    <td>Otto</td>
+									<td data-toggle="modal" data-target="#aduan2" style="color:blue;">
+										<center>
+											<a>
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+												</svg>
+											</a>
+										</center>
+ 									</td>
+
+									<!-- Modal Aduan 2-->
+									<div class="modal fade" id="aduan2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Judul Aduan 2</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body" style="text-align:justify;">
+													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
+													<p style="margin-bottom:10px;"><strong>Tanggal Kejadian :</strong> 28 July 2023 </p>
+													<p> <center> <img src="assets/img/bukti/bukti1.jpeg" style="width:70%; border-radius:5px;"></center></p>
+													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<td>
 										<center>
 											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">
@@ -275,9 +338,40 @@
 									<td>Mark</td>
 									<td>Otto</td>
 									<td>@mdo</td>
-									<td>Mark</td>
-									<td>Otto</td>
-                                    <td>Otto</td>
+									<td data-toggle="modal" data-target="#aduan3" style="color:blue;">
+										<center>
+											<a>
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+												</svg>
+											</a>
+										</center>
+ 									</td>
+
+									<!-- Modal Aduan 3-->
+									<div class="modal fade" id="aduan3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Judul Aduan 3</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body" style="text-align:justify;">
+													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
+													<p style="margin-bottom:10px;"><strong>Tanggal Kejadian :</strong> 28 July 2023 </p>
+													<p> <center> <img src="assets/img/bukti/bukti1.jpeg" style="width:70%; border-radius:5px;"></center></p>
+													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<td>
 										<center>
 											<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:blue;">

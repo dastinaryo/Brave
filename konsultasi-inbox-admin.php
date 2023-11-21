@@ -550,7 +550,7 @@
 							</div>
 							<div class="inbox-body" style="padding-top:0;">
 								<div class="email-list">
-									<div class="email-list-item unread" data-toggle="modal" data-target="#feedback1">
+									<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi1">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -569,8 +569,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 1-->
-									<div class="modal fade" id="feedback1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 1-->
+									<div class="modal fade" id="konsultasi1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -593,7 +593,7 @@
 									</div>
 
 
-									<div class="email-list-item unread" data-toggle="modal" data-target="#feedback2">
+									<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi2">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -612,8 +612,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 2-->
-									<div class="modal fade" id="feedback2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 2-->
+									<div class="modal fade" id="konsultasi2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -635,7 +635,7 @@
 										</div>
 									</div>
 
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback3">
+									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi3">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -654,8 +654,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 3-->
-									<div class="modal fade" id="feedback3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 3-->
+									<div class="modal fade" id="konsultasi3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -677,7 +677,7 @@
 										</div>
 									</div>
 
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback4">
+									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi4">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -696,8 +696,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 4-->
-									<div class="modal fade" id="feedback4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 4-->
+									<div class="modal fade" id="konsultasi4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -719,7 +719,7 @@
 										</div>
 									</div>
 
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback5">
+									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi5">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -738,8 +738,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 5-->
-									<div class="modal fade" id="feedback5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 5-->
+									<div class="modal fade" id="konsultasi5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -761,7 +761,7 @@
 										</div>
 									</div>
 
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback6">
+									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi6">
 										<div class="email-list-detail">
 											<span class="date float-right">
 												28 Jul
@@ -780,8 +780,8 @@
 										</div>
 									</div>
 
-									<!-- Modal Feedback 6-->
-									<div class="modal fade" id="feedback6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<!-- Modal Konsultasi 6-->
+									<div class="modal fade" id="konsultasi6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
