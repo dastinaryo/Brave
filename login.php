@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Login</title>
+	<title>Brave | Login</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -24,7 +24,7 @@
 </head>
 <body class="login">
 	<div class="wrapper wrapper-login wrapper-login-full p-0">
-		<div class="login-aside w-50 d-flex flex-column align-items-center justify-content-center text-center bg-secondary-gradient">
+		<div class="login-aside w-50 d-flex flex-column align-items-center justify-content-center text-center bg-primary">
             <img src="assets\img\logo\logo-tr.png" width="300">
             <h1 class="title fw-bold text-white mb-3">BRAVE</h1>
 			<p class="subtitle text-white op-7">Be Braver with Us</p>
@@ -39,7 +39,7 @@
 					</div>
 					<div class="form-group">
 						<label for="password" class="placeholder"><b>Password</b></label>
-						<a href="#" class="link float-right">Forget Password ?</a>
+						<!-- <a href="#" class="link float-right">Forget Password ?</a> -->
 						<div class="position-relative">
 							<input id="password" name="password" type="password" class="form-control" required>
 							<div class="show-password">
@@ -48,11 +48,11 @@
 						</div>
 					</div>
 					<div class="form-group form-action-d-flex mb-3">
-						<div class="custom-control custom-checkbox">
+						<!-- <div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="rememberme">
 							<label class="custom-control-label m-0" for="rememberme">Remember Me</label>
-						</div>
-						<a href="#" class="btn btn-secondary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign In</a>
+						</div> -->
+						<a href="action-login.php" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign In</a>
 					</div>
 				</div>
 			</div>
