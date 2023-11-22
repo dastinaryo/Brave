@@ -161,7 +161,7 @@
 											<span class="sub-item">Form Pengaduan</span>
 										</a>
 									</li>
-									<li class="active">
+									<li>
 										<a href="detail-aduan-user.php">
 											<span class="sub-item">Detail Aduan</span>
 										</a>
@@ -551,27 +551,35 @@
 							<div class="email-compose-fields">
 								<form>
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Judul :</label>
+										<label for="jd" class="col-form-label col-md-1">Judul :</label>
 										<div class="col-md-11">
 											<input type="text" class="form-control" id="jd" name="jdl">
 										</div>
-                                        <label for="to" class="col-form-label col-md-1">Tanggal :</label>
+                                        
+										<label for="tgl" class="col-form-label col-md-1">Tanggal :</label>
 										<div class="col-md-11">
 											<input type="date" class="form-control" id="tgl" name="tgl">
 										</div>
-                                        <label for="to" class="col-form-label col-md-1">Pelaku :</label>
+                                        
+										<label for="plk" class="col-form-label col-md-1">Pelaku :</label>
 										<div class="col-md-11">
 											<input type="text" class="form-control" id="plk" name="plk">
 										</div>
-                                        <label for="to" class="col-form-label col-md-1">Detail :</label>
+                                        
+										<label for="det" class="col-form-label col-md-1">Detail :</label>
 										<div class="col-md-11" height="10px">
-											<input type="text-area" class="form-control" rows="5" id="det" name="det">
+											<textarea class="form-control" rows="5" id="det" name="det"></textarea>
+										</div>
+
+										<label for="file" class="col-form-label col-md-1">Bukti :</label>
+										<div class="col-md-11">
+											<input type="file" class="form-control" id="file" name="file">
 										</div>
 									</div>
 								</form>
 							</div>
 							<div class="email-editor">
-								<div id="editor"></div>
+								<!-- <div id="editor"></div> -->
 								<div class="email-action">
 									<button class="btn btn-primary">Send</button>
 									<button class="btn btn-danger">Cancel</button>
