@@ -157,13 +157,13 @@
                             <div class="collapse " id="email-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="pengaduan-user.php">
-											<span class="sub-item">Form Pengaduan</span>
+										<a href="detail-aduan-user.php">
+											<span class="sub-item">Detail Aduan</span>
 										</a>
 									</li>
 									<li>
-										<a href="detail-aduan-user.php">
-											<span class="sub-item">Detail Aduan</span>
+										<a href="pengaduan-user.php">
+											<span class="sub-item">Form Pengaduan</span>
 										</a>
 									</li>
 								</ul>
