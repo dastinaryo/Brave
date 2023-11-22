@@ -620,7 +620,7 @@
 				</div>
 			</footer>
 		</div>
-		<div class="quick-sidebar">
+		<!-- <div class="quick-sidebar">
 			<a href="#" class="close-quick-sidebar">
 				<i class="flaticon-cross"></i>
 			</a>
@@ -1013,7 +1013,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- Custom template | don't include it in your project! -->
 		<!-- <div class="custom-template">
 			<div class="title">Settings</div>
