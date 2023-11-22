@@ -516,8 +516,7 @@
 					<div class="page-with-aside mail-wrapper bg-white">
                         <div class="page-aside">
                             <div class="aside-header">
-                                <div class="title">Mail Service</div>
-                                <div class="description">Service Description</div>
+                                <div class="title">Laman Aduan</div>
                                 <a class="btn btn-primary toggle-email-nav" data-toggle="collapse" href="#email-nav" role="button" aria-expanded="false" aria-controls="email-nav">
                                     <span class="btn-label">
                                         <i class="icon-menu"></i>
@@ -528,9 +527,8 @@
                             <div class="aside-nav collapse" id="email-nav">
                                 <ul class="nav">
                                     <li>
-                                        <a href="konsultasi-inbox.php">
+                                        <a href="detail-aduan-user.php">
                                             <i class="flaticon-inbox"></i> Detail Aduan
-                                            <span class="badge badge-primary float-right">8</span>
                                         </a>
                                     </li>
                                     <li class="active">
