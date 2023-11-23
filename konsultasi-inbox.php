@@ -164,9 +164,9 @@
 
 		<div class="main-panel full-height">
 			<div class="container container-full">
-				<div class="page-inner">
+				<div class="page-inner" style="padding-top:0px;">
 					<div class="page-with-aside mail-wrapper bg-white">
-					<div class="page-aside">
+					<div class="page-aside" style="padding-top:0px;">
 							<div class="aside-header">
 								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
@@ -194,7 +194,7 @@
 							</div>
 						</div>
 						<div class="page-content mail-content">
-							<div class="inbox-head d-lg-flex d-block">
+							<div class="inbox-head d-lg-flex d-block" style="padding-top:20px;">
 								<h3>Pesan Masuk</h3>
 								<form action="#" class="ml-auto">
 									<div class="input-group">

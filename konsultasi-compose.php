@@ -164,9 +164,9 @@
 
 		<div class="main-panel full-height">
 			<div class="container container-full">
-				<div class="page-inner">
+				<div class="page-inner" style="padding-top:0px;">
 					<div class="page-with-aside mail-wrapper bg-white">
-						<div class="page-aside">
+						<div class="page-aside" style="padding-top:0px;">
 							<div class="aside-header">
 								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
@@ -190,55 +190,11 @@
 											<i class="fa fa-envelope"></i> Sent Mail
 										</a>
 									</li>
-									<!-- <li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-envelope-3"></i> Drafts
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-price-tag"></i> Tags
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-interface-5"></i> Trash
-										</a>
-									</li> -->
-
 								</ul>
-
-								<!-- <span class="label">Labels</span>
-								<ul class="nav nav-pills nav-stacked">
-									<li>
-										<a href="#">
-											<i class="flaticon-inbox"></i> Inbox
-											<span class="badge badge-primary float-right">8</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="#">
-											<i class="fa fa-envelope"></i> Sent Mail
-										</a>
-									</li>
-									<li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-								</ul> -->
-								<!-- <div class="aside-compose"><a href="#" class="btn btn-primary btn-block fw-mediumbold">Compose Email</a></div> -->
 							</div>
 						</div>
 						<div class="page-content mail-content">
-							<div class="email-head d-lg-flex d-block">
+							<div class="email-head d-lg-flex d-block" style="padding-top:20px;">
 								<h3>
 									<i class="flaticon-pen mr-1"></i>
 									Konsultasi

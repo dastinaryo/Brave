@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="assets/css/atlantis.css">
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- <link rel="stylesheet" href="assets/css/demo.css"> -->
 </head>
 <body>
 	<div class="wrapper fullheight-side">
@@ -126,9 +126,44 @@
 			</div>
 		</div>
 		<!-- End Sidebar -->
+
+		<!-- Navbar Header -->
+		<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg">
+
+			<div class="container-fluid">
+				<div class="collapse" id="search-nav">
+					<form class="navbar-left navbar-form nav-search mr-md-3">
+						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;">Selamat Datang!</h4>
+					</form>
+				</div>
+				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+					<li class="nav-item dropdown hidden-caret">
+						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+							<div class="avatar-sm">
+								<img src="assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
+							</div>
+						</a>
+						<ul class="dropdown-menu dropdown-user animated fadeIn">
+							<div class="dropdown-user-scroll scrollbar-outer">
+								<li>
+									<div class="user-box">
+										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
+										<div class="u-text">
+											<h4>Username</h4>
+											<p class="text-muted">NIM : </p><a href="action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+										</div>
+									</div>
+								</li>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- End Navbar -->
 		
-		<div class="main-panel full-height">
-			<div class="container">
+		<div class="main-panel full-height" >
+			<div class="container" style="height:100%;">
 				<div class="page-inner">
 					<div class="page-header">
 						<h4 class="page-title">Riwayat Aduan</h4>
