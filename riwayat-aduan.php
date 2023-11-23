@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Riwayat Aduan</title>
+	<title>Brave | Daftar Aduan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -58,7 +58,7 @@
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									Username
-									<span class="user-level">User</span>
+									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -74,8 +74,6 @@
 							</div>
 						</div>
 					</div>
-                        
-                    <!-- Pengaduan, Konsultasi, Riwayat Aduan -->
 					<ul class="nav">
 						<li class="nav-item">
 							<a data-toggle="collapse" href="dashboard.php" class="collapsed" aria-expanded="false">
@@ -95,15 +93,31 @@
 								<p>Pengaduan</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="konsultasi.php">
-								<i class="fas fa-file-contract"></i>
+						<li class="nav-item submenu">
+							<a data-toggle="collapse" href="#email-app-nav">
+								<i class="far fa-envelope"></i>
 								<p>Konsultasi</p>
+								<span class="caret"></span>
 							</a>
+							<div class="collapse " id="email-app-nav">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="konsultasi-inbox.php">
+											<span class="sub-item">Pesan Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose.php">
+											<span class="sub-item">Tulis Konsultasi</span>
+										</a>
+									</li>
+									
+								</ul>
+							</div>
 						</li>
 						<li class="nav-item active">
-							<a href="konsultasi-admin.php">
-								<i class="fas fa-file-signature"></i>
+							<a href="riwayat-aduan.php">
+								<i class="fas fa-file-contract"></i>
 								<p>Riwayat Aduan</p>
 							</a>
 						</li>
@@ -112,41 +126,6 @@
 			</div>
 		</div>
 		<!-- End Sidebar -->
-
-		<!-- Navbar Header -->
-		<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg">
-
-			<div class="container-fluid">
-				<div class="collapse" id="search-nav">
-					<form class="navbar-left navbar-form nav-search mr-md-3">
-						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;">Selamat Datang!</h4>
-					</form>
-				</div>
-				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-					<li class="nav-item dropdown hidden-caret">
-						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-							<div class="avatar-sm">
-								<img src="assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
-							</div>
-						</a>
-						<ul class="dropdown-menu dropdown-user animated fadeIn">
-							<div class="dropdown-user-scroll scrollbar-outer">
-								<li>
-									<div class="user-box">
-										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
-										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
-										</div>
-									</div>
-								</li>
-							</div>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<!-- End Navbar -->
 		
 		<div class="main-panel full-height">
 			<div class="container">
@@ -194,7 +173,7 @@
 									<td>Mark</td>
 									<td>
 										<center>
-											<a href="detail.php">
+											<a href="detail-aduan.php">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
 													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
@@ -210,7 +189,7 @@
 									<td>Mark</td>
 									<td>
 										<center>
-											<a href="detail.php">
+											<a href="detail-aduan.php">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
 													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
@@ -226,7 +205,7 @@
 									<td>Mark</td>
 									<td>
 										<center>
-											<a href="detail.php">
+											<a href="detail-aduan.php">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
 													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 												</svg>
