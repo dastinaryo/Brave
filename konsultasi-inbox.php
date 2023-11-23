@@ -198,7 +198,7 @@
 								<h3>Pesan Masuk</h3>
 								<form action="#" class="ml-auto">
 									<div class="input-group">
-										<input type="text" placeholder="Search Email" class="form-control">
+										<input type="text" placeholder="Cari Konsultasi" class="form-control">
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="fa fa-search search-icon"></i>
