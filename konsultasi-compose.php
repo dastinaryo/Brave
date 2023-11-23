@@ -168,7 +168,7 @@
 					<div class="page-with-aside mail-wrapper bg-white">
 						<div class="page-aside">
 							<div class="aside-header">
-								<div class="title">Mail Service</div>
+								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
 								<a class="btn btn-primary toggle-email-nav" data-toggle="collapse" href="#email-nav" role="button" aria-expanded="false" aria-controls="email-nav">
 									<span class="btn-label">
