@@ -76,7 +76,7 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item active">
-							<a data-toggle="collapse" href="dashboard.php" class="collapsed" aria-expanded="false">
+							<a href="dashboard.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
