@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2023 at 11:00 AM
+-- Generation Time: Nov 24, 2023 at 01:45 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `kelompok6`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artikel`
+--
+
+CREATE TABLE `artikel` (
+  `penulis` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `link` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id_feedback` varchar(25) NOT NULL,
+  `id_pengaduan` varchar(25) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `nim` varchar(25) NOT NULL,
+  `tgl_feedback` date NOT NULL,
+  `alasan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konsultasi`
+--
+
+CREATE TABLE `konsultasi` (
+  `id_konsul` varchar(25) NOT NULL,
+  `nim` varchar(25) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `pesan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,6 +93,7 @@ INSERT INTO `login` (`hak`, `username`, `password`) VALUES
 CREATE TABLE `pengaduan` (
   `id_pengaduan` varchar(25) NOT NULL,
   `nim` varchar(25) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `tgl_kejadian` date NOT NULL,
   `pesan_aduan` text NOT NULL,
@@ -58,6 +101,13 @@ CREATE TABLE `pengaduan` (
   `bukti` varchar(255) NOT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengaduan`
+--
+
+INSERT INTO `pengaduan` (`id_pengaduan`, `nim`, `nama`, `judul`, `tgl_kejadian`, `pesan_aduan`, `pelaku`, `bukti`, `status`) VALUES
+('12345', '2008869', 'Dastin Aryo Atmanto', 'Kekerasan Seksual Pada Orang Lain', '2023-11-16', 'Apapun onono osdnsdn sdf sdf sdds vs dv skv,lsdkjnv osjdvo divhdi uhvh dib i oiv iuvh oiuvh oiuvh soihv sduivh sdiuhv sdoiu vh vhsoiduhv soihvu suihv soiuhv sdh vsv hsoduvhisduvh sdoiuvhdosiuvh dsoiuh vdsiuh vsdvuh dsih vodsiuhv dsoiu vhsvh so vhdsiuvhdsoivh sd.', 'Inisial IAFKF', 'assets/img/bukti/bukti1.jpeg', 'pending');
 
 -- --------------------------------------------------------
 
