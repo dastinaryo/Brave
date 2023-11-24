@@ -1,3 +1,17 @@
+<?php
+	require 'backend/connection.php';
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        header("Location: login.php");
+    }else if($_SESSION['hak']!='admin'){
+		header("Location: login.php");
+	}else{
+		$username = $_SESSION['username'];
+		$login_id = $_SESSION['user_id'];
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +44,6 @@
     <a href="konsultasi-inbox-admin.php">Pesan Konsultasi</a><br>
     <a href="feedback-compose-admin.php">Tulis Feedback</a><br>
     <a href="feedback-inbox-admin.php">Pesan Feedback</a><br>
-    <a href="action-logout.php">Logout</a><br>
+    <a href="backend/action-logout.php">Logout</a><br>
 </body>
 </html>

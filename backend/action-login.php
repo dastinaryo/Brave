@@ -16,21 +16,20 @@ $result = mysqli_query($koneksi, $sql);
 // Check if the user exists
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-    $_SESSION['user_id'] = $row['user_id'];
     $_SESSION['username'] = $row['username'];
-    $_SESSION['role'] = $row['role'];
+    $_SESSION['user_id'] = $row['password'];
+    $_SESSION['hak'] = $row['hak'];
 
-    if ($row['role'] == 'admin') {
-        header("Location: ../list-user-admin.php");
+    if ($row['hak'] == 'admin') {
+        header("Location: ../dashboard-admin.php");
     } else {
-        header("Location: /page_testing/index.php");
+        header("Location: /dashboard.php");
     }
     exit();
+}else{
+    // User does not exist or password is incorrect, set error message and redirect to login3.php
+    $_SESSION['error'] = 'Username atau Password salah';
+    header("Location: ../login.php");
+    mysqli_close($koneksi);
 }
-
-
-// User does not exist or password is incorrect, set error message and redirect to login3.php
-$_SESSION['error'] = 'Username atau Password salah';
-header("Location: /page_testing/login3.php");
-mysqli_close($koneksi);
 ?>

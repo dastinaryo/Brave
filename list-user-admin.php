@@ -1,9 +1,15 @@
 <?php
+	require 'backend/connection.php';
     session_start();
+
     if (!isset($_SESSION['username'])) {
         header("Location: login.php");
-    }
-	$login_id = $_SESSION['user_id'];
+    }else if($_SESSION['hak']!='admin'){
+		header("Location: login.php");
+	}else{
+		$username = $_SESSION['username'];
+		$login_id = $_SESSION['user_id'];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+									<?php echo $_SESSION['username'] ?>
 									<span class="user-level">Admin</span>
 									<span class="caret"></span>
 								</span>
@@ -74,7 +80,7 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="action-logout.php">
+										<a href="backend/action-logout.php">
 											<span class="link-collapse">Log Out</span>
 										</a>
 									</li>
@@ -219,45 +225,45 @@
 						<button class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">Tambah User</button>
 							<!-- Modal for adding user -->
 							<div class="modal" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="addUserModalLabel">Tambah User</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<!-- Form for adding user -->
-										<form id="addUserForm" action="/backend/action-tambah-user.php" method="post">
-										<div class="form-group">
-											<label for="nim">NIM:</label>
-											<input type="text" class="form-control" id="nim" name="nim" required>
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="addUserModalLabel">Tambah User</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+											</button>
 										</div>
-										<div class="form-group">
-											<label for="nama">Nama:</label>
-											<input type="text" class="form-control" id="nama" name="nama" required>
+										<div class="modal-body">
+											<!-- Form for adding user -->
+											<form id="addUserForm" action="/backend/action-tambah-user.php" method="post">
+											<div class="form-group">
+												<label for="nim">NIM:</label>
+												<input type="text" class="form-control" id="nim" name="nim" required>
+											</div>
+											<div class="form-group">
+												<label for="nama">Nama:</label>
+												<input type="text" class="form-control" id="nama" name="nama" required>
+											</div>
+											<div class="form-group">
+												<label for="fakultas">Fakultas:</label>
+												<input type="text" class="form-control" id="fakultas" name="fakultas" required>
+											</div>
+											<div class="form-group">
+												<label for="program_studi">Program Studi:</label>
+												<input type="text" class="form-control" id="program_studi" name="program_studi" required>
+											</div>
+											<div class="form-group">
+												<label for="angkatan_mahasiswa">Angkatan:</label>
+												<input type="text" class="form-control" id="angkatan_mahasiswa" name="angkatan_mahasiswa" required>
+											</div>
+											</form>
 										</div>
-										<div class="form-group">
-											<label for="fakultas">Fakultas:</label>
-											<input type="text" class="form-control" id="fakultas" name="fakultas" required>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
 										</div>
-										<div class="form-group">
-											<label for="program_studi">Program Studi:</label>
-											<input type="text" class="form-control" id="program_studi" name="program_studi" required>
-										</div>
-										<div class="form-group">
-											<label for="angkatan_mahasiswa">Angkatan:</label>
-											<input type="text" class="form-control" id="angkatan_mahasiswa" name="angkatan_mahasiswa" required>
-										</div>
-										</form>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
 									</div>
 								</div>
-							</div>
 							</div>
 							<script>
 								function addUser() {
@@ -275,28 +281,94 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th>NIM</th>
-										<th>NAMA LENGKAP</th>
-										<th>FAKULTAS</th>
-										<th>PROGRAM STUDI</th>
-										<th>ANGKATAN MAHASISWA</th>
-										<th>ACTION</th>
+										<th scope="col" style="width:100px;">No</th>
+										<th scope="col">NIM</th>
+										<th scope="col">Nama Lengkap</th>
+										<th scope="col">Fakultas</th>
+										<th scope="col">Program Studi</th>
+										<th scope="col">Tahun Angkatan</th>
+										<th scope="col" style="width:100px; text-align:center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php	
+									<?php
+									$i = 0;
 									while ($row = mysqli_fetch_assoc($result)) {
-									echo "<tr>";
-									echo "<td>" . $row['nim'] . "</td>";
-									echo "<td>" . $row['nama'] . "</td>";
-									echo "<td>" . $row['fakultas'] . "</td>";
-									echo "<td>" . $row['program_studi'] . "</td>";
-									echo "<td>" . $row['angkatan_mahasiswa'] . "</td>";
-									echo "<td>";
-									echo "<a href='edit.php?login_id=" . $row['login_id'] . "' class='btn btn-primary'>Edit</a>";
-									echo "<a href='/backend/action-delete-akun.php?login_id=" . $row['login_id'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Ingin hapus?')\">Delete</a>";
-									echo "</td>";
-									echo "</tr>";
+										$i++;
+										echo "<tr>";
+											echo "<td>" . $i. "</td>";
+											echo "<td>" . $row['nim'] . "</td>";
+											echo "<td>" . $row['nama'] . "</td>";
+											echo "<td>" . $row['fakultas'] . "</td>";
+											echo "<td>" . $row['prodi'] . "</td>";
+											echo "<td>" . $row['angkatan'] . "</td>";
+											echo "<td>";
+											echo "<center>
+													<a style='color:blue;' data-toggle='modal' data-target='#edit-user-" . $row['nim'] . "'>
+														<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+															<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+															<path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z'/>
+														</svg>
+													</a>
+													
+													<a href='/backend/action-delete-user.php?id=" . $row['nim'] . " 'style='color:red;' onclick=\"return confirm('Ingin hapus?')\">
+														<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+															<path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0'/>
+														</svg>
+													</a>
+												  </center>
+
+												  <!-- Modal for edit user -->
+													<div class='modal' id='edit-user-" . $row['nim'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
+														<div class='modal-dialog' role='document'>
+															<div class='modal-content'>
+																<div class='modal-header'>
+																	<h5 class='modal-title' id='editUserModalLabel'>Edit User</h5>
+																	<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+																	<span aria-hidden='true'>&times;</span>
+																	</button>
+																</div>
+																<div class='modal-body'>
+																	<!-- Form for edit user -->
+																	<form id='editUserForm-" . $row['nim'] . "' action='/backend/action-update-user.php' method='post'>
+																	<div class='form-group'>
+																		<input type='text' class='form-control' id='nim' name='nim' value='" . $row['nim'] . "' required hidden>
+																	</div>
+																	<div class='form-group'>
+																		<label for='nama'>Nama:</label>
+																		<input type='text' class='form-control' id='nama' name='nama' value='" . $row['nama'] . "' required>
+																	</div>
+																	<div class='form-group'>
+																		<label for='fakultas'>Fakultas:</label>
+																		<input type='text' class='form-control' id='fakultas' name='fakultas' value='" . $row['fakultas'] . "' required>
+																	</div>
+																	<div class='form-group'>
+																		<label for='program_studi'>Program Studi:</label>
+																		<input type='text' class='form-control' id='program_studi' name='program_studi' value='" . $row['prodi'] . "' required>
+																	</div>
+																	<div class='form-group'>
+																		<label for='angkatan_mahasiswa'>Angkatan:</label>
+																		<input type='text' class='form-control' id='angkatan_mahasiswa' name='angkatan_mahasiswa' value='" . $row['angkatan'] . "' required>
+																	</div>
+																	</form>
+																</div>
+																<div class='modal-footer'>
+																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+																	<button type='button' class='btn btn-primary' onclick='editUser()'>Edit User</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<script>
+														function editUser() {
+															// Submit the form when the 'Edit User' button is clicked
+															document.getElementById('editUserForm-" . $row['nim'] . "').submit();
+														}
+													</script>
+													
+													";
+											echo "</td>";
+										echo "</tr>";
 									}
 									?>
 								</tbody>

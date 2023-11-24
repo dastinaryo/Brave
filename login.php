@@ -31,30 +31,30 @@
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-#fbfbfb">
 			<div class="container container-login container-transparent animated fadeIn">
-				<h3 class="text-center">Sign In</h3>
-				<div class="login-form">
-					<div class="form-group">
-						<label for="username" class="placeholder"><b>Username</b></label>
-						<input id="username" name="username" type="text" class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label for="password" class="placeholder"><b>Password</b></label>
-						<!-- <a href="#" class="link float-right">Forget Password ?</a> -->
-						<div class="position-relative">
-							<input id="password" name="password" type="password" class="form-control" required>
-							<div class="show-password">
-								<i class="icon-eye"></i>
+				<form action="backend/action-login.php" method="post">
+					<h3 class="text-center">Sign In</h3>
+					<div class="login-form">
+						
+						<div class="form-group">
+							<label for="username" class="placeholder"><b>Username</b></label>
+							<input id="username" name="username" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="password" class="placeholder"><b>Password</b></label>
+							<!-- <a href="#" class="link float-right">Forget Password ?</a> -->
+							<div class="position-relative">
+								<input id="password" name="password" type="password" class="form-control" required>
+								<div class="show-password">
+									<i class="icon-eye"></i>
+								</div>
 							</div>
 						</div>
+						<div class="form-group form-action-d-flex mb-3">
+							<button class="btn btn-primary">Log In</button>
+						</div>
+						
 					</div>
-					<div class="form-group form-action-d-flex mb-3">
-						<!-- <div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="rememberme">
-							<label class="custom-control-label m-0" for="rememberme">Remember Me</label>
-						</div> -->
-						<a href="action-login.php" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign In</a>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

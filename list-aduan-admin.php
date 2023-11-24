@@ -1,3 +1,17 @@
+<?php
+	require 'backend/connection.php';
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        header("Location: login.php");
+    }else if($_SESSION['hak']!='admin'){
+		header("Location: login.php");
+	}else{
+		$username = $_SESSION['username'];
+		$login_id = $_SESSION['user_id'];
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +80,7 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="action-logout.php">
+										<a href="backend/action-logout.php">
 											<span class="link-collapse">Log Out</span>
 										</a>
 									</li>
@@ -170,7 +184,7 @@
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>

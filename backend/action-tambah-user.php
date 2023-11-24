@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $nim;
 
     // Perform database insertion for login information
-    $loginSql = "INSERT INTO login (username, password, role) VALUES ('$username', '$password', 'user')";
+    $loginSql = "INSERT INTO login (hak, username, password) VALUES ('user', '$username', '$password')";
 
     if (mysqli_query($koneksi, $loginSql)) {
         // Get the login_id of the newly inserted login information
         $loginId = mysqli_insert_id($koneksi);
 
         // Perform database insertion for user information
-        $userSql = "INSERT INTO users (login_id, nim, nama, fakultas, program_studi, angkatan_mahasiswa) VALUES ('$loginId', '$nim', '$nama', '$fakultas', '$program_studi', '$angkatan_mahasiswa')";
+        $userSql = "INSERT INTO users (nim, nama, fakultas, prodi, angkatan) VALUES ('$nim', '$nama', '$fakultas', '$program_studi', '$angkatan_mahasiswa')";
 
         if (mysqli_query($koneksi, $userSql)) {
             echo "User added successfully!";

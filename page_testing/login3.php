@@ -36,7 +36,7 @@ session_start();
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-white">
 			<div class="container container-login container-transparent animated fadeIn">
-			<form action="/backend/action-login.php" method="post">
+			<form action="#" method="post">
 				<h3 class="text-center">Log In User</h3>
 				<div class="login-form">
 					<?php
