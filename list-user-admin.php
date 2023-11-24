@@ -168,7 +168,6 @@
 				<div class="collapse" id="search-nav">
 					<form class="navbar-left navbar-form nav-search mr-md-3">
 						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;">Selamat Datang!</h4>
-						<h4 class="page-title" style="margin: 10px 0; font-size: 27px;"><?php echo $_SESSION['username'] ?></h4>
 					</form>
 				</div>
 				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
@@ -185,7 +184,7 @@
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4><?php echo $_SESSION['username'] ?></h4>
-											<p class="text-muted">NIM : </p><a href="/backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<a href="/backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -275,7 +274,7 @@
 								// $login_id = $_SESSION['user_id'];
 								require 'backend/connection.php';
 								$sql = "SELECT * FROM users";
-								$result = mysqli_query($koneksi, $sql);
+								$result_user = mysqli_query($koneksi, $sql);
 							?>
 							<!-- Display the BMI results in a table -->
 							<table class="table">
@@ -293,7 +292,7 @@
 								<tbody>
 									<?php
 									$i = 0;
-									while ($row = mysqli_fetch_assoc($result)) {
+									while ($row = mysqli_fetch_assoc($result_user)) {
 										$i++;
 										echo "<tr>";
 											echo "<td>" . $i. "</td>";

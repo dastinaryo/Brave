@@ -461,7 +461,7 @@
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
