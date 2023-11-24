@@ -774,7 +774,7 @@
 	<script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
 	<!-- Bootstrap Notify -->
-	<script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+	<!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
 
 	<!-- Bootstrap Toggle -->
 	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>

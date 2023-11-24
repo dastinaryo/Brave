@@ -84,7 +84,7 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item">
-							<a data-toggle="collapse" href="dashboard-admin.php" class="collapsed" aria-expanded="false">
+							<a href="dashboard-admin.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
@@ -826,7 +826,7 @@
 	<script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
 	<!-- Bootstrap Notify -->
-	<script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+	<!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
 
 	<!-- Bootstrap Toggle -->
 	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
