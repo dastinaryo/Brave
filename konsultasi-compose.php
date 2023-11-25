@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+								<?php echo htmlspecialchars($_SESSION["username"]); ?>
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,8 +163,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -215,22 +215,28 @@
 								</h3>
 							</div>
 							<div class="email-compose-fields">
-								<form>
+								<form action="backend/action-form-konsultasi-compose.php" method="post" enctype="multipart/form-data">
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Topik :</label>
+									<input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION["user_id"]); ?>">
+									<input type="hidden" name="username" value="<?php echo htmlspecialchars($_SESSION["username"]); ?>">
+										<label for="to" class="col-form-label col-md-1">Judul :</label>
 										<div class="col-md-11">
-											<input type="text" class="form-control" id="to" name="to">
+											<input type="text" class="form-control" id="jdl" name="jdl">
+										</div>
+
+										<label for="det" class="col-form-label col-md-1">Pesan :</label>
+										<div class="col-md-11" height="10px">
+											<textarea class="form-control" rows="5" id="psn" name="psn" required></textarea>
+										</div>
+									</div>
+							</div>
+									<div class="email-editor">	
+										<div class="email-action">
+											<button class="btn btn-primary">Send</button>
+											<button class="btn btn-danger">Cancel</button>
 										</div>
 									</div>
 								</form>
-							</div>
-							<div class="email-editor">
-								<div id="editor"></div>
-								<div class="email-action">
-									<button class="btn btn-primary">Send</button>
-									<button class="btn btn-danger">Cancel</button>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
