@@ -123,7 +123,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox-admin.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -145,7 +150,7 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Masuk</span>
+											<span class="sub-item">Feedback Terkirim</span>
 										</a>
 									</li>
 									<li class="active">
@@ -499,13 +504,13 @@
 								<ul class="nav">
 									<li>
 										<a href="feedback-inbox-admin.php">
-											<i class="flaticon-inbox"></i> Feedback Lalu
+											<i class="flaticon-inbox"></i> Feedback Terkirim
 											<span class="badge badge-primary float-right">8</span>
 										</a>
 									</li>
 									<li class="active">
 										<a href="feedback-compose-admin.php">
-											<i class="fa fa-envelope"></i> Kirim Feedback
+											<i class="fa fa-envelope"></i> Tulis Feedback
 										</a>
 									</li>
 									<!-- <li>
@@ -559,7 +564,7 @@
 							<div class="email-head d-lg-flex d-block">
 								<h3>
 									<i class="flaticon-pen mr-1"></i>
-									Kirim Feedback
+									Tulis Feedback
 								</h3>
 							</div>
 							<div class="email-compose-fields">

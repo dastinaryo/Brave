@@ -123,7 +123,12 @@
 								<ul class="nav nav-collapse">
 									<li class="active">
 										<a href="konsultasi-inbox-admin.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -144,7 +149,7 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Masuk</span>
+											<span class="sub-item">Feedback Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -155,82 +160,6 @@
 								</ul>
 							</div>
 						</li>
-						<!-- <li class="nav-item">
-							<a href="starter-template.html">
-								<i class="fas fa-print"></i>
-								<p>IPO Report</p>
-							</a>
-						</li> -->
-						<!-- <li class="nav-section">
-							<span class="sidebar-mini-icon">
-								<i class="fa fa-ellipsis-h"></i>
-							</span>
-							<h4 class="text-section">Snippets</h4>
-						</li>
-						<li class="nav-item active submenu">
-							<a data-toggle="collapse" href="#email-app-nav">
-								<i class="far fa-envelope"></i>
-								<p>Email</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse show" id="email-app-nav">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="email-inbox.html">
-											<span class="sub-item">Inbox</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="email-compose.html">
-											<span class="sub-item">Email Compose</span>
-										</a>
-									</li>
-									
-								</ul>
-							</div>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a data-toggle="collapse" href="#messages-app-nav">
-								<i class="far fa-paper-plane"></i>
-								<p>Messages App</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="messages-app-nav">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="messages.html">
-											<span class="sub-item">Messages</span>
-										</a>
-									</li>
-									<li>
-										<a href="conversations.html">
-											<span class="sub-item">Conversations</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a href="projects.html">
-								<i class="fas fa-file-signature"></i>
-								<p>Projects</p>
-								<span class="badge badge-count">5</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="boards.html">
-								<i class="fas fa-th-list"></i>
-								<p>Boards</p>
-								<span class="badge badge-count">4</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="invoice.html">
-								<i class="fas fa-file-invoice-dollar"></i>
-								<p>Invoices</p>
-								<span class="badge badge-count">6</span>
-							</a>
-						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -252,202 +181,6 @@
 							<i class="fa fa-search"></i>
 						</a>
 					</li>
-					<!-- <li class="nav-item dropdown hidden-caret">
-						<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fa fa-envelope"></i>
-						</a>
-						<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
-							<li>
-								<div class="dropdown-title d-flex justify-content-between align-items-center">
-									Messages 									
-									<a href="#" class="small">Mark all as read</a>
-								</div>
-							</li>
-							<li>
-								<div class="message-notif-scroll scrollbar-outer">
-									<div class="notif-center">
-										<a href="#">
-											<div class="notif-img"> 
-												<img src="assets/img/jm_denis.jpg" alt="Img Profile">
-											</div>
-											<div class="notif-content">
-												<span class="subject">Jimmy Denis</span>
-												<span class="block">
-													How are you ?
-												</span>
-												<span class="time">5 minutes ago</span> 
-											</div>
-										</a>
-										<a href="#">
-											<div class="notif-img"> 
-												<img src="assets/img/chadengle.jpg" alt="Img Profile">
-											</div>
-											<div class="notif-content">
-												<span class="subject">Chad</span>
-												<span class="block">
-													Ok, Thanks !
-												</span>
-												<span class="time">12 minutes ago</span> 
-											</div>
-										</a>
-										<a href="#">
-											<div class="notif-img"> 
-												<img src="assets/img/mlane.jpg" alt="Img Profile">
-											</div>
-											<div class="notif-content">
-												<span class="subject">Jhon Doe</span>
-												<span class="block">
-													Ready for the meeting today...
-												</span>
-												<span class="time">12 minutes ago</span> 
-											</div>
-										</a>
-										<a href="#">
-											<div class="notif-img"> 
-												<img src="assets/img/talha.jpg" alt="Img Profile">
-											</div>
-											<div class="notif-content">
-												<span class="subject">Talha</span>
-												<span class="block">
-													Hi, Apa Kabar ?
-												</span>
-												<span class="time">17 minutes ago</span> 
-											</div>
-										</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-					</li> -->
-					<!-- <li class="nav-item dropdown hidden-caret">
-						<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fa fa-bell"></i>
-							<span class="notification">4</span>
-						</a>
-						<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
-							<li>
-								<div class="dropdown-title">You have 4 new notification</div>
-							</li>
-							<li>
-								<div class="notif-center">
-									<a href="#">
-										<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
-										<div class="notif-content">
-											<span class="block">
-												New user registered
-											</span>
-											<span class="time">5 minutes ago</span> 
-										</div>
-									</a>
-									<a href="#">
-										<div class="notif-icon notif-success"> <i class="fa fa-comment"></i> </div>
-										<div class="notif-content">
-											<span class="block">
-												Rahmad commented on Admin
-											</span>
-											<span class="time">12 minutes ago</span> 
-										</div>
-									</a>
-									<a href="#">
-										<div class="notif-img"> 
-											<img src="assets/img/profile2.jpg" alt="Img Profile">
-										</div>
-										<div class="notif-content">
-											<span class="block">
-												Reza send messages to you
-											</span>
-											<span class="time">12 minutes ago</span> 
-										</div>
-									</a>
-									<a href="#">
-										<div class="notif-icon notif-danger"> <i class="fa fa-heart"></i> </div>
-										<div class="notif-content">
-											<span class="block">
-												Farrah liked Admin
-											</span>
-											<span class="time">17 minutes ago</span> 
-										</div>
-									</a>
-								</div>
-							</li>
-							<li>
-								<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-					</li> -->
-					<!-- <li class="nav-item dropdown hidden-caret">
-						<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-							<i class="fas fa-layer-group"></i>
-						</a>
-						<div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
-							<div class="quick-actions-header">
-								<span class="title mb-1">Quick Actions</span>
-								<span class="subtitle op-8">Shortcuts</span>
-							</div>
-							<div class="quick-actions-scroll scrollbar-outer">
-								<div class="quick-actions-items">
-									<div class="row m-0">
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-danger rounded-circle">
-													<i class="far fa-calendar-alt"></i>
-												</div>
-												<span class="text">Calendar</span>
-											</div>
-										</a>
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-warning rounded-circle">
-													<i class="fas fa-map"></i>
-												</div>
-												<span class="text">Maps</span>
-											</div>
-										</a>
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-info rounded-circle">
-													<i class="fas fa-file-excel"></i>
-												</div>
-												<span class="text">Reports</span>
-											</div>
-										</a>
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-success rounded-circle">
-													<i class="fas fa-envelope"></i>
-												</div>
-												<span class="text">Emails</span>
-											</div>
-										</a>
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-primary rounded-circle">
-													<i class="fas fa-file-invoice-dollar"></i>
-												</div>
-												<span class="text">Invoice</span>
-											</div>
-										</a>
-										<a class="col-6 col-md-4 p-0" href="#">
-											<div class="quick-actions-item">
-												<div class="avatar-item bg-secondary rounded-circle">
-													<i class="fas fa-credit-card"></i>
-												</div>
-												<span class="text">Payments</span>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li> -->
-					<!-- <li class="nav-item">
-						<a href="#" class="nav-link quick-sidebar-toggler">
-							<i class="fa fa-th"></i>
-						</a>
-					</li> -->
 					<li class="nav-item dropdown hidden-caret">
 						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 							<div class="avatar-sm">
@@ -550,7 +283,7 @@
 						</div>
 						<div class="page-content mail-content">
 							<div class="inbox-head d-lg-flex d-block">
-								<h3>Pesan Masuk</h3>
+								<h3>Konsultasi Masuk</h3>
 								<form action="#" class="ml-auto">
 									<div class="input-group">
 										<input type="text" placeholder="Search Topik" class="form-control">

@@ -123,7 +123,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox-admin.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li class="active">
@@ -145,7 +150,7 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Masuk</span>
+											<span class="sub-item">Feedback Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -156,88 +161,6 @@
 								</ul>
 							</div>
 						</li>
-						<!-- <li class="nav-item">
-							<a href="starter-template.html">
-								<i class="icon-briefcase"></i>
-								<p>Profile</p>
-							</a>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a href="starter-template.html">
-								<i class="fas fa-print"></i>
-								<p>IPO Report</p>
-							</a>
-						</li> -->
-						<!-- <li class="nav-section">
-							<span class="sidebar-mini-icon">
-								<i class="fa fa-ellipsis-h"></i>
-							</span>
-							<h4 class="text-section">Snippets</h4>
-						</li>
-						<li class="nav-item active submenu">
-							<a data-toggle="collapse" href="#email-app-nav">
-								<i class="far fa-envelope"></i>
-								<p>Email</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse show" id="email-app-nav">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="email-inbox.html">
-											<span class="sub-item">Inbox</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="email-compose.html">
-											<span class="sub-item">Email Compose</span>
-										</a>
-									</li>
-									
-								</ul>
-							</div>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a data-toggle="collapse" href="#messages-app-nav">
-								<i class="far fa-paper-plane"></i>
-								<p>Messages App</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="messages-app-nav">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="messages.html">
-											<span class="sub-item">Messages</span>
-										</a>
-									</li>
-									<li>
-										<a href="conversations.html">
-											<span class="sub-item">Conversations</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a href="projects.html">
-								<i class="fas fa-file-signature"></i>
-								<p>Projects</p>
-								<span class="badge badge-count">5</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="boards.html">
-								<i class="fas fa-th-list"></i>
-								<p>Boards</p>
-								<span class="badge badge-count">4</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="invoice.html">
-								<i class="fas fa-file-invoice-dollar"></i>
-								<p>Invoices</p>
-								<span class="badge badge-count">6</span>
-							</a>
-						</li> -->
 					</ul>
 				</div>
 			</div>

@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Feedback Masuk</title>
+	<title>Brave | Feedback Terkirim</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -123,7 +123,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox-admin.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -144,7 +149,7 @@
 								<ul class="nav nav-collapse">
 									<li class="active">
 										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Masuk</span>
+											<span class="sub-item">Feedback Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -492,13 +497,13 @@
 								<ul class="nav">
 									<li class="active">
 										<a href="feedback-inbox-admin.php">
-											<i class="flaticon-inbox"></i> Feedback Lalu
+											<i class="flaticon-inbox"></i> Feedback Terkirim
 											<span class="badge badge-primary float-right">8</span>
 										</a>
 									</li>
 									<li>
 										<a href="feedback-compose-admin.php">
-											<i class="fa fa-envelope"></i> Kirim Feedback
+											<i class="fa fa-envelope"></i> Tulis Feedback
 										</a>
 									</li>
 									<!-- <li>

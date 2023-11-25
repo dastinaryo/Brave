@@ -123,7 +123,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox-admin.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-compose-admin.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -131,7 +136,6 @@
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 							<li class="nav-item ">
@@ -144,7 +148,7 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Masuk</span>
+											<span class="sub-item">Feedback Terkirim</span>
 										</a>
 									</li>
 									<li>
