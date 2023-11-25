@@ -232,10 +232,11 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col" style="width:100px;">No</th>
+									<th scope="col" style="width:80px;">No</th>
 									<th scope="col">Nama User</th>
 									<th scope="col">Judul Aduan</th>
 									<th scope="col" style="width:200px; text-align:center;">Tanggal Kejadian</th>
+									<th scope="col" style="width:100px; text-align:center;">Status</th>
 									<th scope="col" style="width:100px; text-align:center;">Detail</th>
 									<th scope="col" style="width:100px; text-align:center;">Aksi</th>
 								</tr>
@@ -250,6 +251,7 @@
 											echo "<td>" . $row['nama'] . "</td>";
 											echo "<td>" . $row['judul'] . "</td>";
 											echo "<td><center>" . $row['tgl_kejadian'] . "</center></td>";
+											echo "<td><center><a class='" . $row['status'] . "'>" . $row['status'] . "</a></center></td>";
 											echo "<td data-toggle='modal' data-target='#aduan-" . $row['nim'] . "' style='color:blue;'>
 													<center>
 														<a>
@@ -278,7 +280,6 @@
 															</div>
 															<div class='modal-footer'>
 																<button type='button' class='btn btn-primary' data-dismiss='modal'>Tutup</button>
-																<!-- <button type='button' class='btn btn-primary'>Save changes</button> -->
 															</div>
 														</div>
 													</div>
@@ -292,12 +293,53 @@
 															</svg>
 														</a>
 														<div class='dropdown-menu animated fadeIn' aria-labelledby='navbarDropdown'>
-															<a class='dropdown-item' href='action-accept-aduan.php?id=" . $row['id_pengaduan'] . "'>Accept</a>
-															<a class='dropdown-item' href='action-decline-aduan.php?id=" . $row['id_pengaduan'] . "''>Decline</a>
-															<a class='dropdown-item' href='action-complete-aduan.php?id=" . $row['id_pengaduan'] . "''>Complete</a>
+															<a class='dropdown-item' href='backend/action-accept-aduan.php?id=" . $row['id_pengaduan'] . "'>Accept</a>
+															<a class='dropdown-item' href='backend/action-complete-aduan.php?id=" . $row['id_pengaduan'] . "'>Complete</a>
+															<a class='dropdown-item' data-toggle='modal' data-target='#decline-aduan-" . $row['id_pengaduan'] . "'>Decline</a>
 															<a class='dropdown-item' href='feedback-admin.php?id=" . $row['id_pengaduan'] . "''>Feedback</a>
 														</div>
 													</center>
+
+													<!-- Modal for feedback -->
+													<div class='modal' id='decline-aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
+														<div class='modal-dialog' role='document'>
+															<div class='modal-content'>
+																<div class='modal-header'>
+																	<h5 class='modal-title' id='editUserModalLabel'>Tolak Pengaduan </h5>
+																	<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+																	<span aria-hidden='true'>&times;</span>
+																	</button>
+																</div>
+																<div class='modal-body'>
+																	<!-- Form for edit user -->
+																	<form id='feedbackAduanForm-" . $row['id_pengaduan'] . "' action='backend/action-decline-aduan.php' method='post'>
+																		<input type='text' class='form-control' id='id_pengaduan' name='id_pengaduan' value='" . $row['id_pengaduan'] . "' required hidden>
+																		<input type='text' class='form-control' id='nama' name='nama' value='" . $row['nama'] . "' required hidden>
+																		<input type='text' class='form-control' id='nim' name='nim' value='" . $row['nim'] . "' required hidden>
+																		<div class='form-group'>
+																			<label for='tgl_feedback'>Tanggal Feedback:</label>
+																			<input type='date' class='form-control' id='tgl_feedback' name='tgl_feedback' required>
+																		</div>
+																		<div class='form-group'>
+																			<label for='alasan'>Feedback:</label>
+																			<input type='text' class='form-control' id='alasan' name='alasan' required>
+																		</div>
+																	</form>
+																</div>
+																<div class='modal-footer'>
+																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+																	<button type='button' class='btn btn-primary' onclick='declineAduan_" . $row['nim'] . "()'>Decline</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<script>
+														function declineAduan_" . $row['nim'] . "() {
+															// Submit the form when the 'Decline aduan' button is clicked
+															document.getElementById('feedbackAduanForm-" . $row['id_pengaduan'] . "').submit();
+														}
+													</script>
+
 												</td>
 												";
 									}

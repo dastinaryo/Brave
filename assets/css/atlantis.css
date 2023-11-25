@@ -14375,4 +14375,28 @@ body {
   background: -webkit-linear-gradient(legacy-direction(-45deg), #E80A15, #F25961) !important;
   background: linear-gradient(-45deg, #E80A15, #F25961) !important; }
 
+.pending {
+  background-color: yellow;
+  padding:5px 10px;
+  border-radius: 20px;
+}
+
+.process {
+  background-color: lightblue;
+  padding:5px 10px;
+  border-radius: 20px;
+}
+
+.complete {
+  background-color: lightgreen;
+  padding:5px 10px;
+  border-radius: 20px;
+}
+
+.decline {
+  background-color: #FA8072;
+  padding:5px 10px;
+  border-radius: 20px;
+}
+
 /*# sourceMappingURL=atlantis.css.map */

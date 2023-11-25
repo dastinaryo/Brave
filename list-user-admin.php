@@ -301,8 +301,8 @@
 											echo "<td>" . $row['fakultas'] . "</td>";
 											echo "<td>" . $row['prodi'] . "</td>";
 											echo "<td>" . $row['angkatan'] . "</td>";
-											echo "<td>";
-											echo "<center>
+											echo "<td>
+												  <center>
 													<a style='color:blue;' data-toggle='modal' data-target='#edit-user-" . $row['nim'] . "'>
 														<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
 															<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
@@ -353,21 +353,19 @@
 																</div>
 																<div class='modal-footer'>
 																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-																	<button type='button' class='btn btn-primary' onclick='editUser()'>Edit User</button>
+																	<button type='button' class='btn btn-primary' onclick='editUser_" . $row['nim'] . "()'>Edit User</button>
 																</div>
 															</div>
 														</div>
 													</div>
 													<script>
-														function editUser() {
+														function editUser_" . $row['nim'] . "() {
 															// Submit the form when the 'Edit User' button is clicked
 															document.getElementById('editUserForm-" . $row['nim'] . "').submit();
 														}
 													</script>
-													
-													";
-											echo "</td>";
-										echo "</tr>";
+												</td>
+											</tr>";
 									}
 									?>
 								</tbody>
