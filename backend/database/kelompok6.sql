@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2023 at 05:18 AM
+-- Generation Time: Nov 25, 2023 at 05:56 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -68,7 +68,8 @@ CREATE TABLE `konsultasi` (
   `nama` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `pesan` text NOT NULL,
-  `tgl_konsultasi` date NOT NULL
+  `tgl_konsultasi` date NOT NULL,
+  `is_read` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
