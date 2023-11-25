@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+								<?php echo htmlspecialchars($_SESSION["username"]); ?>
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,8 +163,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -223,258 +223,63 @@
 							</div>
 							<div class="inbox-body" style="padding-top:0;">
 								<div class="email-list">
-									<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi1">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Google Webmaster</span>
-											<p class="msg">Improve the search presence of WebSite</p>
-										</div>
-									</div>
+								<?php
+									// Fetch messages from the konsultasi table
+									$sql = "SELECT * FROM konsultasi WHERE pengirim = 'admin' AND nama = '$username'";
+									$result = mysqli_query($koneksi, $sql);
 
-									<!-- Modal Konsultasi 1-->
-									<div class="modal fade" id="konsultasi1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Google Webmaster</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
+									// Check if there are any messages
+									if (mysqli_num_rows($result) > 0) {
+										// Loop through each row and display the messages
+										while ($row = mysqli_fetch_assoc($result)) {
+											echo '<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi' . $row['id_konsul'] . '">';
+											echo '<div class="email-list-detail">';
+											echo '<span class="date float-right">';
+											echo date("d M", strtotime($row['tgl_konsultasi'])); // Display date in the format "dd M"
+											echo '<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">';
+											echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">';
+											echo '<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>';
+											echo '</svg>';
+											echo '</a>';
+											echo '<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">';
+											echo '<a class="dropdown-item" href="#">Edit</a>';
+											echo '<a class="dropdown-item" href="#">Delete</a>';
+											echo '</div>';
+											echo '</span>';
+											echo '<span class="from">' . $row['judul'] . '</span>';
+											echo '<p class="msg">' . $row['pesan'] . '</p>';
+											echo '</div>';
+											echo '</div>';
 
+											// Modal for each message
+											echo '<div class="modal fade" id="konsultasi' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
+											echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+											echo '<div class="modal-content">';
+											echo '<div class="modal-header">';
+											echo '<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row['judul'] . '</h5>';
+											echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+											echo '<span aria-hidden="true">&times;</span>';
+											echo '</button>';
+											echo '</div>';
+											echo '<div class="modal-body" style="text-align:justify;">';
+											echo '<p style="margin-bottom:1px;"><strong>Nama :</strong> ' . $row['nama'] . '</p>';
+											echo '<p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>';
+											echo 'Isi Pengaduan : ' . $row['pesan'];
+											echo '</div>';
+											echo '<div class="modal-footer">';
+											echo '<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>';
+											echo '</div>';
+											echo '</div>';
+											echo '</div>';
+											echo '</div>';
+										}
+									} else {
+										echo "No messages found.";
+									}
 
-									<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi2">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">	PHPClass</span>
-											<p class="msg">Learn Laravel Videos Tutorial</p>
-										</div>
-									</div>
-
-									<!-- Modal Konsultasi 2-->
-									<div class="modal fade" id="konsultasi2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;"> PHPClass</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi3">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Language Course</span>
-											<p class="msg">Learn new language, Hizrian !</p>
-										</div>
-									</div>
-
-									<!-- Modal Konsultasi 3-->
-									<div class="modal fade" id="konsultasi3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Language Course</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi4">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Farrah Septya</span>
-											<p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
-										</div>
-									</div>
-
-									<!-- Modal Konsultasi 4-->
-									<div class="modal fade" id="konsultasi4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Farrah Septya</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi5">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Facebook</span>
-											<p class="msg">Somebody requested a new password</p>
-										</div>
-									</div>
-
-									<!-- Modal Konsultasi 5-->
-									<div class="modal fade" id="konsultasi5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Facebook</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#konsultasi6">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Kristopher Donny</span>
-											<p class="msg">Hello Friend, How are you?</p>
-										</div>
-									</div>
-
-									<!-- Modal Konsultasi 6-->
-									<div class="modal fade" id="konsultasi6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Kristopher Donny</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
+									// Close the database connection
+									mysqli_close($koneksi);
+									?>
 								</div>
 							</div>
 						</div>
