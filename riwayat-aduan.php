@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+								<?php echo htmlspecialchars($_SESSION["username"]); ?>
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,8 +163,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -206,7 +206,6 @@
 							<thead>
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Nama</th>
 									<th scope="col">Judul</th>
 									<th scope="col">Tanggal Kejadian</th>
 									<th scope="col">Status</th>
@@ -214,54 +213,38 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>Mark</td>
-									<td>
-										<center>
-											<a href="detail-aduan.php">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+								<?php
+									include "backend/connection.php";
+									$user_id = $_SESSION['user_id'];
+									$ambildata = mysqli_query($koneksi, 'SELECT * FROM pengaduan WHERE nim = "'.$user_id.'"');
+									
+									if (!$ambildata) {
+										die('Error in SQL query: ' . mysqli_error($koneksi));
+									}
+									
+									$no = 1;
+									while ($tampil = mysqli_fetch_array($ambildata)) {
+										echo "
+										<tr>
+											<td>$no</td>
+											<td>$tampil[judul]</td>
+											<td>$tampil[tgl_kejadian]</td>
+											<td>$tampil[status]</td>
+											<td>
+											<center>
+											<a href='detail-aduan.php'>
+												<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>
+													<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/>
 												</svg>
 											</a>
 										</center>
- 									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-									<td>Mark</td>
-									<td>
-										<center>
-											<a href="detail-aduan.php">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-												</svg>
-											</a>
-										</center>
- 									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>Mark</td>
-									<td>
-										<center>
-											<a href="detail-aduan.php">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-													<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-												</svg>
-											</a>
-										</center>
- 									</td>
-								</tr>
+											</td>
+										</tr>
+										";
+										$no++;
+									}
+									   
+								?>
 							</tbody>
 						</table>
 					</div>

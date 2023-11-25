@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+									<?php echo htmlspecialchars($_SESSION["username"]); ?>
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,8 +163,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -213,16 +213,17 @@
 								</h3>
 							</div>
 							<div class="email-compose-fields">
-								<form>
+								<form action="backend/action-form-aduan.php" method="post" enctype="multipart/form-data">
 									<div class="form-group row">
+										<input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION["user_id"]); ?>">
 										<label for="jd" class="col-form-label col-md-1">Judul :</label>
 										<div class="col-md-11">
-											<input type="text" class="form-control" id="jd" name="jdl">
+											<input type="text" class="form-control" id="jd" name="jdl" required>
 										</div>
                                         
 										<label for="tgl" class="col-form-label col-md-1">Tanggal :</label>
 										<div class="col-md-11">
-											<input type="date" class="form-control" id="tgl" name="tgl">
+											<input type="date" class="form-control" id="tgl" name="tgl" >
 										</div>
                                         
 										<label for="plk" class="col-form-label col-md-1">Pelaku :</label>
@@ -232,7 +233,7 @@
                                         
 										<label for="det" class="col-form-label col-md-1">Detail :</label>
 										<div class="col-md-11" height="10px">
-											<textarea class="form-control" rows="5" id="det" name="det"></textarea>
+											<textarea class="form-control" rows="5" id="det" name="det" required></textarea>
 										</div>
 
 										<label for="file" class="col-form-label col-md-1">Bukti :</label>
@@ -240,14 +241,14 @@
 											<input type="file" class="form-control" id="file" name="file">
 										</div>
 									</div>
+							</div>
+									<div class="email-editor">
+										<div class="email-action">
+											<button class="btn btn-primary">Send</button>
+											<button class="btn btn-danger">Cancel</button>
+										</div>
+									</div>
 								</form>
-							</div>
-							<div class="email-editor">
-								<div class="email-action">
-									<button class="btn btn-primary">Send</button>
-									<button class="btn btn-danger">Cancel</button>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
