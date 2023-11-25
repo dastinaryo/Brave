@@ -5,7 +5,7 @@
     if (!isset($_SESSION['username'])) {
         header("Location: login.php");
     }else if($_SESSION['hak']!='admin'){
-		header("Location: login.php");
+		header("Location: backend/action-logout.php");
 	}else{
 		$username = $_SESSION['username'];
 		$login_id = $_SESSION['user_id'];
