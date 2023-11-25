@@ -37,6 +37,9 @@
 	<link rel="stylesheet" href="assets/css/atlantis.css">
 </head>
 <body>
+	<tr>
+		<center><h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h1></center>
+	</tr>
     <a href="dashboard.php">Dashboard</a><br>
     <a href="pengaduan.php">Pengaduan</a><br>
     <a href="konsultasi-compose.php">Tulis Konsultasi</a><br>

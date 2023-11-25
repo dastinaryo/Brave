@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) == 1) {
     if ($row['hak'] == 'admin') {
         header("Location: ../dashboard-admin.php");
     } else {
-        header("Location: /dashboard.php");
+        header("Location: ../dashboard.php");
     }
     exit();
 }else{
