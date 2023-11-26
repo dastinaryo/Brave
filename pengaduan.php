@@ -224,7 +224,7 @@
 											<input type="text" class="form-control" id="jd" name="jdl" required>
 										</div>
                                         
-										<label for="tgl" class="col-form-label col-md-1">Tanggal Kejadian:</label>
+										<label for="tgl" class="col-form-label col-md-1">Kejadian:</label>
 										<div class="col-md-11">
 											<input type="date" class="form-control" id="tgl" name="tgl" >
 										</div>

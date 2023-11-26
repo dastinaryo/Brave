@@ -22,23 +22,23 @@
     // Membuat path lengkap file tujuan
     $path_tujuan = $folder_tujuan . $nama_file;
     
-    function generateRandomId($length = 4) {
-        $prefix = "pengaduan_";
-        $characters = 'abcd0123456789';
-        
-        $randomId = $prefix;
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+
         for ($i = 0; $i < $length; $i++) {
-            $randomId .= $characters[rand(0, strlen($characters) - 1)];
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
         }
-        return $randomId;
+
+        return $randomString;
     }
-    $randomId = generateRandomId();
+    $randomId = generateRandomString(50);
     
     $id_pengaduan = $randomId;
 
     // menginput data ke database
-    $sql = "INSERT INTO pengaduan(id_pengaduan, nim, judul, tgl_kejadian, pesan_aduan, pelaku, bukti, status) values
-                        ('$id_pengaduan','$nim','$jdl', '$tgl', '$det', '$plk', '$nama_file', 'pending')";
+    $sql = "INSERT INTO pengaduan(id_pengaduan, nim, nama, judul, tgl_kejadian, pesan_aduan, pelaku, bukti, status) values
+                        ('$id_pengaduan','$nim', '$usr', '$jdl', '$tgl', '$det', '$plk', '$path_tujuan', 'pending')";
     
     // Memindahkan file ke folder tujuan
     if (move_uploaded_file($tmp_file, $path_tujuan)) {
