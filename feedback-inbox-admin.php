@@ -555,7 +555,7 @@
 													</div>
 													<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
 														<a class="dropdown-item" data-toggle="modal" data-target="#edit-feedback-' . $row_feedback['id_feedback'] . '">Edit</a>
-														<a class="dropdown-item" href="#">Delete</a>
+														<a class="dropdown-item" href="backend/action-delete-feedback.php?id=' . $row_feedback['id_feedback'] . '">Delete</a>
 													</div>
 												</div>
 												

@@ -21,11 +21,8 @@
         $id_pengaduan = $_POST["id_pengaduan"];
         $nama = $_POST["nama"];
         $nim = $_POST["nim"];
-        $tgl_feedback = date("Y-m-d");
+        $tgl_feedback = date("Y-m-d H:i:s");
         $alasan = $_POST["alasan"];
-
-        $username = $nama;
-        $password = $nim;
 
         // Perform database insertion for login information
         // "INSERT INTO login (hak, username, password) VALUES ('user', '$username', '$password')";

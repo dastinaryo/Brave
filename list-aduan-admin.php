@@ -300,11 +300,11 @@
 															<a class='dropdown-item' href='backend/action-accept-aduan.php?id=" . $row['id_pengaduan'] . "'>Accept</a>
 															<a class='dropdown-item' href='backend/action-complete-aduan.php?id=" . $row['id_pengaduan'] . "'>Complete</a>
 															<a class='dropdown-item' data-toggle='modal' data-target='#decline-aduan-" . $row['id_pengaduan'] . "'>Decline</a>
-															<a class='dropdown-item' data-toggle='modal' data-target='#decline-aduan-" . $row['id_pengaduan'] . "'>Feedback</a>
+															<a class='dropdown-item' data-toggle='modal' data-target='#feedback-aduan-" . $row['id_pengaduan'] . "'>Feedback</a>
 														</div>
 													</center>
 
-													<!-- Modal for feedback -->
+													<!-- Modal for decline -->
 													<div class='modal fade' id='decline-aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
 														<div class='modal-dialog modal-dialog-centered' role='document'>
 															<div class='modal-content'>
@@ -316,7 +316,7 @@
 																</div>
 																<div class='modal-body'>
 																	<!-- Form for edit user -->
-																	<form id='feedbackAduanForm-" . $row['id_pengaduan'] . "' action='backend/action-decline-aduan.php' method='post'>
+																	<form id='declineAduanForm-" . $row['id_pengaduan'] . "' action='backend/action-decline-aduan.php' method='post'>
 																		<input type='text' class='form-control' id='id_pengaduan' name='id_pengaduan' value='" . $row['id_pengaduan'] . "' required hidden>
 																		<input type='text' class='form-control' id='nama' name='nama' value='" . $row['nama'] . "' required hidden>
 																		<input type='text' class='form-control' id='nim' name='nim' value='" . $row['nim'] . "' required hidden>
@@ -336,6 +336,42 @@
 													<script>
 														function declineAduan_" . $row['nim'] . "() {
 															// Submit the form when the 'Decline aduan' button is clicked
+															document.getElementById('declineAduanForm-" . $row['id_pengaduan'] . "').submit();
+														}
+													</script>
+
+													<!-- Modal for feedback -->
+													<div class='modal fade' id='feedback-aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
+														<div class='modal-dialog modal-dialog-centered' role='document'>
+															<div class='modal-content'>
+																<div class='modal-header'>
+																	<h5 class='modal-title' id='editUserModalLabel'>Berikan Feedback </h5>
+																	<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+																	<span aria-hidden='true'>&times;</span>
+																	</button>
+																</div>
+																<div class='modal-body'>
+																	<!-- Form for edit user -->
+																	<form id='feedbackAduanForm-" . $row['id_pengaduan'] . "' action='backend/action-feedback-aduan.php' method='post'>
+																		<input type='text' class='form-control' id='id_pengaduan' name='id_pengaduan' value='" . $row['id_pengaduan'] . "' required hidden>
+																		<input type='text' class='form-control' id='nama' name='nama' value='" . $row['nama'] . "' required hidden>
+																		<input type='text' class='form-control' id='nim' name='nim' value='" . $row['nim'] . "' required hidden>
+																		<div class='form-group'>
+																			<label for='alasan'>Feedback:</label>
+																			<input type='text' class='form-control' id='alasan' name='alasan' required>
+																		</div>
+																	</form>
+																</div>
+																<div class='modal-footer'>
+																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+																	<button type='button' class='btn btn-primary' onclick='feedbackAduan_" . $row['nim'] . "()'>Kirim</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<script>
+														function feedbackAduan_" . $row['nim'] . "() {
+															// Submit the form when the 'feedback aduan' button is clicked
 															document.getElementById('feedbackAduanForm-" . $row['id_pengaduan'] . "').submit();
 														}
 													</script>

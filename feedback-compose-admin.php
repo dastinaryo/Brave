@@ -246,46 +246,57 @@
 								</h3>
 							</div>
 							<div class="email-compose-fields">
-								<form>
+								<form id="feedbackForm" method="post" action="backend/action-tambah-feedback.php">
 									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Nama</label>
+										<!-- <input type="text" class="form-control" id="nama" name="nama" hidden required>
+										<input type="text" class="form-control" id="nim" name="nim" hidden required> -->
+										<label for="id_pengaduan" class="col-form-label col-md-1">Aduan</label>
 										<div class="col-md-11">
-											<select class="form-control" id="to" name="nama_mahasiswa">
-												<option value="option1">Pilihan 1</option>
-												<option value="option2">Pilihan 2</option>
-												<option value="option3">Pilihan 3</option>
-												<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
+											<select class="form-control" id="id_pengaduan" name="id_pengaduan">
+												<?php
+													$sql_pengaduan = "SELECT * FROM pengaduan ORDER BY nama ASC";
+													$result_pengaduan = mysqli_query($koneksi, $sql_pengaduan);
+													
+													// Check if there are any messages
+													if (mysqli_num_rows($result_pengaduan) > 0) {
+														// Loop through each row and display the messages
+														while ($row_pengaduan = mysqli_fetch_assoc($result_pengaduan)) {
+															echo '<option value="' . $row_pengaduan['id_pengaduan'] . '">' . $row_pengaduan['judul'] . ' (' . $row_pengaduan['nama'] .')</option>';
+														}
+													}else{
+														echo '<option value="option1">Tidak Ada</option>';
+													}
+												?>
 											</select>
+										</div>
+
+										<label for="alasan" class="col-form-label col-md-1">Isi Pesan</label>
+										<div class="col-md-11">
+											<textarea id="alasan" name="alasan" rows="15" style="width:100%; padding:10px 20px; border-color:#e4e8eb; border-radius: .25rem .25rem; color:#37424D;"></textarea>
 										</div>
 									</div>
 
-									<div class="form-group row">
-										<label for="to" class="col-form-label col-md-1">Ajuan</label>
-										<div class="col-md-11">
-											<select class="form-control" id="to" name="nama_mahasiswa">
-												<option value="option1">Pilihan 1</option>
-												<option value="option2">Pilihan 2</option>
-												<option value="option3">Pilihan 3</option>
-												<!-- Tambahkan opsi-opsi lainnya sesuai kebutuhan -->
-											</select>
-										</div>
-									</div>
-
-									<div class="form-group row">
+									<!-- <div class="form-group row">
 										<label for="to" class="col-form-label col-md-1">Tanggal</label>
 										<div class="col-md-11">
 											<input type="date" class="form-control" id="to" name="tanggal_feedback">
 										</div>
-									</div>
+									</div> -->
 								</form>
 							</div>
 							<div class="email-editor">
-								<div id="editor"></div>
+								<!-- <div id="editor"></div> -->
 								<div class="email-action">
-									<button class="btn btn-primary">Send</button>
-									<button class="btn btn-danger">Cancel</button>
+									<a class="btn btn-primary" style="color:white;" onclick="sent()">Send</a>
+									<a class="btn btn-danger" href="feedback-compose-admin.php" style="color:white;">Cancel</a>
 								</div>
 							</div>
+							<script>
+								function sent(){
+									var element = document.getElementById("feedbackForm").submit();
+									// console.log(element.innerHTML);
+								}
+							</script>
 						</div>
 					</div>
 				</div>
