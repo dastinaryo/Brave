@@ -229,7 +229,7 @@
 						<?php
 							// $login_id = $_SESSION['user_id'];
 							require 'backend/connection.php';
-							$sql = "SELECT * FROM pengaduan";
+							$sql = "SELECT * FROM pengaduan ORDER BY tgl_aduan DESC";
 							$result_pengaduan = mysqli_query($koneksi, $sql);
 						?>
 
@@ -256,7 +256,7 @@
 											echo "<td>" . $row['judul'] . "</td>";
 											echo "<td><center>" . $row['tgl_kejadian'] . "</center></td>";
 											echo "<td><center><a class='" . $row['status'] . "'>" . $row['status'] . "</a></center></td>";
-											echo "<td data-toggle='modal' data-target='#aduan-" . $row['nim'] . "' style='color:blue;'>
+											echo "<td data-toggle='modal' data-target='#aduan-" . $row['id_pengaduan'] . "' style='color:blue;'>
 													<center>
 														<a>
 															<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>
@@ -267,7 +267,7 @@
 												</td>
 
 												<!-- Modal Aduan -->
-												<div class='modal fade' id='aduan-" . $row['nim'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+												<div class='modal fade' id='aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
 													<div class='modal-dialog modal-dialog-centered' role='document'>
 														<div class='modal-content'>
 															<div class='modal-header'>
@@ -328,13 +328,13 @@
 																</div>
 																<div class='modal-footer'>
 																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-																	<button type='button' class='btn btn-primary' onclick='declineAduan_" . $row['nim'] . "()'>Kirim</button>
+																	<button type='button' class='btn btn-primary' onclick='declineAduan_" . $row['id_pengaduan'] . "()'>Kirim</button>
 																</div>
 															</div>
 														</div>
 													</div>
 													<script>
-														function declineAduan_" . $row['nim'] . "() {
+														function declineAduan_" . $row['id_pengaduan'] . "() {
 															// Submit the form when the 'Decline aduan' button is clicked
 															document.getElementById('declineAduanForm-" . $row['id_pengaduan'] . "').submit();
 														}
@@ -364,13 +364,13 @@
 																</div>
 																<div class='modal-footer'>
 																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-																	<button type='button' class='btn btn-primary' onclick='feedbackAduan_" . $row['nim'] . "()'>Kirim</button>
+																	<button type='button' class='btn btn-primary' onclick='feedbackAduan_" . $row['id_pengaduan'] . "()'>Kirim</button>
 																</div>
 															</div>
 														</div>
 													</div>
 													<script>
-														function feedbackAduan_" . $row['nim'] . "() {
+														function feedbackAduan_" . $row['id_pengaduan'] . "() {
 															// Submit the form when the 'feedback aduan' button is clicked
 															document.getElementById('feedbackAduanForm-" . $row['id_pengaduan'] . "').submit();
 														}
