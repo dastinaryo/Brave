@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+								<?php echo htmlspecialchars($_SESSION["username"]); ?>
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,8 +163,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
-											<p class="text-muted">NIM : </p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -237,26 +237,30 @@
 									</div>
 									
 									<div class="email-list">
-										<div class="email-list-item">
-											<div class="email-list-actions"></div>
-											<div class="email-list-detail"><span class="date float-right">18 Nov</span><span class="from">Admin</span>
-												<p class="msg">Ini adalah feedback anda</p>
-											</div>
-										</div>
+										<?php
+										// Fetch messages from the konsultasi table
+										$sql = "SELECT * FROM feedback WHERE nim = '$login_id'";
+										$result = mysqli_query($koneksi, $sql);
 
-										<div class="email-list-item">
-											<div class="email-list-actions"></div>
-											<div class="email-list-detail"><span class="date float-right">22 Oct</span><span class="from">Admin</span>
-												<p class="msg">Ini adalah feedback anda</p>
-											</div>
-										</div>
 
-										<div class="email-list-item">
-											<div class="email-list-actions"></div>
-											<div class="email-list-detail"><span class="date float-right">9 Aug</span><span class="from">Admin</span>
-												<p class="msg">Ini adalah feedback anda</p>
-											</div>
-										</div>
+
+										// Check if there are any messages
+										if (mysqli_num_rows($result) > 0) {
+											// Loop through each row and display the messages
+											while ($row = mysqli_fetch_assoc($result)) {
+												echo '<div class="email-list-item">';
+												echo "<div class='email-list-actions'></div>";
+												echo '<div class="email-list-detail"><span class="date float-right">';
+												echo date("d M", strtotime($row['tgl_feedback']));
+												echo '</span><span class="from">Admin</span>';
+													echo '<p class="msg">' . $row['alasan'] . '</p>';
+												echo "</div>";
+											} 
+											} else {
+												echo "No messages found.";
+											}
+											mysqli_close($koneksi);
+											?>
 									</div>
 								</div>
 							</div>
