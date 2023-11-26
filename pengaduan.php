@@ -38,6 +38,8 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="assets/css/demo.css">
+
+	
 </head>
 <body>
 	<div class="wrapper fullheight-side">
@@ -222,7 +224,7 @@
 											<input type="text" class="form-control" id="jd" name="jdl" required>
 										</div>
                                         
-										<label for="tgl" class="col-form-label col-md-1">Tanggal :</label>
+										<label for="tgl" class="col-form-label col-md-1">Kejadian:</label>
 										<div class="col-md-11">
 											<input type="date" class="form-control" id="tgl" name="tgl" >
 										</div>
