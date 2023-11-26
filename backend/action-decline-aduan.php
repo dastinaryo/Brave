@@ -21,7 +21,7 @@
         $id_pengaduan = $_POST["id_pengaduan"];
         $nama = $_POST["nama"];
         $nim = $_POST["nim"];
-        $tgl_feedback = $_POST["tgl_feedback"];
+        $tgl_feedback = date("Y-m-d");
         $alasan = $_POST["alasan"];
 
         $username = $nama;

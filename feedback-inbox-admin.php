@@ -498,7 +498,6 @@
 									<li class="active">
 										<a href="feedback-inbox-admin.php">
 											<i class="flaticon-inbox"></i> Feedback Terkirim
-											<span class="badge badge-primary float-right">8</span>
 										</a>
 									</li>
 									<li>
@@ -506,51 +505,7 @@
 											<i class="fa fa-envelope"></i> Tulis Feedback
 										</a>
 									</li>
-									<!-- <li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-envelope-3"></i> Drafts
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-price-tag"></i> Tags
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-interface-5"></i> Trash
-										</a>
-									</li> -->
-
 								</ul>
-
-								<!-- <span class="label">Labels</span>
-								<ul class="nav nav-pills nav-stacked">
-									<li>
-										<a href="#">
-											<i class="flaticon-inbox"></i> Inbox
-											<span class="badge badge-primary float-right">8</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="#">
-											<i class="fa fa-envelope"></i> Sent Feedback
-										</a>
-									</li>
-									<li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-								</ul> -->
-								<!-- <div class="aside-compose"><a href="#" class="btn btn-primary btn-block fw-mediumbold">Compose Email</a></div> -->
 							</div>
 						</div>
 						<div class="page-content mail-content">
@@ -569,258 +524,105 @@
 							</div>
 							<div class="inbox-body" style="padding-top:0;">
 								<div class="email-list">
-									<div class="email-list-item unread" data-toggle="modal" data-target="#feedback1">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Google Webmaster</span>
-											<p class="msg">Improve the search presence of WebSite</p>
-										</div>
-									</div>
+									<?php
+									// Fetch messages from the konsultasi table
+									$sql_feedback = "SELECT * FROM feedback ORDER BY tgl_feedback DESC";
+									$result_feedback = mysqli_query($koneksi, $sql_feedback);
 
-									<!-- Modal Feedback 1-->
-									<div class="modal fade" id="feedback1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Google Webmaster</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
+									// Check if there are any messages
+									if (mysqli_num_rows($result_feedback) > 0) {
+										// Loop through each row and display the messages
+										while ($row_feedback = mysqli_fetch_assoc($result_feedback)) {
+											$id_pengaduan=$row_feedback['id_pengaduan'];
+											$sql_pengaduan = "SELECT * FROM pengaduan WHERE id_pengaduan='$id_pengaduan'";
+											$result_pengaduan = mysqli_query($koneksi, $sql_pengaduan);
+											$row_pengaduan = mysqli_fetch_assoc($result_pengaduan);
 
+											echo '
+												<div class="email-list-item">
+													<div class="email-list-detail" data-toggle="modal" data-target="#feedback-' . $row_feedback['id_feedback'] . '">
+														<span class="date float-right">
+															' . date("d M", strtotime($row_feedback['tgl_feedback'] )). '
+															
+														</span>
+														<span class="from">' .  $row_feedback['nama']. '</span>
+														<p class="msg">' . $row_pengaduan['judul'] . '</p>
+													</div>
+													<div id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px; margin-right:-17px;">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+															<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+														</svg>
+													</div>
+													<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+														<a class="dropdown-item" data-toggle="modal" data-target="#edit-feedback-' . $row_feedback['id_feedback'] . '">Edit</a>
+														<a class="dropdown-item" href="#">Delete</a>
+													</div>
+												</div>
+												
+												<!-- Modal for feedback -->
+												<div class="modal fade" id="feedback-' . $row_feedback['id_feedback'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row_pengaduan['judul'] . '</h5>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body" style="text-align:justify;">
+																<p style="margin-bottom:1px;"><strong>Nama :</strong> ' . $row_feedback['nama'] . '</p>
+																<p style="margin-bottom:10px;"><strong>Tanggal Feedback:</strong> ' . date("d M Y", strtotime($row_feedback['tgl_feedback'])) . '</p>
+																Feedback : ' . $row_feedback['alasan'] . '
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+															</div>
+														</div>
+													</div>
+												</div>
 
-									<div class="email-list-item unread" data-toggle="modal" data-target="#feedback2">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
+												<!-- Modal for edit feedback -->
+												<div class="modal fade" id="edit-feedback-' . $row_feedback["id_feedback"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="editUserModalLabel">Tolak Pengaduan </h5>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																<!-- Form for edit feedback -->
+																<form id="editFeedbackForm-' . $row_feedback['id_feedback'] . '" action="backend/action-edit-feedback.php" method="post">
+																	<input type="text" class="form-control" id="id_feedback" name="id_feedback" value="' . $row_feedback["id_feedback"] . '" required hidden>
+																	<div class="form-group">
+																		<label for="alasan">Feedback:</label>
+																		<input type="text" class="form-control" id="alasan" name="alasan" value="' . $row_feedback["alasan"] . '" required>
+																	</div>
+																</form>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																<button type="button" class="btn btn-primary" onclick="editFeedback_' . $row_feedback["id_feedback"] . '()">Edit</button>
+															</div>
+														</div>
+													</div>
 												</div>
-											</span>
-											<span class="from">	PHPClass</span>
-											<p class="msg">Learn Laravel Videos Tutorial</p>
-										</div>
-									</div>
+												<script>
+													function editFeedback_' . $row_feedback["id_feedback"] . '() {
+														// Submit the form when the "Decline aduan" button is clicked
+														document.getElementById("editFeedbackForm-' . $row_feedback["id_feedback"] . '").submit();
+													}
+												</script>
+												';
+										}
+									} else {
+										echo "No messages found.";
+									}
 
-									<!-- Modal Feedback 2-->
-									<div class="modal fade" id="feedback2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;"> PHPClass</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback3">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Language Course</span>
-											<p class="msg">Learn new language, Hizrian !</p>
-										</div>
-									</div>
-
-									<!-- Modal Feedback 3-->
-									<div class="modal fade" id="feedback3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Language Course</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback4">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Farrah Septya</span>
-											<p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
-										</div>
-									</div>
-
-									<!-- Modal Feedback 4-->
-									<div class="modal fade" id="feedback4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Farrah Septya</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback5">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Facebook</span>
-											<p class="msg">Somebody requested a new password</p>
-										</div>
-									</div>
-
-									<!-- Modal Feedback 5-->
-									<div class="modal fade" id="feedback5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Facebook</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="email-list-item" data-toggle="modal" data-target="#feedback6">
-										<div class="email-list-detail">
-											<span class="date float-right">
-												28 Jul
-												<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-														<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-													</svg>
-												</a>
-												<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Delete</a>
-												</div>
-											</span>
-											<span class="from">Kristopher Donny</span>
-											<p class="msg">Hello Friend, How are you?</p>
-										</div>
-									</div>
-
-									<!-- Modal Feedback 6-->
-									<div class="modal fade" id="feedback6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">Kristopher Donny</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align:justify;">
-													<p style="margin-bottom:1px;"><strong>Nama :</strong> Username </p>
-													<p style="margin-bottom:10px;"><strong>Tanggal :</strong> 28 July 2023 </p>
-													Isi Pengaduan : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-													<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-												</div>
-											</div>
-										</div>
-									</div>
+									// Close the database connection
+									mysqli_close($koneksi);
+									?>
 								</div>
 							</div>
 						</div>
@@ -860,484 +662,8 @@
 				</div>
 			</footer>
 		</div>
-		<div class="quick-sidebar">
-			<a href="#" class="close-quick-sidebar">
-				<i class="flaticon-cross"></i>
-			</a>
-			<div class="quick-sidebar-wrapper">
-				<ul class="nav nav-tabs nav-line nav-color-secondary" role="tablist">
-					<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#messages" role="tab" aria-selected="true">Messages</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tasks" role="tab" aria-selected="false">Tasks</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
-				</ul>
-				<div class="tab-content mt-3">
-					<div class="tab-chat tab-pane fade show active" id="messages" role="tabpanel">
-						<div class="messages-contact">
-							<div class="quick-wrapper">
-								<div class="quick-scroll scrollbar-outer">
-									<div class="quick-content contact-content">
-										<span class="category-title mt-0">Contacts</span>
-										<div class="avatar-group">
-											<div class="avatar">
-												<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<span class="avatar-title rounded-circle border border-white">+</span>
-											</div>
-										</div>
-										<span class="category-title">Recent</span>
-										<div class="contact-list contact-list-recent">
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-online">
-														<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">Jimmy Denis</span>
-														<span class="message">How are you ?</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">Chad</span>
-														<span class="message">Ok, Thanks !</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">John Doe</span>
-														<span class="message">Ready for the meeting today with...</span>
-													</div>
-												</a>
-											</div>
-										</div>
-										<span class="category-title">Other Contacts</span>
-										<div class="contact-list">
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-online">
-														<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Jimmy Denis</span>
-														<span class="status">Online</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Chad</span>
-														<span class="status">Active 2h ago</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-away">
-														<img src="assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Talha</span>
-														<span class="status">Away</span>
-													</div>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="messages-wrapper">
-							<div class="messages-title">
-								<div class="user">
-									<div class="avatar avatar-offline float-right ml-2">
-										<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-									</div>
-									<span class="name">Chad</span>
-									<span class="last-active">Active 2h ago</span>
-								</div>
-								<button class="return">
-									<i class="flaticon-left-arrow-3"></i>
-								</button>
-							</div>
-							<div class="messages-body messages-scroll scrollbar-outer">
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">Hello, Rian</div>
-											</div>
-											<div class="date">12.31</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-out">
-										<div class="message-body">
-											<div class="message-content">
-												<div class="content">
-													Hello, Chad
-												</div>
-											</div>
-											<div class="message-content">
-												<div class="content">
-													What's up?
-												</div>
-											</div>
-											<div class="date">12.35</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">
-													Thanks
-												</div>
-											</div>
-											<div class="message-content">
-												<div class="content">
-													When is the deadline of the project we are working on ?
-												</div>
-											</div>
-											<div class="date">13.00</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-out">
-										<div class="message-body">
-											<div class="message-content">
-												<div class="content">
-													The deadline is about 2 months away
-												</div>
-											</div>
-											<div class="date">13.10</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">
-													Ok, Thanks !
-												</div>
-											</div>
-											<div class="date">13.15</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="messages-form">
-								<div class="messages-form-control">
-									<input type="text" placeholder="Type here" class="form-control input-pill input-solid message-input">
-								</div>
-								<div class="messages-form-tool">
-									<a href="#" class="attachment">
-										<i class="flaticon-file"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="tasks" role="tabpanel">
-						<div class="quick-wrapper tasks-wrapper">
-							<div class="tasks-scroll scrollbar-outer">
-								<div class="tasks-content">
-									<span class="category-title mt-0">Today</span>
-									<ul class="tasks-list">
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" checked="" class="custom-control-input"><span class="custom-control-label">Planning new project structure</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Add new Post</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Finalise the design proposal</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-									</ul>
-
-									<span class="category-title">Tomorrow</span>
-									<ul class="tasks-list">
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Initialize the project							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Updates changes to GitHub							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span title="This task is too long to be displayed in a normal space!" class="custom-control-label">This task is too long to be displayed in a normal space!				</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-									</ul>
-
-									<div class="mt-3">
-										<div class="btn btn-primary btn-rounded btn-sm">
-											<span class="btn-label">
-												<i class="fa fa-plus"></i>
-											</span>
-											Add Task
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="settings" role="tabpanel">
-						<div class="quick-wrapper settings-wrapper">
-							<div class="quick-scroll scrollbar-outer">
-								<div class="quick-content settings-content">
-
-									<span class="category-title mt-0">General Settings</span>
-									<ul class="settings-list">
-										<li>
-											<span class="item-label">Enable Notifications</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Signin with social media</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Backup storage</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">SMS Alert</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-									</ul>
-
-									<span class="category-title mt-0">Notifications</span>
-									<ul class="settings-list">
-										<li>
-											<span class="item-label">Email Notifications</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">New Comments</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Chat Messages</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Project Updates</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">New Tasks</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Custom template | don't include it in your project! -->
-		<!-- <div class="custom-template">
-			<div class="title">Settings</div>
-			<div class="custom-content">
-				<div class="switcher">
-					<div class="switch-block">
-						<h4>Logo Header</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
-							<button type="button" class="selected changeLogoHeaderColor" data-color="blue"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="green"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
-							<br/>
-							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Navbar Header</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeTopBarColor" data-color="dark"></button>
-							<button type="button" class="changeTopBarColor" data-color="blue"></button>
-							<button type="button" class="changeTopBarColor" data-color="purple"></button>
-							<button type="button" class="changeTopBarColor" data-color="light-blue"></button>
-							<button type="button" class="changeTopBarColor" data-color="green"></button>
-							<button type="button" class="changeTopBarColor" data-color="orange"></button>
-							<button type="button" class="changeTopBarColor" data-color="red"></button>
-							<button type="button" class="changeTopBarColor" data-color="white"></button>
-							<br/>
-							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
-							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
-							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
-							<button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
-							<button type="button" class="changeTopBarColor" data-color="green2"></button>
-							<button type="button" class="changeTopBarColor" data-color="orange2"></button>
-							<button type="button" class="changeTopBarColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Sidebar</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeSideBarColor" data-color="dark"></button>
-							<button type="button" class="selected changeSideBarColor" data-color="blue"></button>
-							<button type="button" class="changeSideBarColor" data-color="purple"></button>
-							<button type="button" class="changeSideBarColor" data-color="light-blue"></button>
-							<button type="button" class="changeSideBarColor" data-color="green"></button>
-							<button type="button" class="changeSideBarColor" data-color="orange"></button>
-							<button type="button" class="changeSideBarColor" data-color="red"></button>
-							<br/>
-							<button type="button" class="changeSideBarColor" data-color="dark2"></button>
-							<button type="button" class="changeSideBarColor" data-color="blue2"></button>
-							<button type="button" class="changeSideBarColor" data-color="purple2"></button>
-							<button type="button" class="changeSideBarColor" data-color="light-blue2"></button>
-							<button type="button" class="changeSideBarColor" data-color="green2"></button>
-							<button type="button" class="changeSideBarColor" data-color="orange2"></button>
-							<button type="button" class="changeSideBarColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Background</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeBackgroundColor" data-color="bg2"></button>
-							<button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
-							<button type="button" class="changeBackgroundColor" data-color="bg3"></button>
-							<button type="button" class="changeBackgroundColor" data-color="dark"></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="custom-toggle">
-				<i class="flaticon-settings"></i>
-			</div>
-		</div> -->
-		<!-- End Custom template -->
 	</div>
+
 	<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="assets/js/core/popper.min.js"></script>

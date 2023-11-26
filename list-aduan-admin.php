@@ -300,16 +300,16 @@
 															<a class='dropdown-item' href='backend/action-accept-aduan.php?id=" . $row['id_pengaduan'] . "'>Accept</a>
 															<a class='dropdown-item' href='backend/action-complete-aduan.php?id=" . $row['id_pengaduan'] . "'>Complete</a>
 															<a class='dropdown-item' data-toggle='modal' data-target='#decline-aduan-" . $row['id_pengaduan'] . "'>Decline</a>
-															<a class='dropdown-item' href='feedback-admin.php?id=" . $row['id_pengaduan'] . "''>Feedback</a>
+															<a class='dropdown-item' data-toggle='modal' data-target='#decline-aduan-" . $row['id_pengaduan'] . "'>Feedback</a>
 														</div>
 													</center>
 
 													<!-- Modal for feedback -->
-													<div class='modal' id='decline-aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
-														<div class='modal-dialog' role='document'>
+													<div class='modal fade' id='decline-aduan-" . $row['id_pengaduan'] . "' tabindex='-1' role='dialog' aria-labelledby='editUserModalLabel' aria-hidden='true'>
+														<div class='modal-dialog modal-dialog-centered' role='document'>
 															<div class='modal-content'>
 																<div class='modal-header'>
-																	<h5 class='modal-title' id='editUserModalLabel'>Tolak Pengaduan </h5>
+																	<h5 class='modal-title' id='editUserModalLabel'>Berikan Feedback </h5>
 																	<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
 																	<span aria-hidden='true'>&times;</span>
 																	</button>
@@ -321,10 +321,6 @@
 																		<input type='text' class='form-control' id='nama' name='nama' value='" . $row['nama'] . "' required hidden>
 																		<input type='text' class='form-control' id='nim' name='nim' value='" . $row['nim'] . "' required hidden>
 																		<div class='form-group'>
-																			<label for='tgl_feedback'>Tanggal Feedback:</label>
-																			<input type='date' class='form-control' id='tgl_feedback' name='tgl_feedback' required>
-																		</div>
-																		<div class='form-group'>
 																			<label for='alasan'>Feedback:</label>
 																			<input type='text' class='form-control' id='alasan' name='alasan' required>
 																		</div>
@@ -332,7 +328,7 @@
 																</div>
 																<div class='modal-footer'>
 																	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-																	<button type='button' class='btn btn-primary' onclick='declineAduan_" . $row['nim'] . "()'>Decline</button>
+																	<button type='button' class='btn btn-primary' onclick='declineAduan_" . $row['nim'] . "()'>Kirim</button>
 																</div>
 															</div>
 														</div>
