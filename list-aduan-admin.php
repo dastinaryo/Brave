@@ -229,7 +229,7 @@
 						<?php
 							// $login_id = $_SESSION['user_id'];
 							require 'backend/connection.php';
-							$sql = "SELECT * FROM pengaduan";
+							$sql = "SELECT * FROM pengaduan ORDER BY tgl_aduan DESC";
 							$result_pengaduan = mysqli_query($koneksi, $sql);
 						?>
 

@@ -216,6 +216,7 @@
 								<form action="backend/action-form-aduan.php" method="post" enctype="multipart/form-data">
 									<div class="form-group row">
 										<input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION["user_id"]); ?>">
+										<input type="hidden" name="username" value="<?php echo htmlspecialchars($_SESSION["username"]); ?>">
 										<label for="jd" class="col-form-label col-md-1">Judul :</label>
 										<div class="col-md-11">
 											<input type="text" class="form-control" id="jd" name="jdl" required>
