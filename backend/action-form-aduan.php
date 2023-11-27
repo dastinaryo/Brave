@@ -17,7 +17,7 @@
     $tmp_file = $_FILES['file']['tmp_name'];
 
     // Lokasi folder untuk menyimpan file yang diunggah
-    $folder_tujuan = "upload_files/";
+    $folder_tujuan = "../assets/img/bukti/";
 
     // Membuat path lengkap file tujuan
     $path_tujuan = $folder_tujuan . $nama_file;

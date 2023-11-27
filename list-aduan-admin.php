@@ -279,7 +279,7 @@
 															<div class='modal-body' style='text-align:justify;'>
 																<p style='margin-bottom:1px;'><strong>Nama :</strong> " . $row['nama'] . " </p>
 																<p style='margin-bottom:10px;'><strong>Tanggal Kejadian :</strong> " . $row['tgl_kejadian'] . " </p>
-																<p> <center> <img src='" . $row['bukti'] . "' style='width:70%; border-radius:5px;'></center></p>
+																<p> <center> <img src='assets/img/bukti/" . $row['bukti'] . "' style='width:70%; border-radius:5px;'></center></p>
 																Isi Pengaduan : " . $row['pesan_aduan'] . "
 															</div>
 															<div class='modal-footer'>

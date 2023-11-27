@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-								<?php echo htmlspecialchars($_SESSION["username"]); ?>
+								<?php echo '<div class="sizetitle-sidebar">' . htmlspecialchars($_SESSION["username"]) . '</div>'; ?> 
 									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
@@ -163,7 +163,7 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<h4 class="sizetitle"><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
 											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>

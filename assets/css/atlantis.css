@@ -14399,4 +14399,19 @@ body {
   border-radius: 20px;
 }
 
+.sizetitle{
+  width: 148px;
+  height: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sizetitle-sidebar{
+  width: 130px;
+  height: 21px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 /*# sourceMappingURL=atlantis.css.map */
