@@ -225,56 +225,66 @@
 								<div class="email-list">
 								<?php
 									// Fetch messages from the konsultasi table
-									$sql = "SELECT * FROM konsultasi WHERE pengirim = 'admin' AND nama = '$username'";
+									$sql = "SELECT * FROM konsultasi WHERE pengirim = 'admin' AND penerima = '$username'";
 									$result = mysqli_query($koneksi, $sql);
 
 									// Check if there are any messages
 									if (mysqli_num_rows($result) > 0) {
 										// Loop through each row and display the messages
 										while ($row = mysqli_fetch_assoc($result)) {
-											echo '<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi' . $row['id_konsul'] . '">';
-											echo '<div class="email-list-detail">';
-											echo '<span class="date float-right">';
-											echo date("d M", strtotime($row['tgl_konsultasi'])); // Display date in the format "dd M"
-											echo '<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">';
-											echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">';
-											echo '<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>';
-											echo '</svg>';
-											echo '</a>';
-											echo '<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">';
-											echo '<a class="dropdown-item" href="#">Edit</a>';
-											echo '<a class="dropdown-item" href="#">Delete</a>';
-											echo '</div>';
-											echo '</span>';
-											echo '<span class="from">' . $row['judul'] . '</span>';
-											echo '<p class="msg">' . $row['pesan'] . '</p>';
-											echo '</div>';
-											echo '</div>';
+											echo '
+												<div class="email-list-item unread" data-toggle="modal" data-target="#konsultasi' . $row['id_konsul'] . '">
+													<div class="email-list-detail">
+														<span class="date float-right">' 
+															. date("d M", strtotime($row["tgl_konsultasi"])) . ' 
+															<a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px;">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+																	<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+																</svg>
+															</a>
 
-											// Modal for each message
-											echo '<div class="modal fade" id="konsultasi' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
-											echo '<div class="modal-dialog modal-dialog-centered" role="document">';
-											echo '<div class="modal-content">';
-											echo '<div class="modal-header">';
-											echo '<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row['judul'] . '</h5>';
-											echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
-											echo '<span aria-hidden="true">&times;</span>';
-											echo '</button>';
-											echo '</div>';
-											echo '<div class="modal-body" style="text-align:justify;">';
-											echo '<p style="margin-bottom:1px;"><strong>Nama :</strong> ' . $row['nama'] . '</p>';
-											echo '<p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>';
-											echo 'Isi Pengaduan : ' . $row['pesan'];
-											echo '</div>';
-											echo '<div class="modal-footer">';
-											echo '<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>';
-											echo '</div>';
-											echo '</div>';
-											echo '</div>';
-											echo '</div>';
+															<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+																<a class="dropdown-item" href="#">Edit</a>
+																<a class="dropdown-item" href="#">Delete</a>
+															</div>
+														</span>
+														
+														<span class="from">' . $row['judul'] . '</span>
+														<p class="msg">' . $row['pesan'] . '</p>
+													</div>
+												</div>
+
+												<!-- Modal for messege -->
+												<div class="modal fade" id="konsultasi' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row['judul'] . '</h5>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body" style="text-align:justify;">
+																<p style="margin-bottom:1px;"><strong>Nama :</strong> ' . $row['nama'] . '</p>
+																<p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>
+																' . $row['pesan'] .'
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											';
 										}
 									} else {
-										echo "No messages found.";
+										echo '
+											<div class="email-list-item">
+													<div class="email-list-detail">
+														<span class="from">No messages found.</span>
+													</div>
+												</div>
+										';
 									}
 
 									// Close the database connection

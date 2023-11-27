@@ -3,10 +3,10 @@
     include 'connection.php';
     
     // menangkap data yang di kirim dari form
-    $user_id = $_POST['user_id'];
-    $penerima = 'admin';
-    $jdl = $_POST['jdl'];    
-    $psn = $_POST['psn'];
+    $pengirim = $_POST['pengirim'];
+    $penerima = $_POST['penerima'];
+    $judul = $_POST['judul'];    
+    $pesan = $_POST['pesan'];
     
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -27,16 +27,14 @@
 
     // menginput data ke database
     $sql = "INSERT INTO konsultasi(id_konsul, pengirim, penerima, judul, pesan, tgl_konsultasi, is_read) values
-                        ('$id_konsul','$user_id','$penerima', '$jdl', '$psn', '$today', '$is_read')";
+                        ('$id_konsul','$pengirim','$penerima', '$judul', '$pesan', '$today', '$is_read')";
     
 
     // mengalihkan halaman kembali
     if(mysqli_query($koneksi, $sql)){
-        echo "<script> alert('Konsultasi berhasil dikirim')</script>";
-        echo "<script> window.location.href = '../konsultasi-compose.php'</script>";
+        echo "<script> window.location.href = '../konsultasi-inbox-admin.php'</script>";
     }else{
-        echo "<script> alert('Konsultasi gagal dikirim')</script>";
-        echo "<script> window.location.href = '../konsultasi-compose.php'</script>";
+        echo "<script> window.location.href = '../konsultasi-inbox-admin.php'</script>";
     }
     $koneksi->close();
 

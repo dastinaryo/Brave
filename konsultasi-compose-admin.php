@@ -71,7 +71,7 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Username
+									<?php echo $_SESSION['username'] ?>
 									<span class="user-level">Admin</span>
 									<span class="caret"></span>
 								</span>
@@ -390,7 +390,7 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Username</h4>
+											<h4><?php echo $_SESSION['username'] ?></h4>
 											<a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
@@ -431,51 +431,7 @@
 											<i class="fa fa-envelope"></i> Sent Consultation
 										</a>
 									</li>
-									<!-- <li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-envelope-3"></i> Drafts
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-price-tag"></i> Tags
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="flaticon-interface-5"></i> Trash
-										</a>
-									</li> -->
-
 								</ul>
-
-								<!-- <span class="label">Labels</span>
-								<ul class="nav nav-pills nav-stacked">
-									<li>
-										<a href="#">
-											<i class="flaticon-inbox"></i> Inbox
-											<span class="badge badge-primary float-right">8</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="#">
-											<i class="fa fa-envelope"></i> Sent Consultation
-										</a>
-									</li>
-									<li>
-										<a href="#">             
-											<i class="flaticon-exclamation"></i> Important
-											<span class="badge badge-secondary float-right">4</span>
-										</a>
-									</li>
-								</ul> -->
-								<!-- <div class="aside-compose"><a href="#" class="btn btn-primary btn-block fw-mediumbold">Compose Email</a></div> -->
 							</div>
 						</div>
 						<div class="page-content mail-content">

@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Daftar Aduan</title>
+	<title>Brave | Tulis Konsultasi</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -219,7 +219,7 @@
 									<div class="form-group row">
 									<input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION["user_id"]); ?>">
 									<input type="hidden" name="username" value="<?php echo htmlspecialchars($_SESSION["username"]); ?>">
-										<label for="to" class="col-form-label col-md-1">Judul :</label>
+										<label for="to" class="col-form-label col-md-1">Topik :</label>
 										<div class="col-md-11">
 											<input type="text" class="form-control" id="jdl" name="jdl">
 										</div>

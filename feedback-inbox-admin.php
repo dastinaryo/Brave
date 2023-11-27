@@ -543,8 +543,8 @@
 													<div class="email-list-detail" data-toggle="modal" data-target="#feedback-' . $row_feedback['id_feedback'] . '">
 														<span class="date float-right">
 															' . date("d M", strtotime($row_feedback['tgl_feedback'] )). '
-															
 														</span>
+														
 														<span class="from">' .  $row_feedback['nama']. '</span>
 														<p class="msg">' . $row_pengaduan['judul'] . '</p>
 													</div>
