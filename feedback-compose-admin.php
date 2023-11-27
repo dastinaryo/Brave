@@ -252,7 +252,7 @@
 										<input type="text" class="form-control" id="nim" name="nim" hidden required> -->
 										<label for="id_pengaduan" class="col-form-label col-md-1">Aduan</label>
 										<div class="col-md-11">
-											<select class="form-control" id="id_pengaduan" name="id_pengaduan">
+											<select class="form-control" id="id_pengaduan" name="id_pengaduan" required>
 												<?php
 													$sql_pengaduan = "SELECT * FROM pengaduan ORDER BY nama ASC";
 													$result_pengaduan = mysqli_query($koneksi, $sql_pengaduan);
@@ -272,7 +272,7 @@
 
 										<label for="alasan" class="col-form-label col-md-1">Isi Pesan</label>
 										<div class="col-md-11">
-											<textarea id="alasan" name="alasan" rows="15" style="width:100%; padding:10px 20px; border-color:#e4e8eb; border-radius: .25rem .25rem; color:#37424D;"></textarea>
+											<textarea id="alasan" name="alasan" rows="15" style="width:100%; padding:10px 20px; border-color:#e4e8eb; border-radius: .25rem .25rem; color:#37424D;" required></textarea>
 										</div>
 									</div>
 

@@ -127,7 +127,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="konsultasi-compose-admin.php">
+										<a href="konsultasi-sent-admin.php">
 											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
@@ -225,7 +225,7 @@
 								<ul class="nav">
 									<li class="active">
 										<a href="konsultasi-inbox-admin.php">
-											<i class="flaticon-inbox"></i> Inbox
+											<i class="flaticon-inbox"></i> Konsultasi Masuk
 											<?php
 												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE NOT pengirim='$login_id' AND is_read='unread'";
 												$result_counter_konsul = mysqli_query($koneksi, $sql_counter_konsul);
@@ -244,13 +244,17 @@
 											
 										</a>
 									</li>
+                                    <li>
+										<a href="konsultasi-sent-admin.php">
+											<i class="flaticon-envelope-3"></i> Konsultasi Terkirim
+										</a>
+									</li>
 									<li>
 										<a href="konsultasi-compose-admin.php">
-											<i class="fa fa-envelope"></i> Sent Consultation
+											<i class="fa fa-envelope"></i> Tulis Konsultasi
 										</a>
 									</li>
 								</ul>
-
 							</div>
 						</div>
 						<div class="page-content mail-content">
@@ -318,7 +322,7 @@
 																	</button>
 																</div>
 																<div class="modal-body" style="text-align:justify;">
-																	<p style="margin-bottom:1px;"><strong>Nama :</strong> ' . $row_users['nama'] . '</p>
+																	<p style="margin-bottom:1px;"><strong>Dari :</strong> ' . $row_users['nama'] . '</p>
 																	<p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>
 																	' . $row['pesan'] .'
 																</div>
