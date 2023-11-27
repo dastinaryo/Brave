@@ -208,7 +208,7 @@
 									<th scope="col">No</th>
 									<th scope="col">Judul</th>
 									<th scope="col">Tanggal Kejadian</th>
-									<th scope="col">Status</th>
+									<th scope="col" style="text-align:center;">Status</th>
 									<th scope="col" style="width:100px; text-align:center; ">Detail</th>
 								</tr>
 							</thead>
@@ -229,7 +229,7 @@
 											<td>$no</td>
 											<td>$tampil[judul]</td>
 											<td>$tampil[tgl_kejadian]</td>
-											<td>$tampil[status]</td>
+											<td><center><a class='$tampil[status]'>$tampil[status]</a></td>
 											<td>
 											<center>
 											<a href='detail-aduan.php'>
