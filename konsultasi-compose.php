@@ -234,7 +234,7 @@
 							<div class="email-head d-lg-flex d-block" style="padding-top:20px;">
 								<h3>
 									<i class="flaticon-pen mr-1"></i>
-									Konsultasi
+									Tulis Konsultasi
 								</h3>
 							</div>
 							<div class="email-compose-fields">

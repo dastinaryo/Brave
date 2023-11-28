@@ -9,6 +9,13 @@
 	}else{
 		$username = $_SESSION['username'];
 		$login_id = $_SESSION['user_id'];
+        
+		// Define the data you want to insert
+		$id_pengaduan  = $_GET["id"];
+		$sql_pengaduan = "SELECT * FROM pengaduan WHERE id_pengaduan='$id_pengaduan'";
+		$result_pengaduan = mysqli_query($koneksi, $sql_pengaduan);
+		$row_pengaduan = mysqli_fetch_assoc($result_pengaduan);
+
 	}
 ?>
 
@@ -16,7 +23,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Daftar Aduan</title>
+	<title>Brave | Detail Aduan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -117,7 +124,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-sent.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -125,7 +137,6 @@
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 						</li>
@@ -201,67 +212,62 @@
 					<div class="page-with-aside mail-wrapper bg-white">
 						<div class="page-content mail-content" style="width:100%">
 							<div class="email-head d-lg-flex d-block" style="padding-bottom:20px;">
-								<h2 style="font-size:25px; width:100%; text-align:center; margin:0;">Pelecehan Tanpa Izin</h2>
+								<h2 style="font-size:25px; width:100%; text-align:center; margin:0;"><?php echo '' . $row_pengaduan["judul"] . ''; ?></h2>
 							</div>
 							<div class="email-sender">
 								<div class="sender" style="width:100%;">
-									<center><img src="assets/img/bukti/bukti1.jpeg" style="height:50em; border-radius:7px; margin-bottom:15px;"></center><br>
-									<a ><strong>Nama : </strong>Username</a><br>
-									<a><strong>Tanggal Kejadian : </strong>23 Juli 2040</a><br>
+									<center><img src="assets/img/bukti/<?php echo $row_pengaduan["bukti"] ?>" style="height:40em; border-radius:7px; margin-bottom:15px;"></center><br>
+									<a ><strong>Nama : </strong><?php echo $username; ?></a><br>
+									<a><strong>Kejadian : </strong><?php echo date("d M Y", strtotime($row_pengaduan["tgl_kejadian"])) ?></a><br>
 									<a><strong>Status : </strong>Pending</a>
 								</div>
 							</div>
 							<div class="email-body">
-								<p>Hello,</p>
-
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-
-								<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-
-								<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</p>
-
-								<p>Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its</p>
-
-								<p>Regards,<br/>Joko Subianto</p>
+								<h3>Pesan Aduan</h3>
+								<p><?php echo $row_pengaduan["pesan_aduan"] ?></p>
 							</div>
 							<div class="list-feedback">
 								<div class="inbox-body">
-									<div class="email-head d-lg-flex d-block">
+									<div class="email-head d-lg-flex d-block" style="padding:10px 25px;">
 										<h3>
 											<strong>Feedback</strong>
 										</h3>
 									</div>
-									
-									<div class="email-list">
 										<?php
-										// Fetch messages from the konsultasi table
-										$sql = "SELECT * FROM feedback WHERE nim = '$login_id'";
-										$result = mysqli_query($koneksi, $sql);
+											$result_feedback = mysqli_query($koneksi, "SELECT * FROM feedback WHERE id_pengaduan = '$id_pengaduan' ORDER BY tgl_feedback DESC");
+											if (mysqli_num_rows($result_feedback) > 0) {
+												$no = 1;
 
+												echo ' 
+													<table class="table">
+														<thead>
+															<tr>
+																<th scope="col" style="width:80px; text-align:center;">No</th>
+																<th scope="col">Feedback</th>
+																<th scope="col" style="width:150px; text-align:center; ">Tanggal</th>
+															</tr>
+														</thead>
+														<tbody>
+												';
+												while ($row = mysqli_fetch_array($result_feedback)) {
+													echo "
+														<tr>
+															<td><center>". $no . "</center></td>
+															<td>" . $row['alasan'] . "</td>
+															<td>" . date("d M Y", strtotime($row['tgl_feedback'])) . "</td>
+														</tr>
+													";
+													$no++;
+												}
 
-
-										// Check if there are any messages
-										if (mysqli_num_rows($result) > 0) {
-											// Loop through each row and display the messages
-											while ($row = mysqli_fetch_assoc($result)) {
-												echo '<div class="email-list-item">';
-												echo "<div class='email-list-actions'></div>";
-												echo '<div class="email-list-detail"><span class="date float-right">';
-												echo date("d M", strtotime($row['tgl_feedback']));
-												echo '</span><span class="from">Admin</span>';
-													echo '<p class="msg">' . $row['alasan'] . '</p>';
-												echo "</div>";
-											} 
-											} else {
-												echo "No messages found.";
+												echo '
+														</tbody>
+													</table>
+												';
+											}else{
+												echo '<div style="padding:5px 25px;">No messege found.</div>';
 											}
-											mysqli_close($koneksi);
-											?>
-									</div>
+										?>
 								</div>
 							</div>
 						</div>
@@ -301,483 +307,6 @@
 				</div>
 			</footer>
 		</div>
-		<!-- <div class="quick-sidebar">
-			<a href="#" class="close-quick-sidebar">
-				<i class="flaticon-cross"></i>
-			</a>
-			<div class="quick-sidebar-wrapper">
-				<ul class="nav nav-tabs nav-line nav-color-secondary" role="tablist">
-					<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#messages" role="tab" aria-selected="true">Messages</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tasks" role="tab" aria-selected="false">Tasks</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
-				</ul>
-				<div class="tab-content mt-3">
-					<div class="tab-chat tab-pane fade show active" id="messages" role="tabpanel">
-						<div class="messages-contact">
-							<div class="quick-wrapper">
-								<div class="quick-scroll scrollbar-outer">
-									<div class="quick-content contact-content">
-										<span class="category-title mt-0">Contacts</span>
-										<div class="avatar-group">
-											<div class="avatar">
-												<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<img src="assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-											</div>
-											<div class="avatar">
-												<span class="avatar-title rounded-circle border border-white">+</span>
-											</div>
-										</div>
-										<span class="category-title">Recent</span>
-										<div class="contact-list contact-list-recent">
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-online">
-														<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">Jimmy Denis</span>
-														<span class="message">How are you ?</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">Chad</span>
-														<span class="message">Ok, Thanks !</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data">
-														<span class="name">John Doe</span>
-														<span class="message">Ready for the meeting today with...</span>
-													</div>
-												</a>
-											</div>
-										</div>
-										<span class="category-title">Other Contacts</span>
-										<div class="contact-list">
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-online">
-														<img src="assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Jimmy Denis</span>
-														<span class="status">Online</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-offline">
-														<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Chad</span>
-														<span class="status">Active 2h ago</span>
-													</div>
-												</a>
-											</div>
-											<div class="user">
-												<a href="#">
-													<div class="avatar avatar-away">
-														<img src="assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-													</div>
-													<div class="user-data2">
-														<span class="name">Talha</span>
-														<span class="status">Away</span>
-													</div>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="messages-wrapper">
-							<div class="messages-title">
-								<div class="user">
-									<div class="avatar avatar-offline float-right ml-2">
-										<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-									</div>
-									<span class="name">Chad</span>
-									<span class="last-active">Active 2h ago</span>
-								</div>
-								<button class="return">
-									<i class="flaticon-left-arrow-3"></i>
-								</button>
-							</div>
-							<div class="messages-body messages-scroll scrollbar-outer">
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">Hello, Rian</div>
-											</div>
-											<div class="date">12.31</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-out">
-										<div class="message-body">
-											<div class="message-content">
-												<div class="content">
-													Hello, Chad
-												</div>
-											</div>
-											<div class="message-content">
-												<div class="content">
-													What's up?
-												</div>
-											</div>
-											<div class="date">12.35</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">
-													Thanks
-												</div>
-											</div>
-											<div class="message-content">
-												<div class="content">
-													When is the deadline of the project we are working on ?
-												</div>
-											</div>
-											<div class="date">13.00</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-out">
-										<div class="message-body">
-											<div class="message-content">
-												<div class="content">
-													The deadline is about 2 months away
-												</div>
-											</div>
-											<div class="date">13.10</div>
-										</div>
-									</div>
-								</div>
-								<div class="message-content-wrapper">
-									<div class="message message-in">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
-										</div>
-										<div class="message-body">
-											<div class="message-content">
-												<div class="name">Chad</div>
-												<div class="content">
-													Ok, Thanks !
-												</div>
-											</div>
-											<div class="date">13.15</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="messages-form">
-								<div class="messages-form-control">
-									<input type="text" placeholder="Type here" class="form-control input-pill input-solid message-input">
-								</div>
-								<div class="messages-form-tool">
-									<a href="#" class="attachment">
-										<i class="flaticon-file"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="tasks" role="tabpanel">
-						<div class="quick-wrapper tasks-wrapper">
-							<div class="tasks-scroll scrollbar-outer">
-								<div class="tasks-content">
-									<span class="category-title mt-0">Today</span>
-									<ul class="tasks-list">
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" checked="" class="custom-control-input"><span class="custom-control-label">Planning new project structure</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Add new Post</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Finalise the design proposal</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-									</ul>
-
-									<span class="category-title">Tomorrow</span>
-									<ul class="tasks-list">
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Initialize the project							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Updates changes to GitHub							</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-										<li>
-											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span title="This task is too long to be displayed in a normal space!" class="custom-control-label">This task is too long to be displayed in a normal space!				</span>
-												<span class="task-action">
-													<a href="#" class="link text-danger">
-														<i class="flaticon-interface-5"></i>
-													</a>
-												</span>
-											</label>
-										</li>
-									</ul>
-
-									<div class="mt-3">
-										<div class="btn btn-primary btn-rounded btn-sm">
-											<span class="btn-label">
-												<i class="fa fa-plus"></i>
-											</span>
-											Add Task
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="settings" role="tabpanel">
-						<div class="quick-wrapper settings-wrapper">
-							<div class="quick-scroll scrollbar-outer">
-								<div class="quick-content settings-content">
-
-									<span class="category-title mt-0">General Settings</span>
-									<ul class="settings-list">
-										<li>
-											<span class="item-label">Enable Notifications</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Signin with social media</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Backup storage</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">SMS Alert</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-									</ul>
-
-									<span class="category-title mt-0">Notifications</span>
-									<ul class="settings-list">
-										<li>
-											<span class="item-label">Email Notifications</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">New Comments</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Chat Messages</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">Project Updates</span>
-											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-										<li>
-											<span class="item-label">New Tasks</span>
-											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-		<!-- Custom template | don't include it in your project! -->
-		<!-- <div class="custom-template">
-			<div class="title">Settings</div>
-			<div class="custom-content">
-				<div class="switcher">
-					<div class="switch-block">
-						<h4>Logo Header</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
-							<button type="button" class="selected changeLogoHeaderColor" data-color="blue"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="green"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
-							<br/>
-							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
-							<button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Navbar Header</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeTopBarColor" data-color="dark"></button>
-							<button type="button" class="changeTopBarColor" data-color="blue"></button>
-							<button type="button" class="changeTopBarColor" data-color="purple"></button>
-							<button type="button" class="changeTopBarColor" data-color="light-blue"></button>
-							<button type="button" class="changeTopBarColor" data-color="green"></button>
-							<button type="button" class="changeTopBarColor" data-color="orange"></button>
-							<button type="button" class="changeTopBarColor" data-color="red"></button>
-							<button type="button" class="changeTopBarColor" data-color="white"></button>
-							<br/>
-							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
-							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
-							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
-							<button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
-							<button type="button" class="changeTopBarColor" data-color="green2"></button>
-							<button type="button" class="changeTopBarColor" data-color="orange2"></button>
-							<button type="button" class="changeTopBarColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Sidebar</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeSideBarColor" data-color="dark"></button>
-							<button type="button" class="selected changeSideBarColor" data-color="blue"></button>
-							<button type="button" class="changeSideBarColor" data-color="purple"></button>
-							<button type="button" class="changeSideBarColor" data-color="light-blue"></button>
-							<button type="button" class="changeSideBarColor" data-color="green"></button>
-							<button type="button" class="changeSideBarColor" data-color="orange"></button>
-							<button type="button" class="changeSideBarColor" data-color="red"></button>
-							<br/>
-							<button type="button" class="changeSideBarColor" data-color="dark2"></button>
-							<button type="button" class="changeSideBarColor" data-color="blue2"></button>
-							<button type="button" class="changeSideBarColor" data-color="purple2"></button>
-							<button type="button" class="changeSideBarColor" data-color="light-blue2"></button>
-							<button type="button" class="changeSideBarColor" data-color="green2"></button>
-							<button type="button" class="changeSideBarColor" data-color="orange2"></button>
-							<button type="button" class="changeSideBarColor" data-color="red2"></button>
-						</div>
-					</div>
-					<div class="switch-block">
-						<h4>Background</h4>
-						<div class="btnSwitch">
-							<button type="button" class="changeBackgroundColor" data-color="bg2"></button>
-							<button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
-							<button type="button" class="changeBackgroundColor" data-color="bg3"></button>
-							<button type="button" class="changeBackgroundColor" data-color="dark"></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="custom-toggle">
-				<i class="flaticon-settings"></i>
-			</div>
-		</div> -->
-		<!-- End Custom template -->
 	</div>
 	<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.3.2.1.min.js"></script>

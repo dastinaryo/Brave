@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Daftar Aduan</title>
+	<title>Brave | Konsultasi Terkirim</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -182,7 +182,7 @@
 
 		<div class="main-panel full-height">
 			<div class="container container-full">
-				<div class="page-inner" style="padding-top:0px;">
+				<div class="page-inner">
 					<div class="page-with-aside mail-wrapper bg-white">
 						<div class="page-aside">
 							<div class="aside-header">
@@ -231,8 +231,8 @@
 							</div>
 						</div>
 						<div class="page-content mail-content">
-							<div class="inbox-head d-lg-flex d-block" style="padding-top:20px;">
-								<h3>Pesan Masuk</h3>
+							<div class="inbox-head d-lg-flex d-block">
+								<h3>Konsultasi Terkirim</h3>
 								<form action="#" class="ml-auto">
 									<div class="input-group">
 										<input type="text" placeholder="Cari Konsultasi" class="form-control">

@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Daftar Aduan</title>
+	<title>Brave | Riwayat Aduan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -113,11 +113,16 @@
 								<p>Konsultasi</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse " id="email-app-nav">
+							<div class="collapse" id="email-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-sent.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
@@ -125,7 +130,6 @@
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 						</li>
@@ -205,18 +209,18 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">No</th>
+									<th scope="col" style="width:80px; text-align:center;">No</th>
 									<th scope="col">Judul</th>
-									<th scope="col">Tanggal Kejadian</th>
-									<th scope="col" style="text-align:center;">Status</th>
-									<th scope="col" style="width:100px; text-align:center; ">Detail</th>
+									<th scope="col" style="width:200px; text-align:center;">Tanggal Kejadian</th>
+									<th scope="col" style="width:100px; text-align:center;">Status</th>
+									<th scope="col" style="width:100px; text-align:center;">Detail</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
 									include "backend/connection.php";
 									$user_id = $_SESSION['user_id'];
-									$ambildata = mysqli_query($koneksi, 'SELECT * FROM pengaduan WHERE nim = "'.$user_id.'"');
+									$ambildata = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' ORDER BY tgl_aduan DESC");
 									
 									if (!$ambildata) {
 										die('Error in SQL query: ' . mysqli_error($koneksi));
@@ -225,21 +229,21 @@
 									$no = 1;
 									while ($tampil = mysqli_fetch_array($ambildata)) {
 										echo "
-										<tr>
-											<td>$no</td>
-											<td>$tampil[judul]</td>
-											<td>$tampil[tgl_kejadian]</td>
-											<td><center><a class='$tampil[status]'>$tampil[status]</a></td>
-											<td>
-											<center>
-											<a href='detail-aduan.php'>
-												<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>
-													<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/>
-												</svg>
-											</a>
-										</center>
-											</td>
-										</tr>
+											<tr>
+												<td>$no</td>
+												<td>$tampil[judul]</td>
+												<td><center>". date("d M Y", strtotime($tampil['tgl_kejadian'])) ."<center></td>
+												<td><center><a class='$tampil[status]'>$tampil[status]</a></td>
+												<td>
+													<center>
+														<a href='detail-aduan.php?id=" . $tampil["id_pengaduan"]. "'>
+															<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>
+																<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/>
+															</svg>
+														</a>
+													</center>
+												</td>
+											</tr>
 										";
 										$no++;
 									}
