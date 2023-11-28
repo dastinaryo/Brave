@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 04:56 PM
+-- Generation Time: Nov 28, 2023 at 09:11 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -54,10 +54,12 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id_feedback`, `id_pengaduan`, `nama`, `nim`, `tgl_feedback`, `alasan`) VALUES
-('hw12uMkvxO1d4GbsnNkHqVMF8Jb71g3a3qktr61NLpWy9XhYZb', '1234567890', 'Rastra Nanditama Wardana', '12345', '2023-11-26 16:20:11', 'Semoga kasus segera selesai ya!'),
-('LcstZ8J7GwLjISWMzvGzMysgKFDi5dqefKb6VnIvmi6JwveAzn', '5467890', 'Athifa Hasna Ismayanti', '2001150', '2023-11-26 16:26:11', 'HAHAHA SAAYA JUGA MAU KALO GITU'),
-('76Iw5qcr7sD4isXjRP8ZbaFr1i3skDx8jOgPx4aI8dNUKUCzvN', '5467890', 'Athifa Hasna Ismayanti', '2001150', '2023-11-26 16:26:34', 'Ini Bukan Pengaduan, ini mah curhat'),
-('qgOhxDBxCeDRL6yfvlEIWNeMEFjicZ3xXVM414ZEPV5ORyCJSi', '12345', 'Dastin Aryo Atmanto', '2008869', '2023-11-26 16:26:58', 'Berkas Anda Kurang Detail');
+('onK5hNhl65h87I4z2j5uRGLRb75PiNNej8JSb2peHQIdwcLA0n', 'FVYDINL0LpkyhWve4NaAZsXi76C0wjxsXi5OVacrXNEcNVAJGp', 'Rastra Wardana Nanditama ', '2003075', '2023-11-27 01:55:35', 'Bukti Palsu'),
+('gpeGPkyOByjNwhhQ0FO6KrqFc99ZntvkXttxmlFGpJpTDZCX4d', 'C4CTT8PKw48BwUG7z9l8r8X5xtLxx1ClVA7jhAmnEc2BKBQ87I', 'Dastin Aryo Atmanto', '2008869', '2023-11-27 01:56:00', 'Kasus Segera Kami Proses'),
+('3QgWuRfXwGk6MK31JZYXFg83VZcQ1GwMUoXLDwn7q8cHDM1QR0', 'NyIZOqGkHROwdSblje9MOUNAxBCAi3MDBwDnmfIQKnxdlqgICB', 'Abdi Surya Perdana', '2004426', '2023-11-27 01:56:25', 'Silahkan Datang ke Kantor Pusat Kami'),
+('mMp2SJ7bHaxdyW1UGqocTbzhLJmAXZzj7yLmUtXaYDRIRkemU7', 'NyIZOqGkHROwdSblje9MOUNAxBCAi3MDBwDnmfIQKnxdlqgICB', 'Abdi Surya Perdana', '2004426', '2023-11-27 01:56:46', 'Kasus Sudah Selesai'),
+('k9DsIqOLrMZeKiEkP4J3LUjdccWAC5HKR0MLEo9c6idOE318Ue', 'uS7cP2hpTAaq8m9p0N3oAEdnFUw3qabMgtjhAOWjnSUZc1mICR', 'Rastra Wardana Nanditama ', '2003075', '2023-11-27 02:04:37', 'Semoga kasus ini berakhir baik, aamiin'),
+('bCysLh3CreLQa5D1o1Q8eD9fy33nMvt27cmsX9NiZIGs8Takta', 'uS7cP2hpTAaq8m9p0N3oAEdnFUw3qabMgtjhAOWjnSUZc1mICR', 'Rastra Wardana Nanditama ', '2003075', '2023-11-27 06:01:06', 'Bukti Kurang Kuat');
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,7 @@ INSERT INTO `feedback` (`id_feedback`, `id_pengaduan`, `nama`, `nim`, `tgl_feedb
 CREATE TABLE `konsultasi` (
   `id_konsul` varchar(50) NOT NULL,
   `pengirim` varchar(25) NOT NULL,
-  `nama` varchar(255) NOT NULL,
+  `penerima` varchar(25) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `pesan` text NOT NULL,
   `tgl_konsultasi` datetime NOT NULL,
@@ -79,9 +81,15 @@ CREATE TABLE `konsultasi` (
 -- Dumping data for table `konsultasi`
 --
 
-INSERT INTO `konsultasi` (`id_konsul`, `pengirim`, `nama`, `judul`, `pesan`, `tgl_konsultasi`, `is_read`) VALUES
-('1232312', 'admin', 'Dastin Aryo Atmanto', 'Konsultasi 1', 'Apapun itu ', '2023-11-25 00:00:00', 'unread'),
-('123456', 'admin', 'Dastin Aryo Atmanto', 'Konsultasi 2', 'Apapun itu ', '2023-11-25 00:00:00', 'unread');
+INSERT INTO `konsultasi` (`id_konsul`, `pengirim`, `penerima`, `judul`, `pesan`, `tgl_konsultasi`, `is_read`) VALUES
+('6DKaynZKq7DUNKNfUFhxmABwdRne3szK5DoaBFKIjbzBsB5qYC', 'admin', '2008869', 'Konsultasi Pertama', 'Ini balasan konsultasi pertama, tapi revisi', '2023-11-27 11:45:44', 'read'),
+('75uCsVMn4c8tOY4IdguZVMcJkNXmzrfHPhqJx3j4wlyiumaTWs', '2004426', 'admin', 'Konsultasi Pertama', 'Ini adalah Konsutasi Pertama saya', '2023-11-28 05:42:22', 'read'),
+('iSWgOzq8CH23GeKr0sAKyhLBhS2nXbXZrlw6BK3YYlAAkC8Nvv', 'admin', '2004426', 'Konsultasi Ketiga', 'Ini isi dari konsultasi ketiga', '2023-11-28 06:20:43', 'unread'),
+('nQkzm7VpyXApUjP5eKdBYyLlZA7MIkeSpdOoH7YPO2pqsLRXkN', 'admin', '2004426', 'Konsultasi Keempat', 'Ini adalah isi dari konsultasi keempat', '2023-11-28 06:21:24', 'unread'),
+('e3vIL7QxHYMFQIeNTBXaXEyfUcaAiNYi1rywF4RQsFgeG6se2N', '2004426', 'admin', 'Konsultasi Kedua', 'ini balasan konsultasi kedua', '2023-11-28 06:26:53', 'read'),
+('HQ3JOEEAh2g6lCHXquLChuS5oc7E7FYpHVofuPwJ23hyCglhck', '2004426', 'admin', 'Konsultasi Pertama', 'Ini balasan konsul baru banget', '2023-11-28 07:05:29', 'unread'),
+('IXu4bq5OMMv5WyTGhq0m7XWyFfj0yBjLRVVgbRuaoQnx1HDhh1', '2004426', 'admin', 'Konsultasi Ketiga', 'Ini adalah konsultasi ketiga baru banget', '2023-11-28 07:06:34', 'unread'),
+('rmaDB776JNrGLWF7PI1JqURtoBBl5mG747n8Uh9zAu7AU5C6YV', '2004426', 'admin', 'Konsultasi Keempat', 'Ini adalah konsultasi keempat saya, baru banget di edit', '2023-11-28 07:07:43', 'unread');
 
 -- --------------------------------------------------------
 
@@ -101,9 +109,14 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`hak`, `username`, `password`) VALUES
 ('admin', 'admin', 'admin'),
+('user', 'Abdi Surya Perdana', '2004426'),
+('user', 'Ahmad Fauzan', '2007326'),
+('user', 'Anisa Nur Syafia', '2008567'),
 ('user', 'Dastin Aryo Atmanto', '2008869'),
-('user', 'Athifa Hasna Ismayanti', '2001550'),
-('user', 'Rastra Nanditama Wardana', '12345');
+('user', 'Muhammad Andhika Ramadhan', '2003029'),
+('user', 'Muhammad Azfa Faadhilah', '2002878'),
+('user', 'Rahmawati', '2008187'),
+('user', 'Rastra Wardana Nanditama ', '2003075');
 
 -- --------------------------------------------------------
 
@@ -129,9 +142,11 @@ CREATE TABLE `pengaduan` (
 --
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `nim`, `nama`, `judul`, `tgl_kejadian`, `tgl_aduan`, `pesan_aduan`, `pelaku`, `bukti`, `status`) VALUES
-('12345', '2008869', 'Dastin Aryo Atmanto', 'Kekerasan Pada Orang lain', '2023-11-01', '2023-11-26 22:55:20', ' Ini pesan aduan Ini pesan aduan Ini pesan aduanIni pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduanIni pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduanIni pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduanIni pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduanIni pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan Ini pesan aduan ', 'Inisial HDD', 'assets/img/bukti/bukti1.jpeg', 'process'),
-('5467890', '2001150', 'Athifa Hasna Ismayanti', 'Pengaduan Pertama Saya', '2023-11-01', '2023-11-26 22:55:20', 'Hari itu saya sedang berjalan disebuah mall, namun tiba tiba saya dilempar uang.. ya udah saya ambil karena uang nya 1M Hahahaha', 'Kurang tau ya', 'assets/img/bukti/bukti1.jpeg', 'decline'),
-('1234567890', '12345', 'Rastra Nanditama Wardana', 'Penindak lanjutan laporan', '2023-10-04', '2023-11-26 22:55:20', 'Waktu itu saya sedang duduk dilantai, kemudian tiba seorang kakek dan anak nya bertanya jalan kepada saya. Namun, seketika saya diberi uang dengan jumlah yang besar.', 'Seperti kakek kakek hehe', 'assets/img/bukti/bukti1.jpg', 'pending');
+('uS7cP2hpTAaq8m9p0N3oAEdnFUw3qabMgtjhAOWjnSUZc1mICR', '2003075', 'Rastra Wardana Nanditama ', 'Pengaduan Pertama', '2023-11-01', '2023-11-27 07:22:25', 'Kekerasan seksual adalah salah satu masalah yang mendalam di masyarakat kita, dan pendidikan memiliki peran krusial dalam mencegahnya. Edukasi bukan hanya tentang memberikan informasi, tetapi juga membentuk sikap, norma, dan nilai-nilai yang mendorong kesejahteraan bersama. Dalam konteks ini, mari kita bahas bagaimana edukasi dapat menjadi instrumen efektif dalam melawan kekerasan seksual.', 'Pelaku Pertama', 'bukti1.jpeg', 'process'),
+('FVYDINL0LpkyhWve4NaAZsXi76C0wjxsXi5OVacrXNEcNVAJGp', '2003075', 'Rastra Wardana Nanditama ', 'Pengaduan Kedua', '2023-11-16', '2023-11-27 07:46:38', 'Kekerasan seksual adalah salah satu masalah yang mendalam di masyarakat kita, dan pendidikan memiliki peran krusial dalam mencegahnya. Edukasi bukan hanya tentang memberikan informasi, tetapi juga membentuk sikap, norma, dan nilai-nilai yang mendorong kesejahteraan bersama. Dalam konteks ini, mari kita bahas bagaimana edukasi dapat menjadi instrumen efektif dalam melawan kekerasan seksual.', 'Pelaku Kedua', 'blogpost.jpg', 'decline'),
+('C4CTT8PKw48BwUG7z9l8r8X5xtLxx1ClVA7jhAmnEc2BKBQ87I', '2008869', 'Dastin Aryo Atmanto', 'Pertama Kali Saya Mengalami Kejadian Ini', '2023-11-30', '2023-11-27 07:52:39', 'Kekerasan seksual adalah salah satu masalah yang mendalam di masyarakat kita, dan pendidikan memiliki peran krusial dalam mencegahnya. Edukasi bukan hanya tentang memberikan informasi, tetapi juga membentuk sikap, norma, dan nilai-nilai yang mendorong kesejahteraan bersama. Dalam konteks ini, mari kita bahas bagaimana edukasi dapat menjadi instrumen efektif dalam melawan kekerasan seksual.', 'Pelaku Pertama Saya', 'talha.jpg', 'pending'),
+('NyIZOqGkHROwdSblje9MOUNAxBCAi3MDBwDnmfIQKnxdlqgICB', '2004426', 'Abdi Surya Perdana', 'Saya Mengalami Sesuatu Hal Aneh', '2023-11-15', '2023-11-27 07:55:02', 'Pentingnya pendidikan dalam membangun kesadaran tentang kekerasan seksual tidak bisa diabaikan. Melalui kurikulum yang terintegrasi, sekolah dapat mengajarkan siswa tentang pentingnya menghormati batas-batas pribadi, mengenali perilaku tidak pantas, dan memahami konsep persetujuan dalam hubungan.', 'Gatau Siapa', 'arashmil.jpg', 'complete'),
+('d3F2ZxtE7oyJOjGdrLDCm6F3WDIIvx59aRvj3K2tp8KUFs8oZk', '2008869', 'Dastin Aryo Atmanto', 'Pengaduan Kedua', '2023-11-14', '2023-11-27 17:48:29', 'Pendidikan harus menciptakan jaringan dukungan yang melibatkan komunitas, pemerintah, dan organisasi non-pemerintah. Program-program bersama dapat menciptakan lingkungan yang mendukung, dan menguatkan upaya pencegahan kekerasan seksual.', 'Pelaku Kedua', 'product9.jpeg', 'pending');
 
 -- --------------------------------------------------------
 
@@ -152,9 +167,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`nim`, `nama`, `fakultas`, `prodi`, `angkatan`) VALUES
+('2004426', 'Abdi Surya Perdana', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
+('2007326', 'Ahmad Fauzan', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
+('2008567', 'Anisa Nur Syafia', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
 ('2008869', 'Dastin Aryo Atmanto', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
-('2001550', 'Athifa Hasna Ismayanti', 'Kamda Cibiru', 'Pendidikan Multimedia', '2020'),
-('12345', 'Rastra Nanditama Wardana', 'Kamda Cibiru', 'Teknik Komputer', '2020');
+('2003029', 'Muhammad Andhika Ramadhan', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
+('2002878', 'Muhammad Azfa Faadhilah', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
+('2008187', 'Rahmawati', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
+('2003075', 'Rastra Wardana Nanditama ', 'Kamda Cibiru', 'Teknik Komputer', '2020');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
