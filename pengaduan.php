@@ -235,12 +235,12 @@
 										</div>
                                         
 										<label for="det" class="col-form-label col-md-1">Detail :</label>
-										<div class="col-md-11" height="10px">
+										<div class="col-md-11" height="10px" >
 											<textarea class="form-control" rows="5" id="det" name="det" required></textarea>
 										</div>
 
 										<label for="file" class="col-form-label col-md-1">Bukti :</label>
-										<div class="col-md-11">
+										<div class="col-md-11" style="padding:5px 16px;">
 											<input type="file" class="form-control" id="file" name="file">
 										</div>
 									</div>

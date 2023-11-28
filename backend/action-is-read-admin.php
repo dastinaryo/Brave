@@ -21,5 +21,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request!";
 }
-header("Location: ../konsultasi-inbox.php");
+header("Location: ../konsultasi-inbox-admin.php");
 ?>

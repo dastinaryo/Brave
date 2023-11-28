@@ -210,7 +210,7 @@
 			<div class="container container-full">
 				<div class="page-inner">
 					<div class="page-with-aside mail-wrapper bg-white">
-					<div class="page-aside">
+						<div class="page-aside">
 							<div class="aside-header">
 								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
@@ -227,7 +227,7 @@
 										<a href="konsultasi-inbox-admin.php">
 											<i class="flaticon-inbox"></i> Konsultasi Masuk
 											<?php
-												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE NOT pengirim='$login_id' AND is_read='unread'";
+												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE penerima='$login_id' AND is_read='unread'";
 												$result_counter_konsul = mysqli_query($koneksi, $sql_counter_konsul);
 
 												if (mysqli_num_rows($result_counter_konsul) > 0) {
@@ -241,7 +241,6 @@
 													';
 												}
 											?>
-											
 										</a>
 									</li>
                                     <li>
@@ -307,7 +306,7 @@
 
 														<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
 															<a class="dropdown-item" data-toggle="modal" data-target="#balas-konsultasi-' . $row['id_konsul'] . '">Balas</a>
-															<a class="dropdown-item" href="backend/action-delete-konsultasi.php?id=' . $row['id_konsul'] . '">Delete</a>
+															<a class="dropdown-item" href="backend/action-delete-konsultasi-admin.php?id=' . $row['id_konsul'] . '">Delete</a>
 														</div>
 													</div>
 
@@ -332,7 +331,7 @@
 															</div>
 														</div>
 
-														<form id="isRead-' . $row["id_konsul"] . '" action="backend/action-is-read.php" method="post">
+														<form id="isRead-' . $row["id_konsul"] . '" action="backend/action-is-read-admin.php" method="post">
 															<input type="text" class="form-control" id="id_konsul" name="id_konsul" value="' . $row["id_konsul"] . '" required hidden>
 															<input type="text" class="form-control" id="is_read" name="is_read" value="read" required hidden>
 														</form>

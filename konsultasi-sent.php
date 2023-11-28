@@ -4,7 +4,7 @@
 
     if (!isset($_SESSION['username'])) {
         header("Location: login.php");
-    }else if($_SESSION['hak']!='admin'){
+    }else if($_SESSION['hak']!='user'){
 		header("Location: backend/action-logout.php");
 	}else{
 		$username = $_SESSION['username'];
@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Brave | Konsultasi Masuk</title>
+	<title>Brave | Daftar Aduan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="assets/img/logo/logo-tr.png" type="image/x-icon"/>
 
@@ -44,7 +44,7 @@
 		<!-- Logo Header -->
 		<div class="logo-header position-fixed" data-background-color="blue">
 
-			<a href="index.html" class="logo">
+			<a href="dashboard.php" class="logo">
 				<img src="assets\img\logo\logo2-2tr-resize.png" alt="navbar brand" class="navbar-brand" style="width:110px;"> <!-- DIGANTI DENGAN LOGO BRAVE -->
 			</a>
 			<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,8 +71,8 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo $_SESSION['username'] ?>
-									<span class="user-level">Admin</span>
+								<?php echo '<div class="sizetitle-sidebar">' . htmlspecialchars($_SESSION["username"]) . '</div>'; ?> 
+									<span class="user-level">Mahasiswa</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -90,7 +90,7 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item">
-							<a href="dashboard-admin.php" class="collapsed" aria-expanded="false">
+							<a href="dashboard.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
@@ -102,19 +102,13 @@
 							<h4 class="text-section">Layanan</h4>
 						</li>
 						<li class="nav-item">
-							<a href="list-user-admin.php">
+							<a href="pengaduan.php">
 								<i class="fas fa-file-contract"></i>
-								<p>Daftar Users</p>
+								<p>Pengaduan</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="list-aduan-admin.php">
-								<i class="fas fa-file-contract"></i>
-								<p>Daftar Aduan</p>
-							</a>
-						</li>
-						<li class="nav-item active submenu">
-							<a data-toggle="collapse" href="#email-app-nav">
+						<li class="nav-item submenu active">
+							<a data-toggle="collapse" href="#konsultasi-collapse">
 								<i class="far fa-envelope"></i>
 								<p>Konsultasi</p>
 								<span class="caret"></span>
@@ -122,43 +116,28 @@
 							<div class="collapse show" id="email-app-nav">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="konsultasi-inbox-admin.php">
+										<a href="konsultasi-inbox.php">
 											<span class="sub-item">Konsultasi Masuk</span>
 										</a>
 									</li>
 									<li class="active">
-										<a href="konsultasi-sent-admin.php">
+										<a href="konsultasi-sent.php">
 											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li>
-										<a href="konsultasi-compose-admin.php">
+										<a href="konsultasi-compose.php">
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
-							<li class="nav-item ">
-							<a data-toggle="collapse" href="#feedback-app-nav">
-								<i class="far fa-comment"></i>
-								<p>Feedback</p>
-								<span class="caret"></span>
+						</li>
+						<li class="nav-item">
+							<a href="riwayat-aduan.php">
+								<i class="fas fa-file-contract"></i>
+								<p>Riwayat Aduan</p>
 							</a>
-							<div class="collapse" id="feedback-app-nav">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="feedback-inbox-admin.php">
-											<span class="sub-item">Feedback Terkirim</span>
-										</a>
-									</li>
-									<li>
-										<a href="feedback-compose-admin.php">
-											<span class="sub-item">Tulis Feedback</span>
-										</a>
-									</li>
-								</ul>
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -176,11 +155,6 @@
 					</form>
 				</div>
 				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-					<li class="nav-item toggle-nav-search hidden-caret">
-						<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
-							<i class="fa fa-search"></i>
-						</a>
-					</li>
 					<li class="nav-item dropdown hidden-caret">
 						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 							<div class="avatar-sm">
@@ -193,8 +167,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="assets/img/profile.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4><?php echo $_SESSION['username'] ?></h4>
-											<a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
+											<h4 class="sizetitle"><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
+											<p class="text-muted">NIM : <?php echo htmlspecialchars($_SESSION["user_id"]); ?></p><a href="backend/action-logout.php" class="btn btn-xs btn-secondary btn-sm">Log Out</a>
 										</div>
 									</div>
 								</li>
@@ -208,9 +182,9 @@
 
 		<div class="main-panel full-height">
 			<div class="container container-full">
-				<div class="page-inner">
+				<div class="page-inner" style="padding-top:0px;">
 					<div class="page-with-aside mail-wrapper bg-white">
-					<div class="page-aside">
+						<div class="page-aside">
 							<div class="aside-header">
 								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
@@ -224,10 +198,10 @@
 							<div class="aside-nav collapse" id="email-nav">
 								<ul class="nav">
 									<li>
-										<a href="konsultasi-inbox-admin.php">
+										<a href="konsultasi-inbox.php">
 											<i class="flaticon-inbox"></i> Konsultasi Masuk
 											<?php
-												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE NOT pengirim='$login_id' AND is_read='unread'";
+												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE penerima='$login_id' AND is_read='unread'";
 												$result_counter_konsul = mysqli_query($koneksi, $sql_counter_konsul);
 
 												if (mysqli_num_rows($result_counter_konsul) > 0) {
@@ -241,16 +215,15 @@
 													';
 												}
 											?>
-											
 										</a>
 									</li>
                                     <li class="active">
-										<a href="konsultasi-sent-admin.php">
+										<a href="konsultasi-sent.php">
 											<i class="flaticon-envelope-3"></i> Konsultasi Terkirim
 										</a>
 									</li>
 									<li>
-										<a href="konsultasi-compose-admin.php">
+										<a href="konsultasi-compose.php">
 											<i class="fa fa-envelope"></i> Tulis Konsultasi
 										</a>
 									</li>
@@ -258,11 +231,11 @@
 							</div>
 						</div>
 						<div class="page-content mail-content">
-							<div class="inbox-head d-lg-flex d-block">
-								<h3>Konsultasi Terkirim</h3>
+							<div class="inbox-head d-lg-flex d-block" style="padding-top:20px;">
+								<h3>Pesan Masuk</h3>
 								<form action="#" class="ml-auto">
 									<div class="input-group">
-										<input type="text" placeholder="Search Topik" class="form-control">
+										<input type="text" placeholder="Cari Konsultasi" class="form-control">
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="fa fa-search search-icon"></i>
@@ -341,7 +314,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <!-- Form for edit feedback -->
-                                                                <form id="editKonsulForm-' . $row['id_konsul'] . '" action="backend/action-edit-konsultasi-admin.php" method="post">
+                                                                <form id="editKonsulForm-' . $row['id_konsul'] . '" action="backend/action-edit-konsultasi.php" method="post">
                                                                     <input type="text" class="form-control" id="id_konsul" name="id_konsul" value="' . $row["id_konsul"] . '" required hidden>
 
                                                                     <div class="form-group">

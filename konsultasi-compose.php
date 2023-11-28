@@ -117,7 +117,12 @@
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="konsultasi-inbox.php">
-											<span class="sub-item">Pesan Masuk</span>
+											<span class="sub-item">Konsultasi Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="konsultasi-sent.php">
+											<span class="sub-item">Konsultasi Terkirim</span>
 										</a>
 									</li>
 									<li class="active">
@@ -125,7 +130,6 @@
 											<span class="sub-item">Tulis Konsultasi</span>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 						</li>
@@ -180,7 +184,7 @@
 			<div class="container container-full">
 				<div class="page-inner" style="padding-top:0px;">
 					<div class="page-with-aside mail-wrapper bg-white">
-						<div class="page-aside" style="padding-top:0px;">
+						<div class="page-aside">
 							<div class="aside-header">
 								<div class="title">Consultation Service</div>
 								<div class="description">Service Description</div>
@@ -195,13 +199,32 @@
 								<ul class="nav">
 									<li>
 										<a href="konsultasi-inbox.php">
-											<i class="flaticon-inbox"></i> Inbox
-											<span class="badge badge-primary float-right">8</span>
+											<i class="flaticon-inbox"></i> Konsultasi Masuk
+											<?php
+												$sql_counter_konsul = "SELECT * FROM konsultasi WHERE penerima='$login_id' AND is_read='unread'";
+												$result_counter_konsul = mysqli_query($koneksi, $sql_counter_konsul);
+
+												if (mysqli_num_rows($result_counter_konsul) > 0) {
+													// Loop through each row and display the messages
+													$i=0;
+													while ($row = mysqli_fetch_assoc($result_counter_konsul)) {
+														$i++;
+														}
+													echo '
+														<span class="badge badge-primary float-right">' . $i . '</span>
+													';
+												}
+											?>
+										</a>
+									</li>
+                                    <li>
+										<a href="konsultasi-sent.php">
+											<i class="flaticon-envelope-3"></i> Konsultasi Terkirim
 										</a>
 									</li>
 									<li class="active">
 										<a href="konsultasi-compose.php">
-											<i class="fa fa-envelope"></i> Sent Mail
+											<i class="fa fa-envelope"></i> Tulis Konsultasi
 										</a>
 									</li>
 								</ul>

@@ -266,11 +266,11 @@
 								</h3>
 							</div>
 							<div class="email-compose-fields">
-								<form>
+								<form action="backend/action-form-konsultasi-compose-admin.php" method="post" id="konsul-compose">
 									<div class="form-group row">
 										<label for="to" class="col-form-label col-md-1">Nama</label>
 										<div class="col-md-11">
-											<select class="form-control" id="to" name="nama_mahasiswa" required>
+											<select class="form-control" id="penerima" name="penerima" required>
 												<?php
 													$sql_user = "SELECT * FROM users ORDER BY nama ASC";
 													$result_user = mysqli_query($koneksi, $sql_user);
@@ -302,10 +302,18 @@
 							</div>
 							<div class="email-editor">
 								<div class="email-action">
-									<button class="btn btn-primary">Send</button>
+									<button class="btn btn-primary" onclick="sent_konsul()">Send</button>
 									<button class="btn btn-danger">Cancel</button>
 								</div>
 							</div>
+
+							<script>
+								function sent_konsul(){
+									var element = document.getElementById("konsul-compose").submit();
+									// console.log(element.innerHTML);
+								}
+							</script>
+
 						</div>
 					</div>
 				</div>
