@@ -17,5 +17,5 @@
     } else {
         echo "Error: " . $sql_feedback . "<br>" . mysqli_error($koneksi);
     }
-    header("Location: ../konsultasi-sent-admin.php")
+    header("Location: ../konsultasi-sent.php")
 ?>

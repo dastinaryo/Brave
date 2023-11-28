@@ -255,87 +255,94 @@
 									if (mysqli_num_rows($result) > 0) {
 										// Loop through each row and display the messages
 										while ($row = mysqli_fetch_assoc($result)) {
-											echo '
-                                                <div class="email-list-item">
-                                                    <div class="email-list-detail" data-toggle="modal" data-target="#konsultasi-' . $row['id_konsul'] . '">
-                                                        <span class="date float-right">
-                                                            ' . date("d M", strtotime($row["tgl_konsultasi"])) . ' 
-                                                            
-                                                        </span>
-                                                        
-                                                        <span class="from">' . $username . '</span>
-                                                        <p class="msg">' . $row['judul'] . '</p>
-                                                    </div>
+											$id= $row['penerima'];
+											$sql_user = "SELECT * FROM login WHERE password='$id'";
+											$result_users = mysqli_query($koneksi, $sql_user);
 
-                                                    <div id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px; margin-right:-17px;">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                                        </svg>
-                                                    </div>
+											if (mysqli_num_rows($result_users) > 0){
+												$row_users = mysqli_fetch_assoc($result_users);
+												echo '
+													<div class="email-list-item">
+														<div class="email-list-detail" data-toggle="modal" data-target="#konsultasi-' . $row['id_konsul'] . '">
+															<span class="date float-right">
+																' . date("d M", strtotime($row["tgl_konsultasi"])) . ' 
+																
+															</span>
+															
+															<span class="from">Kepada : ' . $row_users['username'] . '</span>
+															<p class="msg">' . $row['judul'] . '</p>
+														</div>
 
-                                                    <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-                                                        <a class="dropdown-item" data-toggle="modal" data-target="#edit-konsultasi-' . $row['id_konsul'] . '">Edit</a>
-                                                        <a class="dropdown-item" href="backend/action-delete-sent-konsultasi.php?id=' . $row['id_konsul'] . '">Delete</a>
-                                                    </div>
-                                                </div>
+														<div id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:sky blue; margin-left:5px; margin-right:-17px;">
+															<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+																<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+															</svg>
+														</div>
 
-                                                <!-- Modal for messege -->
-                                                <div class="modal fade" id="konsultasi-' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row['judul'] . '</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body" style="text-align:justify;">
-                                                                <p style="margin-bottom:1px;"><strong>Dari :</strong> ' . $login_id . '</p>
-                                                                <p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>
-                                                                ' . $row['pesan'] .'
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+														<div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+															<a class="dropdown-item" data-toggle="modal" data-target="#edit-konsultasi-' . $row['id_konsul'] . '">Edit</a>
+															<a class="dropdown-item" href="backend/action-delete-sent-konsultasi.php?id=' . $row['id_konsul'] . '">Delete</a>
+														</div>
+													</div>
+
+													<!-- Modal for messege -->
+													<div class="modal fade" id="konsultasi-' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+														<div class="modal-dialog modal-dialog-centered" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLongTitle" style="font-size:20px;">' . $row['judul'] . '</h5>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body" style="text-align:justify;">
+																	<p style="margin-bottom:1px;"><strong>Dari :</strong> ' . $login_id . '</p>
+																	<p style="margin-bottom:10px;"><strong>Tanggal :</strong> ' . date("d M Y", strtotime($row['tgl_konsultasi'])) . '</p>
+																	' . $row['pesan'] .'
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+																</div>
+															</div>
+														</div>
+													</div>
 
 
-                                                <!-- Modal for edit konsultasi -->
-                                                <div class="modal fade" id="edit-konsultasi-' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="editUserModalLabel">' . $row['judul'] . '</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <!-- Form for edit feedback -->
-                                                                <form id="editKonsulForm-' . $row['id_konsul'] . '" action="backend/action-edit-konsultasi.php" method="post">
-                                                                    <input type="text" class="form-control" id="id_konsul" name="id_konsul" value="' . $row["id_konsul"] . '" required hidden>
+													<!-- Modal for edit konsultasi -->
+													<div class="modal fade" id="edit-konsultasi-' . $row['id_konsul'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+														<div class="modal-dialog modal-dialog-centered" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="editUserModalLabel">' . $row['judul'] . '</h5>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<!-- Form for edit feedback -->
+																	<form id="editKonsulForm-' . $row['id_konsul'] . '" action="backend/action-edit-konsultasi.php" method="post">
+																		<input type="text" class="form-control" id="id_konsul" name="id_konsul" value="' . $row["id_konsul"] . '" required hidden>
 
-                                                                    <div class="form-group">
-                                                                        <label for="alasan">Edit Pesan:</label>
-                                                                        <input type="text" class="form-control" id="pesan" name="pesan" value="' . $row['pesan'] .'" required>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary" onclick="editKosul_' . $row["id_konsul"] . '()">Kirim</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <script>
-                                                    function editKosul_' . $row["id_konsul"] . '() {
-                                                        document.getElementById("editKonsulForm-' . $row['id_konsul'] . '").submit();
-                                                    }
-                                                </script>
-                                            ';
+																		<div class="form-group">
+																			<label for="alasan">Edit Pesan:</label>
+																			<input type="text" class="form-control" id="pesan" name="pesan" value="' . $row['pesan'] .'" required>
+																		</div>
+																	</form>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	<button type="button" class="btn btn-primary" onclick="editKosul_' . $row["id_konsul"] . '()">Kirim</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<script>
+														function editKosul_' . $row["id_konsul"] . '() {
+															document.getElementById("editKonsulForm-' . $row['id_konsul'] . '").submit();
+														}
+													</script>
+												';
+											}
 										}
 									} else {
 										echo '
