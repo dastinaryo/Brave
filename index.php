@@ -38,14 +38,6 @@
 			}
 		});
 	</script>
-
-  <!-- =======================================================
-  * Template Name: Vesperr
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -82,13 +74,13 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Be Braver with Us</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Lorem Ipsum Dolor Sit Amet</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">“Berkomitmen untuk melindungi korban kekerasan seksual”</h2>
           <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#about" class="btn-get-started scrollto">Mulai</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src="assets\img\logo\logo-tr.png" width="300" class="img-fluid animated" alt="">
+          <img src="assets\img\logo\logo-tr.png" width="300" class="img-fluid animated" alt="" style="margin-left:100px;">
         </div>
       </div>
     </div>
@@ -187,7 +179,7 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Artikel</h2>
-          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fug</p>
+          <p>Artikel-artikel terkait mengenai isu kekerasan seksual di masyarakat</p>
         </div>
 
       </div>
@@ -229,7 +221,7 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Tim Kami</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+          <p>Orang-orang dibalik layar platform Brave</p>
         </div>
 
         <div class="row justify-content-center">
@@ -342,13 +334,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="contact-about">
               <h3>Brave</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
-              <div class="social-links">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
+              <p>Sebuah platform untuk melaporkan tindakan kekerasan seksual. Bersama-sama kita melawan kekerasan seksual.</p>
             </div>
           </div>
 
