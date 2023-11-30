@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 09:11 AM
+-- Generation Time: Nov 30, 2023 at 03:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -89,7 +89,8 @@ INSERT INTO `konsultasi` (`id_konsul`, `pengirim`, `penerima`, `judul`, `pesan`,
 ('e3vIL7QxHYMFQIeNTBXaXEyfUcaAiNYi1rywF4RQsFgeG6se2N', '2004426', 'admin', 'Konsultasi Kedua', 'ini balasan konsultasi kedua', '2023-11-28 06:26:53', 'read'),
 ('HQ3JOEEAh2g6lCHXquLChuS5oc7E7FYpHVofuPwJ23hyCglhck', '2004426', 'admin', 'Konsultasi Pertama', 'Ini balasan konsul baru banget', '2023-11-28 07:05:29', 'unread'),
 ('IXu4bq5OMMv5WyTGhq0m7XWyFfj0yBjLRVVgbRuaoQnx1HDhh1', '2004426', 'admin', 'Konsultasi Ketiga', 'Ini adalah konsultasi ketiga baru banget', '2023-11-28 07:06:34', 'unread'),
-('rmaDB776JNrGLWF7PI1JqURtoBBl5mG747n8Uh9zAu7AU5C6YV', '2004426', 'admin', 'Konsultasi Keempat', 'Ini adalah konsultasi keempat saya, baru banget di edit', '2023-11-28 07:07:43', 'unread');
+('rmaDB776JNrGLWF7PI1JqURtoBBl5mG747n8Uh9zAu7AU5C6YV', '2004426', 'admin', 'Konsultasi Keempat', 'Ini adalah konsultasi keempat saya, baru banget di edit', '2023-11-28 07:07:43', 'unread'),
+('3mAAwx5BWKHKCLPsbKraNMZH6W7SVvCcyQURD1U96oAILtYMAo', '2008869', 'admin', 'Konsultasi Pertama', 'Baik, Terimakasih atas konsultasinya', '2023-11-28 10:23:17', 'unread');
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,8 @@ INSERT INTO `pengaduan` (`id_pengaduan`, `nim`, `nama`, `judul`, `tgl_kejadian`,
 ('FVYDINL0LpkyhWve4NaAZsXi76C0wjxsXi5OVacrXNEcNVAJGp', '2003075', 'Rastra Wardana Nanditama ', 'Pengaduan Kedua', '2023-11-16', '2023-11-27 07:46:38', 'Kekerasan seksual adalah salah satu masalah yang mendalam di masyarakat kita, dan pendidikan memiliki peran krusial dalam mencegahnya. Edukasi bukan hanya tentang memberikan informasi, tetapi juga membentuk sikap, norma, dan nilai-nilai yang mendorong kesejahteraan bersama. Dalam konteks ini, mari kita bahas bagaimana edukasi dapat menjadi instrumen efektif dalam melawan kekerasan seksual.', 'Pelaku Kedua', 'blogpost.jpg', 'decline'),
 ('C4CTT8PKw48BwUG7z9l8r8X5xtLxx1ClVA7jhAmnEc2BKBQ87I', '2008869', 'Dastin Aryo Atmanto', 'Pertama Kali Saya Mengalami Kejadian Ini', '2023-11-30', '2023-11-27 07:52:39', 'Kekerasan seksual adalah salah satu masalah yang mendalam di masyarakat kita, dan pendidikan memiliki peran krusial dalam mencegahnya. Edukasi bukan hanya tentang memberikan informasi, tetapi juga membentuk sikap, norma, dan nilai-nilai yang mendorong kesejahteraan bersama. Dalam konteks ini, mari kita bahas bagaimana edukasi dapat menjadi instrumen efektif dalam melawan kekerasan seksual.', 'Pelaku Pertama Saya', 'talha.jpg', 'pending'),
 ('NyIZOqGkHROwdSblje9MOUNAxBCAi3MDBwDnmfIQKnxdlqgICB', '2004426', 'Abdi Surya Perdana', 'Saya Mengalami Sesuatu Hal Aneh', '2023-11-15', '2023-11-27 07:55:02', 'Pentingnya pendidikan dalam membangun kesadaran tentang kekerasan seksual tidak bisa diabaikan. Melalui kurikulum yang terintegrasi, sekolah dapat mengajarkan siswa tentang pentingnya menghormati batas-batas pribadi, mengenali perilaku tidak pantas, dan memahami konsep persetujuan dalam hubungan.', 'Gatau Siapa', 'arashmil.jpg', 'complete'),
-('d3F2ZxtE7oyJOjGdrLDCm6F3WDIIvx59aRvj3K2tp8KUFs8oZk', '2008869', 'Dastin Aryo Atmanto', 'Pengaduan Kedua', '2023-11-14', '2023-11-27 17:48:29', 'Pendidikan harus menciptakan jaringan dukungan yang melibatkan komunitas, pemerintah, dan organisasi non-pemerintah. Program-program bersama dapat menciptakan lingkungan yang mendukung, dan menguatkan upaya pencegahan kekerasan seksual.', 'Pelaku Kedua', 'product9.jpeg', 'pending');
+('d3F2ZxtE7oyJOjGdrLDCm6F3WDIIvx59aRvj3K2tp8KUFs8oZk', '2008869', 'Dastin Aryo Atmanto', 'Pengaduan Kedua', '2023-11-14', '2023-11-27 17:48:29', 'Pendidikan harus menciptakan jaringan dukungan yang melibatkan komunitas, pemerintah, dan organisasi non-pemerintah. Program-program bersama dapat menciptakan lingkungan yang mendukung, dan menguatkan upaya pencegahan kekerasan seksual.', 'Pelaku Kedua', 'product9.jpeg', 'pending'),
+('kdIJY6b4Q3AWGB4dgdSQE4cQU1DZf0wjTYMnzKS5BK345okKmL', '2008869', 'Dastin Aryo Atmanto', 'Pengaduan Saya Terkait Apapun itu', '2023-11-13', '2023-11-28 15:58:32', 'Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa \r\n\r\nDiharapkan untuk tetap menjaga kesehatan bersama dan datang pada jam yang telah ditentukan.\r\n\r\nTerima kasih banyak atas perhatiannya.', 'Pelaku Kedua', 'product1.jpeg', 'pending');
 
 -- --------------------------------------------------------
 
