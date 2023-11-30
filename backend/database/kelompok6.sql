@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 03:29 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Nov 30, 2023 at 06:01 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `artikel` (
+  `id` int(10) NOT NULL,
   `penulis` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `link` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `artikel`
+--
+
+INSERT INTO `artikel` (`id`, `penulis`, `judul`, `foto`, `link`) VALUES
+(3, 'Ayunda Pininta Kasih', 'Nadiem: 77 Persen Dosen Akui Kekerasan Seksual Terjadi di Kampus\"', 'https://storage.googleapis.com/skinnie-bucket/brave/3.png', 'https://www.kompas.com/edu/read/2021/11/12/175145171/nadiem-77-persen-dosen-akui-kekerasan-seksual-terjadi-di-kampus'),
+(4, 'Anugrah Andriansyah', 'Komnas Perempuan: Kasus Kekerasan Seksual di Lingkungan Pendidikan, Paling Tinggi di Universitas', 'https://storage.googleapis.com/skinnie-bucket/brave/4.png', 'https://www.voaindonesia.com/a/komnas-perempuan-kasus-kekerasan-seksual-di-lingkungan-pendidikan-paling-tinggi-di-universitas/6525659.html'),
+(5, 'Gita Amanda', 'Kekerasan Seksual pada Perempuan dan Anak Masih Memprihatinkan', 'https://storage.googleapis.com/skinnie-bucket/brave/5.png', 'https://www.msn.com/id-id/berita/other/kekerasan-seksual-pada-perempuan-dan-anak-masih-memprihatinkan/ar-AA1kAgC7'),
+(6, 'Claudia Jessica', '5 Jenis Kekerasan yang Perlu Anak Ketahui untuk Mencegah Mereka Menjadi Korban', 'https://storage.googleapis.com/skinnie-bucket/brave/6.jpeg', 'https://www.jawaban.com/read/article/id/2023/11/28/93/231128180139/5_jenis_kekerasan_yang_perlu_anak_ketahui_untuk_mencegah_mereka_menjadi_korban');
 
 -- --------------------------------------------------------
 
@@ -177,6 +188,26 @@ INSERT INTO `users` (`nim`, `nama`, `fakultas`, `prodi`, `angkatan`) VALUES
 ('2002878', 'Muhammad Azfa Faadhilah', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
 ('2008187', 'Rahmawati', 'Kamda Cibiru', 'Teknik Komputer', '2020'),
 ('2003075', 'Rastra Wardana Nanditama ', 'Kamda Cibiru', 'Teknik Komputer', '2020');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `artikel`
+--
+ALTER TABLE `artikel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `artikel`
+--
+ALTER TABLE `artikel`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
