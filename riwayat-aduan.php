@@ -220,7 +220,7 @@
 								<?php
 									include "backend/connection.php";
 									$user_id = $_SESSION['user_id'];
-									$ambildata = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' ORDER BY tgl_aduan DESC");
+									$ambildata = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' AND status = 'complete' ORDER BY tgl_aduan DESC");
 									
 									if (!$ambildata) {
 										die('Error in SQL query: ' . mysqli_error($koneksi));

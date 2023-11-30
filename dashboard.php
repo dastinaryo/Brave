@@ -184,82 +184,143 @@
 			<div class="container" style="height:100%;">
 				<div class="page-inner">
 					<div class="row">
-						<div class="col-sm-6 col-md-4">
-							<div class="card card-stats card-round" style="padding:30px 15px;">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-5">
-											<div class="icon-big text-center">
-												<i class="flaticon-chart-pie text-warning"></i>
-											</div>
-										</div>
-										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Number</p>
-												<h4 class="card-title">150GB</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-4">
-							<div class="card card-stats card-round" style="padding:30px 15px;">
-								<div class="card-body ">
-									<div class="row">
-										<div class="col-5">
-											<div class="icon-big text-center">
-												<i class="flaticon-coins text-success"></i>
-											</div>
-										</div>
-										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Revenue</p>
-												<h4 class="card-title">$ 1,345</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-4">
-							<div class="card card-stats card-round" style="padding:30px 15px;">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-5">
-											<div class="icon-big text-center">
-												<i class="flaticon-error text-danger"></i>
-											</div>
-										</div>
-										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Errors</p>
-												<h4 class="card-title">23</h4>
+						<?php
+							include "backend/connection.php";
+							$user_id = $_SESSION['user_id'];
+							$pending_result = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' AND status = 'pending'");
+							$process_result = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' AND status = 'process'");
+							$complete_result = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' AND status = 'complete'");
+							
+							if (!$pending_result) {
+								die('Error in SQL query: ' . mysqli_error($koneksi));
+							}
+							
+							$pending_count = 0;
+							$process_count = 0;
+							$complete_count = 0;
+
+							while ($count = mysqli_fetch_array($pending_result)) {
+								$pending_count++;
+							}
+
+							while ($count = mysqli_fetch_array($process_result)) {
+								$process_count++;
+							}
+							
+							while ($count = mysqli_fetch_array($complete_result)) {
+								$complete_count++;
+							}
+
+							echo '
+								<div class="col-sm-6 col-md-4">
+									<div class="card card-stats card-round" style="padding:30px 15px;">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-6">
+													<div class="icon-big text-center">
+														<!-- <i class="flaticon-chart-pie text-warning"></i> -->
+														<img src="assets/img/icon/pending.png" alt="..." class="avatar-img rounded-circle" style="width:80px;">
+													</div>
+												</div>
+												<div class="col-6 col-stats">
+													<div class="numbers">
+														<p class="card-category">Aduan Pending</p>
+														<h4 class="card-title">' . $pending_count . '</h4>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<!-- <div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-5">
-											<div class="icon-big text-center">
-												<i class="flaticon-twitter text-primary"></i>
-											</div>
-										</div>
-										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Followers</p>
-												<h4 class="card-title">+45K</h4>
+								<div class="col-sm-6 col-md-4">
+									<div class="card card-stats card-round" style="padding:30px 15px;">
+										<div class="card-body ">
+											<div class="row">
+												<div class="col-6">
+													<div class="icon-big text-center">
+														<img src="assets/img/icon/process.png" alt="..." class="avatar-img rounded-circle" style="width:80px;">
+													</div>
+												</div>
+												<div class="col-6 col-stats">
+													<div class="numbers">
+														<p class="card-category">Aduan Process</p>
+														<h4 class="card-title">' . $process_count . '</h4>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div> -->
+								<div class="col-sm-6 col-md-4">
+									<div class="card card-stats card-round" style="padding:30px 15px;">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-6">
+													<div class="icon-big text-center">
+														<img src="assets/img/icon/complete.png" alt="..." class="avatar-img rounded-circle" style="width:80px;">
+													</div>
+												</div>
+												<div class="col-6 col-stats">
+													<div class="numbers">
+														<p class="card-category">Aduan Complete</p>
+														<h4 class="card-title">' . $complete_count . '</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							';
+						?>
+					</div>
+
+					<div class="page-category">
+						<!-- MASUKAN KODING SESUAI PAGE -->
+						<!-- <button class="btn btn-primary"><a href="action-tambah-user">Tambah User</a></button> -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col" style="width:80px; text-align:center;">No</th>
+									<th scope="col">Judul</th>
+									<th scope="col" style="width:200px; text-align:center;">Tanggal Kejadian</th>
+									<th scope="col" style="width:100px; text-align:center;">Status</th>
+									<th scope="col" style="width:100px; text-align:center;">Detail</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									include "backend/connection.php";
+									$user_id = $_SESSION['user_id'];
+									$ambildata = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE nim = '$user_id' AND NOT status = 'complete' ORDER BY tgl_aduan DESC");
+									
+									if (!$ambildata) {
+										die('Error in SQL query: ' . mysqli_error($koneksi));
+									}
+									
+									$no = 1;
+									while ($tampil = mysqli_fetch_array($ambildata)) {
+										echo "
+											<tr>
+												<td>$no</td>
+												<td>$tampil[judul]</td>
+												<td><center>". date("d M Y", strtotime($tampil['tgl_kejadian'])) ."<center></td>
+												<td><center><a class='$tampil[status]'>$tampil[status]</a></td>
+												<td>
+													<center>
+														<a href='detail-aduan.php?id=" . $tampil["id_pengaduan"]. "'>
+															<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>
+																<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/>
+															</svg>
+														</a>
+													</center>
+												</td>
+											</tr>
+										";
+										$no++;
+									}
+								?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
